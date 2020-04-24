@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -69,3 +69,4 @@ public class move : MonoBehaviour
     //    Debug.Log("Triggered with: " + otherObj);
     //}
 }
+*/
