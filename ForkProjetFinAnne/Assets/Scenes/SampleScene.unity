@@ -1135,16 +1135,15 @@ GameObject:
   - component: {fileID: 1344151198}
   - component: {fileID: 1344151197}
   - component: {fileID: 1344151196}
-  - component: {fileID: 1344151195}
-  - component: {fileID: 1344151194}
   - component: {fileID: 1344151193}
+  - component: {fileID: 1344151195}
   m_Layer: 0
   m_Name: TestCubeee2
   m_TagString: collisionP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1344151193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1154,27 +1153,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1344151192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7526e36a0005f6347a5dcffe246f9d50, type: 3}
+  m_Script: {fileID: 11500000, guid: 74d252a739f083045b50ee209ff5d3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!143 &1344151194
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344151192}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  speed: 2
+  jump: {x: 0, y: 2, z: 0}
+  jumpForce: 2
+  isGrounded: 0
 --- !u!65 &1344151195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1815,7 +1800,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &2088802649
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class scriptMoveTheo : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+
     //Movement
     public float speed;
 
@@ -24,10 +25,10 @@ public class scriptMoveTheo : MonoBehaviour
     {
         isGrounded = true;
     }
-    //void OnCollisionExit()
-    //{
-    //    isGrounded = false;
-    //}
+    void OnCollisionExit()
+    {
+        isGrounded = false;
+    }
     void Update()
     {
 
@@ -42,16 +43,16 @@ public class scriptMoveTheo : MonoBehaviour
         moveVelocity = 0;
 
         //Left Right Movement
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
         {
-            transform.position += Vector3.right * -moveVelocity * Time.deltaTime;
+            moveVelocity = -speed;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            transform.position += Vector3.right * -moveVelocity * Time.deltaTime;
+            moveVelocity = speed;
         }
 
-      //  GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
+        GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
 
 
     }
