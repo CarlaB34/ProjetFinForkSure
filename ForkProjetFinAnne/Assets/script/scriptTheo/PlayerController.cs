@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;
     Rigidbody rb;
     //Grounded Vars
+    private Vector3 moveDirection = Vector3.zero;
+    private GameObject cube;
 
     private void Start()
     {
@@ -45,10 +47,14 @@ public class PlayerController : MonoBehaviour
         //Left Right Movement
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
         {
+            transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
             moveVelocity = -speed;
+           
+            
         }
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
+            transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
             moveVelocity = speed;
         }
 
