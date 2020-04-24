@@ -30,6 +30,14 @@ public class PlayerMovePente : MonoBehaviour
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
             moveDirection *= moveSpeed;
 
+
+            //change profil
+            //Vector3 moveProfil = new Vector3(0.0f, 0.0f, 0.0f);
+            //transform.rotation = Quaternion.LookRotation(moveDirection);
+            //transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.Self);
+            
+
+            //jump
             if (Input.GetButton("Jump"))
             {
                 moveDirection.y = jumpSpeed;

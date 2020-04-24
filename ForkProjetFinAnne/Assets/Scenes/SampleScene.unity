@@ -1056,13 +1056,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.3, y: 11.66, z: -25.61}
+  m_LocalRotation: {x: 0.24419026, y: -0, z: -0, w: 0.96972734}
+  m_LocalPosition: {x: 12.31, y: 19.31, z: -31.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.268002, y: 0, z: 0}
 --- !u!1 &1035164345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,11 +1157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7526e36a0005f6347a5dcffe246f9d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jump: {x: 0, y: 2, z: 0}
-  jumpForce: 3
-  rgb: {fileID: 0}
-  isGrounded: 0
 --- !u!143 &1344151194
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1700,13 +1695,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965129642}
-  m_LocalRotation: {x: -0, y: -0, z: 0.44895452, w: 0.89355457}
-  m_LocalPosition: {x: 13.63, y: -2.41, z: -0.072446495}
+  m_LocalRotation: {x: -0, y: -0, z: 0.3347388, w: 0.942311}
+  m_LocalPosition: {x: 14.17, y: -2.81, z: -0.072446495}
   m_LocalScale: {x: 20.978102, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 932368862}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 53.353}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 39.113003}
 --- !u!1 &2042600184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,15 +1885,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088802648}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8, y: 2.4, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -7.881404, y: 0.85, z: 0.059636742}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 459669605}
   - {fileID: 1191249521}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &2088802654
 BoxCollider:
   m_ObjectHideFlags: 0
