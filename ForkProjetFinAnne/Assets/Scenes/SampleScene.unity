@@ -1136,8 +1136,8 @@ GameObject:
   - component: {fileID: 1344151197}
   - component: {fileID: 1344151193}
   - component: {fileID: 1344151196}
-  - component: {fileID: 1344151194}
   - component: {fileID: 1344151195}
+  - component: {fileID: 1344151200}
   m_Layer: 0
   m_Name: TestCubeee2
   m_TagString: collisionP
@@ -1163,18 +1163,6 @@ MonoBehaviour:
   jump: {x: 0, y: 0, z: 0}
   jumpForce: 4
   isGrounded: 0
---- !u!114 &1344151194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344151192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a8d005abba3dfe4695db697cca71db5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1344151195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1271,6 +1259,19 @@ RectTransform:
   m_AnchoredPosition: {x: -5.96, y: 0.49}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1344151200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344151192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a8d005abba3dfe4695db697cca71db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashing: 0
 --- !u!1 &1471842565
 GameObject:
   m_ObjectHideFlags: 0

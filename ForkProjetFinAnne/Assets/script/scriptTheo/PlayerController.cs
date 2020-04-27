@@ -24,6 +24,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private GameObject cube;
 
+    private int playerhealth = 2;
+
+   
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -46,39 +50,51 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
-
-
         moveVelocity = 0;
 
-        if (Input.GetKey(KeyCode.A)) //attack
+
+        //Left Movement + dash
+        if (Input.GetKey(KeyCode.A))
         {
-            moveVelocity = speed;
+            
+            transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+            moveVelocity = -speed;
             dashing = true;
             speed = 45;
-            //  attackDash();
         }
-        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))//Left Right Movement
+        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
         {
             transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
             moveVelocity = -speed;
-
-
+            //dash
+            
             dashing = false;
             speedDash = 0;
             speed = 3;
 
+        }
+        //Right movement + dash 
+        if (Input.GetKey(KeyCode.E))
+        {
+            //attackDash();
+            transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
+            moveVelocity = speed;
+            dashing = true;
+            speed = 45;
         }
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
             moveVelocity = speed;
+
+            //dash
+            
             dashing = false;
             speedDash = 0;
             speed = 3;
-           
-        }
-        
 
+        }
+    
         GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
 
        
@@ -86,19 +102,12 @@ public class PlayerController : MonoBehaviour
 
     private void attackDash()
     {
-     
-        /*speed += speedDash;
-        dashing = true;
-        if(speed >=55)
-        {
-            speedDash = 0;
-            dashing = false;
-           
-        }*/
+        
 
     }
 
-    /*void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
+
+    void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("pike"))
         {
@@ -106,6 +115,6 @@ public class PlayerController : MonoBehaviour
             playerhealth -= 1;
 
         }
-    }*/
+    }
 }
  
