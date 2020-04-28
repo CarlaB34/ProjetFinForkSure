@@ -6,7 +6,10 @@ public class PlayerController : MonoBehaviour
 
     //Movement
     public float speed;
-    
+    //dash
+    public float speedDash = 10;
+    public static bool dashing = false;
+
     float moveVelocity;
     
     public Vector3 jump;
@@ -15,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;
     Rigidbody rb;
     //Grounded Vars
-
+    private Vector3 moveDirection = Vector3.zero;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -42,14 +45,46 @@ public class PlayerController : MonoBehaviour
 
             moveVelocity = 0;
 
-        //Left Right Movement
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
+        //Left Movement + dash
+        if (Input.GetKey(KeyCode.A))
         {
+
+            transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
             moveVelocity = -speed;
+            dashing = true;
+            speed = 15;
         }
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
         {
+            transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+            moveVelocity = -speed;
+            //dash
+
+            dashing = false;
+            speedDash = 0;
+            speed = 2;
+
+        }
+        //Right movement + dash 
+        if (Input.GetKey(KeyCode.E))
+        {
+            //attackDash();
+            transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
             moveVelocity = speed;
+            dashing = true;
+            speed = 15;
+        }
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
+            moveVelocity = speed;
+
+            //dash
+
+            dashing = false;
+            speedDash = 0;
+            speed = 2;
+
         }
 
         GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
