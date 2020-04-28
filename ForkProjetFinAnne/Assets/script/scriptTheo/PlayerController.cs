@@ -25,8 +25,10 @@ public class PlayerController : MonoBehaviour
     private GameObject cube;
 
     private int playerhealth = 2;
+    private int enemyhealth = 2;
+    public GameObject enemy;
 
-   
+
 
     private void Start()
     {
@@ -97,24 +99,38 @@ public class PlayerController : MonoBehaviour
     
         GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
 
-       
-    }
-
-    private void attackDash()
-    {
-        
 
     }
 
-
+    
     void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("pike"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && dashing == false)
         {
-            Debug.Log("vous prenez 1 degat");
+           Debug.Log("vous prenez 1 degat");
             playerhealth -= 1;
 
         }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && dashing == true)
+        {
+            
+            Debug.Log("l'enemy = 1 degat");
+            enemyhealth -= 1;
+            attackDash();
+
+        }
     }
+  
+    private void attackDash()
+    {
+        if (enemyhealth <= 0)
+        {
+            Debug.Log("enemy death");
+            Destroy(enemy);
+        }
+
+    }
+
+
 }
- 

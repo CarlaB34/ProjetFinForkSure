@@ -5,69 +5,33 @@ using UnityEngine;
 
 public class attack : MonoBehaviour
 {
-    private int speedDash = 10;
-    private int speed = 3;
+    private int enemyhealth = 3;
+    public GameObject enemy;
     public bool dashing = false;
-
-    float moveVelocity;
-
-    //public GameObject player;
-    //public GameObject enemy;
-
-    //public float lifeP = 2f;
-    //public float lifeE = 2f;
-
-    private void Update()
+    void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
     {
+        
 
-        attackDash();
-        //Left Right Movement
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && dashing == true)
         {
-
-
-            //dash
+            Debug.Log("l'enemy = 1 degat");
+            enemyhealth -= 1;
             attackDash();
-            dashing = false;
-            speedDash = 0;
-            speed = 3;
-
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-
-            //dash
-            //attackDash();
-            dashing = false;
-            speedDash = 0;
-            speed = 3;
 
         }
     }
-
-    public void attackDash()
+    private void OnCollisionExit(Collision collision)
     {
-        //attack Dash
-        if (Input.GetKey(KeyCode.A))
+
+    }
+    private void attackDash()
+    {
+        if (enemyhealth >= 0)
         {
-            //attackDash();
-            if (Input.GetKeyDown("q"))
-            {
-                moveVelocity = -speed;
-                dashing = true;
-                speed = 45;
-
-            }
-            if (Input.GetKeyDown("d"))
-            {
-                moveVelocity = -speed;
-                dashing = true;
-                speed = 45;
-
-            }
-
+            Debug.Log("enemy death");
+            Destroy(enemy);
         }
 
     }
+
 }
