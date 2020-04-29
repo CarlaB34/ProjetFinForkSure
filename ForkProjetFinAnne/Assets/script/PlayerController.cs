@@ -97,13 +97,20 @@ public class PlayerController : MonoBehaviour
         {
             Key += 1;
         }
-        if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
+        if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1)// && collision.gameObject.name == "wall") // test de layer 
         {
             Debug.Log("touché") ;
+            //rb.velocity = Vector3.zero;
+            //dashing = false;
         }
 
+        //col mur
+        if (collision.gameObject.name == "wall")
+        {
+            rb.velocity = Vector3.zero;
+            dashing = false;
+        }
 
-    
     }
 
     }
