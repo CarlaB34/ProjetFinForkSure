@@ -1,34 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7514142471891030743
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
-  m_Name: DepthOfField
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  focusDistance:
-    overrideState: 1
-    value: 4
-  aperture:
-    overrideState: 1
-    value: 8.7
-  focalLength:
-    overrideState: 1
-    value: 75
-  kernelSize:
-    overrideState: 0
-    value: 1
---- !u!114 &-928354103157845332
+--- !u!114 &-2114949857036764541
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,14 +17,14 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   intensity:
-    overrideState: 1
-    value: 0.5
+    overrideState: 0
+    value: 0
   threshold:
-    overrideState: 1
-    value: 0.1
+    overrideState: 0
+    value: 1
   softKnee:
-    overrideState: 1
-    value: 0.712
+    overrideState: 0
+    value: 0.5
   clamp:
     overrideState: 0
     value: 65472
@@ -63,7 +35,7 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   color:
-    overrideState: 1
+    overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
   fastMode:
     overrideState: 0
@@ -75,23 +47,7 @@ MonoBehaviour:
   dirtIntensity:
     overrideState: 0
     value: 0
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: New Post-processing Profile
-  m_EditorClassIdentifier: 
-  settings:
-  - {fileID: 1964855976938023746}
-  - {fileID: -928354103157845332}
-  - {fileID: -7514142471891030743}
---- !u!114 &1964855976938023746
+--- !u!114 &-497550185761190089
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,8 +99,8 @@ MonoBehaviour:
     overrideState: 0
     value: 1
   temperature:
-    overrideState: 1
-    value: 20
+    overrideState: 0
+    value: 0
   tint:
     overrideState: 0
     value: 0
@@ -195,7 +151,7 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 0.63792926, y: 0.29637325, z: 1, w: 0}
+    value: {x: 1, y: 0, z: 0.46957397, w: 0}
   gamma:
     overrideState: 0
     value: {x: 1, y: 1, z: 1, w: 0}
@@ -1402,3 +1358,18 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
+  m_Name: camera3
+  m_EditorClassIdentifier: 
+  settings:
+  - {fileID: -497550185761190089}
+  - {fileID: -2114949857036764541}
