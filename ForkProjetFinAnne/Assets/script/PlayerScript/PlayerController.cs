@@ -100,10 +100,16 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
         {
             Debug.Log("touché") ;
+            
         }
 
+        //col mur
+        if (collision.gameObject.name == "wall")
+        {
+            rb.velocity = Vector3.zero;
+            dashing = false;
+        }
 
-    
     }
 
     }
