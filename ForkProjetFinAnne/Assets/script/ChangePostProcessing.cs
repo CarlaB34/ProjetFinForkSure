@@ -44,7 +44,7 @@ public class ChangePostProcessing : MonoBehaviour
                 break;
 
             //if the second PostProcessing is on
-            case 2:
+           case 2:
                 //then the first PostProcessing is on now
                 WichPostProcessingIsOn = 3;
 

@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
     public int playerhealth = 2;
     private int enemyhealth = 2;
     public GameObject enemy;
-    private static bool isDash;
+   // private static bool isDash;
 
     public void Update() // la vie est cap a 2hp
     {
@@ -19,11 +19,11 @@ public class Health : MonoBehaviour
         {
             enemyhealth = 2;
         }
-        isDash = PlayerController.dashing;
+       // isDash = PlayerController.dashing;
     }
     void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && isDash == false)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("pike"))// && isDash == false)
         {
             Debug.Log("vous prenez 1 degat");
             playerhealth -= 1;
@@ -42,7 +42,7 @@ public class Health : MonoBehaviour
         }
 
         //enemy
-        if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && isDash == true)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("pike"))// && isDash == true)
         {
 
             Debug.Log("l'enemy = 1 degat");

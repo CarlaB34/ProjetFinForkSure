@@ -6,10 +6,10 @@ public class PlayerController : MonoBehaviour
 
     //Movement
     public float speed;
-    //dash
-    public float speedDash = 10;
-    public static bool dashing = false;
-
+    ////dash
+    //public float speedDash = 10;
+    //public static bool dashing = false;
+    dash dash;
     float moveVelocity;
     
     public Vector3 jump;
@@ -19,6 +19,12 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     //Grounded Vars
     private Vector3 moveDirection = Vector3.zero;
+
+
+    private void Awake()
+    {
+        dash = GetComponent<dash>();
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -46,7 +52,7 @@ public class PlayerController : MonoBehaviour
             moveVelocity = 0;
 
         //Left Movement + dash
-        if (Input.GetKey(KeyCode.A))
+        /*if (Input.GetKey(KeyCode.A))
         {
 
             transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
@@ -54,19 +60,19 @@ public class PlayerController : MonoBehaviour
             dashing = true;
             speed = 15;
         }
-        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
+        else */if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
         {
             transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
             moveVelocity = -speed;
             //dash
 
-            dashing = false;
-            speedDash = 0;
-            speed = 2;
+            //dashing = false;
+            //speedDash = 0;
+            //speed = 2;
 
         }
         //Right movement + dash 
-        if (Input.GetKey(KeyCode.E))
+        /*if (Input.GetKey(KeyCode.E))
         {
             //attackDash();
             transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
@@ -74,16 +80,16 @@ public class PlayerController : MonoBehaviour
             dashing = true;
             speed = 15;
         }
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        else*/ if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
             moveVelocity = speed;
 
             //dash
 
-            dashing = false;
-            speedDash = 0;
-            speed = 2;
+            //dashing = false;
+            //speedDash = 0;
+            //speed = 2;
 
         }
 
@@ -96,6 +102,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("clé"))
         {
             Key += 1;
+ 
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
         {
@@ -103,16 +110,16 @@ public class PlayerController : MonoBehaviour
             
         }
 
-        //col mur
-        if (collision.gameObject.name == "wall")
+        //col mur with dash
+        /*if (collision.gameObject.name == "wall")
         {
             rb.velocity = Vector3.zero;
             dashing = false;
-        }
+        }*/
 
     }
 
-    }
+}
 
         
     
