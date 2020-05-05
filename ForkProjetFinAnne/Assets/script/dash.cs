@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -13,7 +13,7 @@ public class dash : MonoBehaviour
     int rightPress, leftPress;
     float timePassed, timePassedPress;
     bool startTimer;
-
+    private float moveVelocity;
     private void Start()
     {
         rightPress = 0;
@@ -30,13 +30,13 @@ public class dash : MonoBehaviour
             rightPress++;
             startTimer = true;
         }
-        //else if (Input.GetKey(KeyCode.E))
-        //{
-          
-            //startTimer = true;
-        //}
-    
-        if(startTimer)
+        /*else if (Input.GetButtonDown("Dash") && Input.GetKey(KeyCode.E))
+        {
+            leftPress++;
+            startTimer = true;
+        }*/
+
+        /*if (startTimer)
         {
             timePassedPress += Time.deltaTime;
             if(timePassedPress >= delayPress)
@@ -48,7 +48,7 @@ public class dash : MonoBehaviour
             }
         }
 
-        if(leftPress >=2 || rightPress >=2)
+        if(leftPress >= 2 || rightPress >=2)
         {
             startDelay = true;
            // Instantiate(particle, transform, false);
@@ -63,14 +63,16 @@ public class dash : MonoBehaviour
 
             if(timePassed <= delay)
             {
-                if(rightPress >=2)
+                if(rightPress >= 2)
                 {
                     rb.velocity = new Vector3(speed, rb.velocity.y);
+                    moveVelocity = speed;
                     rightPress = 0;
                 }
                 else if(leftPress >= 2)
                 {
-                    rb.velocity = new Vector3(speed, rb.velocity.y);
+                    rb.velocity -= new Vector3(speed, rb.velocity.y);
+                    moveVelocity = -speed;
                     leftPress = 0;
                 }
             }
@@ -84,4 +86,4 @@ public class dash : MonoBehaviour
         }
     }
 
-}
+}*/

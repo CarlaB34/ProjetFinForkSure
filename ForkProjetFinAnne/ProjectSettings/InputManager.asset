@@ -281,8 +281,8 @@ InputManager:
     m_Name: Dash
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: a
-    positiveButton: e
+    negativeButton: e
+    positiveButton: a
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
