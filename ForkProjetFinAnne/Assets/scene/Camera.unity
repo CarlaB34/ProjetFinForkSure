@@ -884,7 +884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44df24f73a6b17941a892063315d0bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
+  speedDash: 10
   jump: {x: 0, y: 0, z: 0}
   jumpForce: 2
   isGrounded: 0
