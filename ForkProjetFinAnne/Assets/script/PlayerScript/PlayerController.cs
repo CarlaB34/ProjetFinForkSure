@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 
     //Movement
     public float speed;
+
+    #region Dash + cooldown
     //dash
     public float speedDash = 10;
     public static bool dashing = false;
@@ -13,15 +15,17 @@ public class PlayerController : MonoBehaviour
     private float startCoolDown = 0.3f;
     public float coolDown2 = 0f;
     private float startCoolDown2 = 0.3f;
-   
+    #endregion
 
     float moveVelocity;
-    // dash dash;
+
     public Vector3 jump;
     public float jumpForce = 2.0f;
+
     public static int Key = 0;
     public bool isGrounded;
     Rigidbody rb;
+
     //Grounded Vars
     private Vector3 moveDirection = Vector3.zero;
 
@@ -30,9 +34,11 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
+
         coolDown = startCoolDown;
         coolDown2 = startCoolDown2;
     }
+
     #region OnCollision
     void OnCollisionStay()
     {
@@ -43,12 +49,12 @@ public class PlayerController : MonoBehaviour
         isGrounded = false; // ne touche plus le sol 
     }
     #endregion
+
     void Update()
     {
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && rb.velocity.y <= 0) // jump
         {
-
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
@@ -85,8 +91,6 @@ public class PlayerController : MonoBehaviour
             coolDown = startCoolDown;
         }
 
-
-        #region right move
         //Right movement + dash 
         if (Input.GetKey(KeyCode.E))
         {
@@ -118,11 +122,8 @@ public class PlayerController : MonoBehaviour
             speed = 2;
             coolDown2 = startCoolDown2;
         }
-        #endregion
       
         GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
-
-
     }
     
    

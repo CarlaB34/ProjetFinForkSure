@@ -8,9 +8,11 @@ public class Door : MonoBehaviour
 
     private void Update()
     {
-        keyScore = PlayerController.Key; // recuperation de la variable Key dans PlayerController pour l'utiliser dans ce script
+        // recuperation de la variable Key dans PlayerController pour l'utiliser dans ce script
+        keyScore = PlayerController.Key; 
      
-        }
+    }
+
    //si porte entre en collision avec le player qui a ramassé une clé , elle se détruit
     void OnCollisionEnter(Collision collision)
     {
