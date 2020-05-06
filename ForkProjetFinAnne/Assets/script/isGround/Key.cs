@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Heal : MonoBehaviour
+public class Key : MonoBehaviour
 {
-    // fait disparaitre le heal quand on le ramasse
-    void OnCollisionEnter(Collision collision) 
+    
+    //la clé se detruit quand on passe dessus 
+    void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            Debug.Log("recup clé and destroy");
             Destroy(gameObject);
         }
-    }
+    }  
 }
