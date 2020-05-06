@@ -907,7 +907,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880532131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.08, y: 0.61641026, z: -2.59}
+  m_LocalPosition: {x: -12.08, y: 0.61641026, z: -8.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 79680689}
@@ -1444,7 +1444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468831004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.08, y: 0.61641026, z: -2.59}
+  m_LocalPosition: {x: -12.08, y: 0.61641026, z: -8.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1502,10 +1502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57817be566fd4654b9a3fe5d5d5e12e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PostProcessing1: {fileID: 0}
-  PostProcessing2: {fileID: 0}
-  collectible: {fileID: 1652438392}
-  collectible2: {fileID: 0}
 --- !u!1 &1713568708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4153090434810502619, guid: 6dcb78dd5f5a46948954536121f7bf7a,
@@ -1843,7 +1839,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerhealth: 2
+  enemyhealth: 2
+  bosshealth: 5
   enemy: {fileID: 1922765682}
+  bossObjet: {fileID: 0}
 --- !u!1 &2015234451
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,7 +2283,7 @@ PrefabInstance:
     - target: {fileID: 5311661247554514152, guid: 7647f00c03ff09d48b0aa5e901ca7016,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.41
+      value: -5.15
       objectReference: {fileID: 0}
     - target: {fileID: 5311661247554514152, guid: 7647f00c03ff09d48b0aa5e901ca7016,
         type: 3}
