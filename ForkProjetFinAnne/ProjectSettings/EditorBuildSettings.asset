@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scene/PostProcessing_Profiles/test collectible 1_Profiles/TestRoom.unity
     guid: 282e4d0d5d7548f4ea9007ce4ffac763
+  - enabled: 1
+    path: Assets/scene/Defeat.unity
+    guid: 22fc0ac3251735e42ba50538d85481eb
+  - enabled: 1
+    path: Assets/scene/Victory.unity
+    guid: 6c6e5b16d5c4c5347b12f6fe2e613564
   m_configObjects: {}
