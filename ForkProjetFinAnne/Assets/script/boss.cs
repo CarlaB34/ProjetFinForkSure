@@ -60,7 +60,7 @@ public class boss : MonoBehaviour
         {
             //speed = 3;
             followPlayer();
-            // agent.SetDestination(target.position);
+            
         }
             
     }
