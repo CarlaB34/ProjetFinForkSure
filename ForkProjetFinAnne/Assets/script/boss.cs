@@ -45,8 +45,8 @@ public class boss : MonoBehaviour
         {
             Debug.Log("détecter");
             Debug.Log("je m'arrete");
-            //speed = 0;
-            followPlayer();
+            speed = 0;
+            //followPlayer();
 
         }
         
@@ -58,8 +58,8 @@ public class boss : MonoBehaviour
         Debug.Log("je marche");
         if (other.CompareTag("player"))
         {
-            //speed = 3;
-            followPlayer();
+            speed = 3;
+           // followPlayer();
             
         }
             
@@ -67,7 +67,8 @@ public class boss : MonoBehaviour
 
     private void followPlayer()
     {
-        if(Vector3.Distance(transform.position, target.position) >3)
+        Debug.Log("trouver et suivi");
+        if (Vector3.Distance(transform.position, target.position) >3)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
