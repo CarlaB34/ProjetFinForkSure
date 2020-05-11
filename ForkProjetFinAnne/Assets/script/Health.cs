@@ -8,7 +8,10 @@ public class Health : MonoBehaviour
 {
     public int playerhealth = 2;
     private int enemyhealth = 2;
+    private int bosshealth = 5;
+
     public GameObject enemy;
+    public GameObject bossObject;
     private static bool isDash;
 
     public void Update() // la vie est cap a 2hp
@@ -21,6 +24,10 @@ public class Health : MonoBehaviour
         {
             enemyhealth = 2;
         }
+        if (bosshealth > 5)
+        {
+            bosshealth = 5;
+        }
         isDash = PlayerController.dashing;
     }
     void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
@@ -30,6 +37,11 @@ public class Health : MonoBehaviour
             Debug.Log("vous prenez 1 degat");
             playerhealth -= 1;
 
+        }
+        if(collision.gameObject.layer == LayerMask.NameToLayer("boss") && isDash == false)
+        {
+            Debug.Log("vous prenez 1 degat");
+            playerhealth -= 1;
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("heal")) // on gagne un point de vie quand on rammasse un heal
         {
@@ -53,6 +65,12 @@ public class Health : MonoBehaviour
             attackDash();
 
         }
+        if(collision.gameObject.layer == LayerMask.NameToLayer("boss") && isDash == true)
+        {
+            Debug.Log("le boss = 1 degat");
+            bosshealth -= 1;
+            attackDash();
+        }
     }
 
     private void attackDash()
@@ -61,6 +79,12 @@ public class Health : MonoBehaviour
         {
             Debug.Log("enemy death");
             Destroy(enemy);
+        }
+
+        if (bosshealth <= 0)
+        {
+            Debug.Log("boss death");
+            Destroy(bossObject);
         }
 
     }
