@@ -138,6 +138,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("touché");
 
         }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("door1") && Key == 3) // test de layer 
+        {
+            Debug.Log("touché");
+
+        }
 
         //col mur with dash
         if (collision.gameObject.name == "wall")
