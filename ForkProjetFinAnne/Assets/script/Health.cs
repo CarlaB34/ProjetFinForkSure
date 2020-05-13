@@ -6,10 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    public int playerhealth = 2;
-    private int enemyhealth = 2;
-    public GameObject enemy;
-    private static bool isDash;
+    private int playerhealth = 2;
+    public static bool isDash;
 
     public void Update() // la vie est cap a 2hp
     {
@@ -17,10 +15,7 @@ public class Health : MonoBehaviour
         {
             playerhealth = 2;
         }
-        if (enemyhealth > 2)
-        {
-            enemyhealth = 2;
-        }
+        
         isDash = PlayerController.dashing;
     }
     void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
@@ -42,25 +37,6 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
             SceneManager.LoadScene("Defeat");
 
-        }
-
-        //enemy
-        if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && isDash == true)
-        {
-
-            Debug.Log("l'enemy = 1 degat");
-            enemyhealth -= 1;
-            attackDash();
-
-        }
-    }
-
-    private void attackDash()
-    {
-        if (enemyhealth <= 0)
-        {
-            Debug.Log("enemy death");
-            Destroy(enemy);
         }
 
     }
