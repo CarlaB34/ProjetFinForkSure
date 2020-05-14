@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     #region Dash 
     //dash
-    public float speedDash = 10;
+    public float speedDash = 100;
     public static bool dashing = false;
     //public float coolDown = 0f;
     //protected float startCoolDown = 0.3f;
@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
 
+        //la valeur du slide commencera a chaque parti a sa valeur max
         sliderDash.value = sliderDash.maxValue;
     }
 
@@ -67,17 +68,25 @@ public class PlayerController : MonoBehaviour
         moveVelocity = 0;
 
         //Left Movement + dash
+
+        //remonte la bar
         sliderDash.value += Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
+        //appui sur A et quand le slide est au max de sa valeur 
+        //fait une petite avancer, j'arrive pas a faire aller plus loin, a voir avec la vitesse du speed quand elle passe en dash...
+        //peut tuer un ennemi si asser de puissance (normalement), probleme aussi avex la box collider
+        if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
         {
-            
+            //changement de profil
             transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+            //active le dash et permet les collision avec mur et ennemi
             dashing = true;
+            //fait avancer 
             moveVelocity = -speed;
-            speed = 20;
+            //sa vitesse d'avancer
+            speed = 100;
 
-            //remonte la bar
+            //descend la bar quand le dash est effectuer
             Dash();
 
         }
@@ -87,14 +96,17 @@ public class PlayerController : MonoBehaviour
             moveVelocity = -speed;
             //dash
 
-           // dashing = false;
+            //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
+            dashing = false;
+            //n'a plus de vitess
             speedDash = 0;
+            //revient a 2
             speed = 2;
-        //    coolDown = startCoolDown;
+    
         }
 
-        //Right movement + dash 
-        
+        //Right movement + dash ne marche pas car pas encore fait
+        //pas encore au point
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
@@ -111,11 +123,13 @@ public class PlayerController : MonoBehaviour
         GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
     }
 
+    //fait dessendre la bar a moins sa valeur donc -5 dans se cas
     private void Dash()
     {
-       
         sliderDash.value -= sliderDash.maxValue;
     }
+
+    //ne peut pas utiliser car on appel 2 fois la touche a ou le e pour passer dans la fonction et faire avancer le dash
     /*public void Dashing()
     {
         Debug.Log("coucou");
@@ -155,9 +169,11 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        //col mur with dash
-        if (collision.gameObject.name == "wall")
+        //col mur with dash, probleme traverse le mur peut etre trop de puissance donc ajoue de && dashing == true
+        //col ne marche pas avec les element de la scene aussi, dash se teleporte?...
+        if (collision.gameObject.name == "wall" && dashing == true)
         {
+            Debug.Log("arg un mur!");
             rb.velocity = Vector3.zero;
             dashing = false;
         }

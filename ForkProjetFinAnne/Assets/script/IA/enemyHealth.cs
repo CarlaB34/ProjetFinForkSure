@@ -20,7 +20,7 @@ public class enemyHealth : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && isDash == true)
         {
 
-            Debug.Log("l'enemy = 1 degat");
+            Debug.Log("l'enemy prend 1 degat et meurt");
             Destroy(gameObject);
             
 
