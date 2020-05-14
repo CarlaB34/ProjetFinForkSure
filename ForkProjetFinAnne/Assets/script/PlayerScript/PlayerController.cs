@@ -73,7 +73,8 @@ public class PlayerController : MonoBehaviour
         sliderDash.value += Time.deltaTime;
 
         //appui sur A et quand le slide est au max de sa valeur 
-        //fait une petite avancer, j'arrive pas a faire aller plus loin, a voir avec la vitesse du speed quand elle passe en dash...
+        //fait une petite avancer au premier appui voir meme le deuxieme
+        //j'arrive pas a faire aller plus loin, a voir avec la vitesse du speed quand elle passe en dash...
         //peut tuer un ennemi si asser de puissance (normalement), probleme aussi avex la box collider
         if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
         {
@@ -84,7 +85,7 @@ public class PlayerController : MonoBehaviour
             //fait avancer 
             moveVelocity = -speed;
             //sa vitesse d'avancer
-            speed = 100;
+            speed = 50;
 
             //descend la bar quand le dash est effectuer
             Dash();
@@ -107,18 +108,35 @@ public class PlayerController : MonoBehaviour
 
         //Right movement + dash ne marche pas car pas encore fait
         //pas encore au point
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        //ancienne version du dash avant la bar, dessus tout marche, mort enemy et collision
+        /*if (Input.GetKey(KeyCode.E))
+        {
+            dashing = true;
+            coolDown2 -= 1 * Time.deltaTime;
+            coolDown = 0;
+
+            moveVelocity = speed;
+            speed = 10;
+
+            if (coolDown2 <= 0)
+            {
+                coolDown2 = 0;
+                dashing = false;
+                speed = 0;
+            }
+        }
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
             moveVelocity = speed;
 
-            ////dash
+            //dash
 
             dashing = false;
             speedDash = 0;
             speed = 2;
-            //coolDown2 = startCoolDown2;
-        }
+            coolDown2 = startCoolDown2;
+        }*/
 
         GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
     }
@@ -132,24 +150,9 @@ public class PlayerController : MonoBehaviour
     //ne peut pas utiliser car on appel 2 fois la touche a ou le e pour passer dans la fonction et faire avancer le dash
     /*public void Dashing()
     {
-        Debug.Log("coucou");
-        if (Input.GetKey(KeyCode.A))
-        {
+        
            
-        }
-           
-
-        if (Input.GetKey(KeyCode.E))
-        {
-
-            transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
-            dashing = true;
-           
-
-            moveVelocity = speed;
-            speed = 10;
-
-        }
+       
     }*/
     void OnCollisionEnter(Collision collision) // ajouter 1 a la variable Key lorsqu'on touche la clé 
     {
