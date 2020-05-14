@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -7,17 +8,19 @@ public class PlayerController : MonoBehaviour
     //Movement
     public float speed;
 
-    #region Dash + cooldown
+    #region Dash 
     //dash
     public float speedDash = 10;
     public static bool dashing = false;
-    public float coolDown = 0f;
-    private float startCoolDown = 0.3f;
-    public float coolDown2 = 0f;
-    private float startCoolDown2 = 0.3f;
+    //public float coolDown = 0f;
+    //protected float startCoolDown = 0.3f;
+    //public float coolDown2 = 0f;
+    //protected float startCoolDown2 = 0.3f;
+    public Slider sliderDash;
+
     #endregion
 
-    float moveVelocity;
+    private float moveVelocity;
 
     public Vector3 jump;
     public float jumpForce = 2.0f;
@@ -35,8 +38,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
 
-        coolDown = startCoolDown;
-        coolDown2 = startCoolDown2;
+        sliderDash.value = sliderDash.maxValue;
     }
 
     #region OnCollision
@@ -50,6 +52,8 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+
+   
     void Update()
     {
 
@@ -63,70 +67,76 @@ public class PlayerController : MonoBehaviour
         moveVelocity = 0;
 
         //Left Movement + dash
-        if (Input.GetKey(KeyCode.A))
+        sliderDash.value += Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
         {
+            
             transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
             dashing = true;
-            coolDown -= 1 * Time.deltaTime;
-            coolDown2 = 0;
-            moveVelocity = -speed;  
-            speed = 10;
+            moveVelocity = -speed;
+            speed = 20;
 
-            if(coolDown <= 0)
-            {
-                coolDown = 0;
-                dashing = false;
-                speed = 0;
-            }
+            //remonte la bar
+            Dash();
+
         }
-        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
         {
             transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
             moveVelocity = -speed;
             //dash
 
-            dashing = false;
+           // dashing = false;
             speedDash = 0;
             speed = 2;
-            coolDown = startCoolDown;
+        //    coolDown = startCoolDown;
         }
 
         //Right movement + dash 
+        
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
+            moveVelocity = speed;
+
+            ////dash
+
+            dashing = false;
+            speedDash = 0;
+            speed = 2;
+            //coolDown2 = startCoolDown2;
+        }
+
+        GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
+    }
+
+    private void Dash()
+    {
+       
+        sliderDash.value -= sliderDash.maxValue;
+    }
+    /*public void Dashing()
+    {
+        Debug.Log("coucou");
+        if (Input.GetKey(KeyCode.A))
+        {
+           
+        }
+           
+
         if (Input.GetKey(KeyCode.E))
         {
 
             transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
             dashing = true;
-            coolDown2 -= 1 * Time.deltaTime;
-            coolDown = 0;
            
+
             moveVelocity = speed;
             speed = 10;
 
-            if (coolDown2 <= 0)
-            {
-                coolDown2 = 0;
-                dashing = false;
-                speed = 0;
-            }
         }
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
-            moveVelocity = speed;
-
-            //dash
-
-            dashing = false;
-            speedDash = 0;
-            speed = 2;
-            coolDown2 = startCoolDown2;
-        }
-      
-        GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
-    }
-    
-   
+    }*/
     void OnCollisionEnter(Collision collision) // ajouter 1 a la variable Key lorsqu'on touche la clé 
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("clé"))
@@ -135,6 +145,11 @@ public class PlayerController : MonoBehaviour
 
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
+        {
+            Debug.Log("touché");
+
+        }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("door1") && Key == 3) // test de layer 
         {
             Debug.Log("touché");
 
@@ -151,6 +166,5 @@ public class PlayerController : MonoBehaviour
 
     
 }
-
 
 
