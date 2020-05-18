@@ -12,10 +12,10 @@ public class PlayerController : MonoBehaviour
     //dash
     public float speedDash = 100;
     public static bool dashing = false;
-    //public float coolDown = 0f;
-    //protected float startCoolDown = 0.3f;
-    //public float coolDown2 = 0f;
-    //protected float startCoolDown2 = 0.3f;
+    /*public float coolDown = 0f;
+    protected float startCoolDown = 0.3f;
+    public float coolDown2 = 0f;
+    protected float startCoolDown2 = 0.3f;*/
     public Slider sliderDash;
 
     #endregion
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
 
     //Grounded Vars
-    private Vector3 moveDirection = Vector3.zero;
+    private Vector3 moveDirection = Vector3.right;
 
 
     private void Start()
@@ -72,73 +72,46 @@ public class PlayerController : MonoBehaviour
         //remonte la bar
         sliderDash.value += Time.deltaTime;
 
-        //appui sur A et quand le slide est au max de sa valeur 
-        //fait une petite avancer au premier appui voir meme le deuxieme
-        //j'arrive pas a faire aller plus loin, a voir avec la vitesse du speed quand elle passe en dash...
-        //peut tuer un ennemi si asser de puissance (normalement), probleme aussi avex la box collider
-        if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
-        {
-            //changement de profil
-            transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
-            //active le dash et permet les collision avec mur et ennemi
-            dashing = true;
-            //fait avancer 
-            moveVelocity = -speed;
-            //sa vitesse d'avancer
-            speed = 50;
-
-            //descend la bar quand le dash est effectuer
-            Dash();
-
-        }
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
-        {
-            transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
-            moveVelocity = -speed;
+         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
+         {
+             transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+            GetComponent<Rigidbody>().AddForce(moveDirection * -speed, ForceMode.Impulse);
             //dash
-
             //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
             dashing = false;
-            //n'a plus de vitess
-            speedDash = 0;
-            //revient a 2
-            speed = 2;
+          
+
+         }
     
-        }
-
-        //Right movement + dash ne marche pas car pas encore fait
-        //pas encore au point
-        //ancienne version du dash avant la bar, dessus tout marche, mort enemy et collision
-        /*if (Input.GetKey(KeyCode.E))
-        {
-            dashing = true;
-            coolDown2 -= 1 * Time.deltaTime;
-            coolDown = 0;
-
-            moveVelocity = speed;
-            speed = 10;
-
-            if (coolDown2 <= 0)
-            {
-                coolDown2 = 0;
-                dashing = false;
-                speed = 0;
-            }
-        }
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
-            moveVelocity = speed;
-
+            GetComponent<Rigidbody>().AddForce(moveDirection * speed, ForceMode.Impulse);
             //dash
-
             dashing = false;
-            speedDash = 0;
-            speed = 2;
-            coolDown2 = startCoolDown2;
-        }*/
+        }
+        Vector3 velocity = GetComponent<Rigidbody>().velocity;
+        
+        GetComponent<Rigidbody>().velocity =velocity + new Vector3(moveVelocity, 0);
+       
 
-        GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
+        //dash droite
+        if (Input.GetKeyDown(KeyCode.E) && sliderDash.value == sliderDash.maxValue)
+        {
+            dashing = true;
+            GetComponent<Rigidbody>().AddForce(moveDirection * speedDash, ForceMode.Impulse);
+            Dash();
+        }
+        //dash gauche
+        if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
+        {
+            dashing = true;
+            GetComponent<Rigidbody>().AddForce(moveDirection * -speedDash, ForceMode.Impulse);
+            Dash();
+        }
+
+
+
     }
 
     //fait dessendre la bar a moins sa valeur donc -5 dans se cas
@@ -174,7 +147,7 @@ public class PlayerController : MonoBehaviour
 
         //col mur with dash, probleme traverse le mur peut etre trop de puissance donc ajoue de && dashing == true
         //col ne marche pas avec les element de la scene aussi, dash se teleporte?...
-        if (collision.gameObject.name == "wall" && dashing == true)
+        if (collision.gameObject.name == "wall")// && dashing == true)
         {
             Debug.Log("arg un mur!");
             rb.velocity = Vector3.zero;
@@ -183,7 +156,87 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    
+
 }
 
 
+/* moveVelocity = 0;
+
+        //Left Movement + dash
+
+        //remonte la bar
+        sliderDash.value += Time.deltaTime;
+
+        //appui sur A et quand le slide est au max de sa valeur 
+        //fait une petite avancer au premier appui voir meme le deuxieme
+        //j'arrive pas a faire aller plus loin, a voir avec la vitesse du speed quand elle passe en dash...
+        //peut tuer un ennemi si asser de puissance (normalement), probleme aussi avex la box collider
+
+         if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
+         {
+             //changement de profil
+             transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+             //active le dash et permet les collision avec mur et ennemi
+             dashing = true;
+             //fait avancer 
+             moveVelocity = -speed;
+             //sa vitesse d'avancer
+             speed = 50;
+
+             //descend la bar quand le dash est effectuer
+             //Dash();
+
+         }
+         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
+         {
+             transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+            
+             moveVelocity = -speed;
+            //dash
+
+            //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
+            dashing = false;
+            //n'a plus de vitess
+            speedDash = 0;
+            //revient a 2
+            speed = 2;
+
+        }
+
+        //Right movement + dash ne marche pas car pas encore fait
+        
+        
+        if (Input.GetKey(KeyCode.E))
+        {
+            dashing = true;
+            coolDown2 -= 1 * Time.deltaTime;
+            coolDown = 0;
+
+            moveVelocity = speed;
+            speed = 10;
+
+            if (coolDown2 <= 0)
+            {
+                coolDown2 = 0;
+                dashing = false;
+                speed = 0;
+            }
+        }
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
+            GetComponent<Rigidbody>().AddForce(moveDirection* speed, ForceMode.Impulse);
+            //moveVelocity = speed;
+
+            //dash
+
+            dashing = false;
+            speedDash = 0;
+            speed = 2;
+            coolDown2 = startCoolDown2;
+        }
+        Vector3 velocity = GetComponent<Rigidbody>().velocity;
+
+
+   GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
+*/

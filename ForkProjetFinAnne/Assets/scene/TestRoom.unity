@@ -2088,7 +2088,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880532131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.3, y: 0.5514102, z: -2.6}
+  m_LocalPosition: {x: -12.83, y: 0.5514102, z: -2.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 79680689}
@@ -2899,8 +2899,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2549071, y: 0.23485023, z: 7.359193}
-  m_Center: {x: -0.00000016152232, y: -0.004243261, z: 3.6795964}
+  m_Size: {x: 1.2549071, y: 0.14700568, z: 7.359193}
+  m_Center: {x: -0.00000016198487, y: -0.00036311056, z: 3.6795964}
 --- !u!1 &1193358866
 GameObject:
   m_ObjectHideFlags: 0
@@ -3197,7 +3197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1346572313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3494,7 +3494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468831004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.3, y: 0.5514102, z: -2.6}
+  m_LocalPosition: {x: -12.83, y: 0.5514102, z: -2.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4474,8 +4474,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44df24f73a6b17941a892063315d0bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  speedDash: 50
+  speed: 0.2
+  speedDash: 20
   sliderDash: {fileID: 1193358867}
   jump: {x: 0, y: 0, z: 0}
   jumpForce: 1.8
@@ -4756,6 +4756,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6dcb78dd5f5a46948954536121f7bf7a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -304700532592626016, guid: 6dcb78dd5f5a46948954536121f7bf7a,
         type: 3}
@@ -5081,7 +5086,7 @@ PrefabInstance:
     - target: {fileID: 5311661247554514152, guid: 7647f00c03ff09d48b0aa5e901ca7016,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.3
+      value: -12.83
       objectReference: {fileID: 0}
     - target: {fileID: 5311661247554514152, guid: 7647f00c03ff09d48b0aa5e901ca7016,
         type: 3}
