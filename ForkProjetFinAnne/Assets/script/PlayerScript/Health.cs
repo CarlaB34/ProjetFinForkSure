@@ -35,8 +35,8 @@ public class Health : MonoBehaviour
         {
             Debug.Log("vous etes mort");
             Destroy(gameObject);
-            SceneManager.LoadScene("StartMenu");
-
+            //SceneManager.LoadScene("StartMenu"); 
+            SceneManager.LoadScene("Defeat");
         }
 
     }

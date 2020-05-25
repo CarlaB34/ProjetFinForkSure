@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,14 +11,15 @@ public class PlayerController : MonoBehaviour
 
     #region Dash 
     //dash
-    public float speedDash = 100;
+    public float speedDash = 5;
     public static bool dashing = false;
-    /*public float coolDown = 0f;
-    protected float startCoolDown = 0.3f;
+    public float coolDown = 0f;
+    protected float startCoolDown = 0.05f;
     public float coolDown2 = 0f;
-    protected float startCoolDown2 = 0.3f;*/
+    protected float startCoolDown2 = 0.05f;
     public Slider sliderDash;
-
+   // public float distanceBetweenImage;
+   // private float lastImageXpos;
     #endregion
 
     private float moveVelocity;
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
         //la valeur du slide commencera a chaque parti a sa valeur max
         sliderDash.value = sliderDash.maxValue;
+
+        
     }
 
     #region OnCollision
@@ -79,9 +83,9 @@ public class PlayerController : MonoBehaviour
             //dash
             //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
             dashing = false;
-          
+            
 
-         }
+        }
     
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
@@ -98,35 +102,65 @@ public class PlayerController : MonoBehaviour
         //dash droite
         if (Input.GetKeyDown(KeyCode.E) && sliderDash.value == sliderDash.maxValue)
         {
+            transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
             dashing = true;
             GetComponent<Rigidbody>().AddForce(moveDirection * speedDash, ForceMode.Impulse);
+            coolDown2 -= 1* Time.deltaTime;
+           
+
+            if (coolDown2 <= 0)
+            {
+                coolDown2 = 0;
+                dashing = false;
+                
+            }
             Dash();
         }
         //dash gauche
         if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
         {
+            transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
             dashing = true;
             GetComponent<Rigidbody>().AddForce(moveDirection * -speedDash, ForceMode.Impulse);
+            //le dash continu pendant 0.1 sec puis s'arrete, probleme sauter et dash pour tuer un pike = trop de force
+            coolDown -= 1 * Time.deltaTime;         
+
+            if (coolDown <= 0)
+            {
+                coolDown = 0;
+                dashing = false;
+
+            }
+
+            //particule
+            //AfterImagePool.Instance.GetFromPool();
+            //lastImageXpos = transform.position.x;
+
+            //scrollbar
             Dash();
         }
 
-
-
+        //CheckImageDash();
     }
 
+    //dash effect pooling
+   /* private void CheckImageDash()
+    {
+        if(Math.Abs(transform.position.x - lastImageXpos) > distanceBetweenImage)
+        {
+            AfterImagePool.Instance.GetFromPool();
+            lastImageXpos = transform.position.x;
+        }
+    }*/
     //fait dessendre la bar a moins sa valeur donc -5 dans se cas
     private void Dash()
     {
         sliderDash.value -= sliderDash.maxValue;
+        coolDown = startCoolDown;
+        coolDown2 = startCoolDown2;
     }
 
-    //ne peut pas utiliser car on appel 2 fois la touche a ou le e pour passer dans la fonction et faire avancer le dash
-    /*public void Dashing()
-    {
-        
-           
-       
-    }*/
+   
     void OnCollisionEnter(Collision collision) // ajouter 1 a la variable Key lorsqu'on touche la clé 
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("clé"))
@@ -137,16 +171,20 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
         {
             Debug.Log("touché");
-
+            rb.velocity = Vector3.zero;
+            dashing = false;
+            
         }
+        
         if (collision.gameObject.layer == LayerMask.NameToLayer("door1") && Key == 3) // test de layer 
         {
             Debug.Log("touché");
-
+            rb.velocity = Vector3.zero;
+            dashing = false;
         }
 
-        //col mur with dash, probleme traverse le mur peut etre trop de puissance donc ajoue de && dashing == true
-        //col ne marche pas avec les element de la scene aussi, dash se teleporte?...
+        //col mur with dash
+        
         if (collision.gameObject.name == "wall")// && dashing == true)
         {
             Debug.Log("arg un mur!");
@@ -239,4 +277,8 @@ public class PlayerController : MonoBehaviour
 
 
    GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
+
+    void start
+    //bloquer et rendre invisible le cursor, problème avec le menu pause
+        Cursor.lockState = CursorLockMode.Locked;
 */
