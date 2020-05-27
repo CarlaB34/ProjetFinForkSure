@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
          if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
          {
-             transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+             
             GetComponent<Rigidbody>().AddForce(moveDirection * -speed, ForceMode.Impulse);
             //dash
             //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
