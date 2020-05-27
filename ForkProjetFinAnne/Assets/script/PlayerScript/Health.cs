@@ -6,25 +6,30 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    private int playerhealth = 2;
-    public static bool isDash;
+    private int playerhealth = 3;
+    ///public static bool isDash;
 
     public void Update() // la vie est cap a 2hp
     {
-        if (playerhealth > 2)
+        if (playerhealth > 3)
         {
-            playerhealth = 2;
+            playerhealth = 3;
         }
         
-        isDash = PlayerController.dashing;
+       // isDash = PlayerController.dashing;
     }
     void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && isDash == false)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && !PlayerController.dashing)
         {
             Debug.Log("vous prenez 1 degat");
             playerhealth -= 1;
 
+        }
+        if(collision.gameObject.layer == LayerMask.NameToLayer("IA") && !PlayerController.dashing)
+        {
+            Debug.Log("vous prenez 1 degat");
+            playerhealth -= 1;
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("heal")) // on gagne un point de vie quand on rammasse un heal
         {

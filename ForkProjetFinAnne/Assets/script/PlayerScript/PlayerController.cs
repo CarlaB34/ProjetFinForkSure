@@ -13,10 +13,13 @@ public class PlayerController : MonoBehaviour
     //dash
     public float speedDash = 5;
     public static bool dashing = false;
+    public bool dashingDebug;
+
     public float coolDown = 0f;
-    protected float startCoolDown = 0.05f;
+    protected float startCoolDown = 0.5f;
     public float coolDown2 = 0f;
-    protected float startCoolDown2 = 0.05f;
+    protected float startCoolDown2 = 0.5f;
+
     public Slider sliderDash;
    // public float distanceBetweenImage;
    // private float lastImageXpos;
@@ -82,17 +85,17 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(moveDirection * -speed, ForceMode.Impulse);
             //dash
             //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
-            dashing = false;
+            dashing = true;
             
 
-        }
+         }
     
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
             GetComponent<Rigidbody>().AddForce(moveDirection * speed, ForceMode.Impulse);
             //dash
-            dashing = false;
+            dashing = true;
         }
         Vector3 velocity = GetComponent<Rigidbody>().velocity;
         
@@ -105,25 +108,36 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
             dashing = true;
             GetComponent<Rigidbody>().AddForce(moveDirection * speedDash, ForceMode.Impulse);
-            coolDown2 -= 1* Time.deltaTime;
+            Dash();
+            
            
+        }
+        if(dashing ==true)
+        {
+            coolDown2 -= 1 * Time.deltaTime;
 
             if (coolDown2 <= 0)
             {
                 coolDown2 = 0;
                 dashing = false;
-                
+
             }
-            Dash();
         }
+       
         //dash gauche
         if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
         {
             transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
             dashing = true;
             GetComponent<Rigidbody>().AddForce(moveDirection * -speedDash, ForceMode.Impulse);
-            //le dash continu pendant 0.1 sec puis s'arrete, probleme sauter et dash pour tuer un pike = trop de force
-            coolDown -= 1 * Time.deltaTime;         
+            
+            //scrollbar
+            Dash();
+        }
+        if(dashing == true)
+        {
+            //le dash continu pendant 0.05 sec puis s'arrete, probleme sauter et dash pour tuer un pike = marche 1 fois sur deux
+            coolDown -= 1 * Time.deltaTime;
 
             if (coolDown <= 0)
             {
@@ -131,27 +145,14 @@ public class PlayerController : MonoBehaviour
                 dashing = false;
 
             }
-
-            //particule
-            //AfterImagePool.Instance.GetFromPool();
-            //lastImageXpos = transform.position.x;
-
-            //scrollbar
-            Dash();
         }
 
-        //CheckImageDash();
+
+        dashingDebug = dashing;
+
     }
 
-    //dash effect pooling
-   /* private void CheckImageDash()
-    {
-        if(Math.Abs(transform.position.x - lastImageXpos) > distanceBetweenImage)
-        {
-            AfterImagePool.Instance.GetFromPool();
-            lastImageXpos = transform.position.x;
-        }
-    }*/
+   
     //fait dessendre la bar a moins sa valeur donc -5 dans se cas
     private void Dash()
     {
@@ -172,7 +173,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("touché");
             rb.velocity = Vector3.zero;
-            dashing = false;
+           // dashing = false;
             
         }
         
@@ -180,7 +181,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("touché");
             rb.velocity = Vector3.zero;
-            dashing = false;
+            //dashing = false;
         }
 
         //col mur with dash
@@ -189,7 +190,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("arg un mur!");
             rb.velocity = Vector3.zero;
-            dashing = false;
+            //dashing = false;
         }
 
     }
@@ -275,10 +276,22 @@ public class PlayerController : MonoBehaviour
         }
         Vector3 velocity = GetComponent<Rigidbody>().velocity;
 
-
+    //particule
+            //AfterImagePool.Instance.GetFromPool();
+            //lastImageXpos = transform.position.x;
    GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
 
     void start
     //bloquer et rendre invisible le cursor, problème avec le menu pause
         Cursor.lockState = CursorLockMode.Locked;
+
+     //dash effect pooling
+    private void CheckImageDash()
+    {
+        if(Math.Abs(transform.position.x - lastImageXpos) > distanceBetweenImage)
+        {
+            AfterImagePool.Instance.GetFromPool();
+            lastImageXpos = transform.position.x;
+        }
+    }
 */

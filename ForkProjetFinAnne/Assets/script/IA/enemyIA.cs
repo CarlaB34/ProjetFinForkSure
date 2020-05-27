@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
+//using Pathfinding;
 
 public class enemyIA : MonoBehaviour
 {
-
+/*
     public Transform target;
     public Transform enemy;
 
@@ -89,4 +89,5 @@ public class enemyIA : MonoBehaviour
             enemy.localScale = new Vector3(1f, 1f, 1f);
         }
     }
+    */
 }

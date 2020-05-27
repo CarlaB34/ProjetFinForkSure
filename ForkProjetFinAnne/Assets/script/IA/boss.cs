@@ -18,23 +18,14 @@ public class boss : MonoBehaviour
     [SerializeField] private int maxDistance = 1;
     #endregion
 
-
-    //[SerializeField]
-    //Transform _destination;
-
-    //NavMeshAgent _navMeshAgent;
+   
+    private Rigidbody rb;
+   
     void Start()
     {
         startPosition = transform.position;
         newPosition = transform.position;
-
-        //_navMeshAgent = this.GetComponent<NavMeshAgent>();
-
-        //if (_navMeshAgent == null)
-        //{
-        //    Debug.LogError("the nav mesh agent component is not attached to" + gameObject.name);
-        //}
-       
+        rb = GetComponent<Rigidbody>();
 
     }
 
@@ -43,8 +34,11 @@ public class boss : MonoBehaviour
         newPosition.x = startPosition.x + (maxDistance * Mathf.Sin(Time.time * speed));
         transform.position = newPosition;
 
+        
 
     }
+
+  
 
     //player entre dasn la sphere trigger
     private void OnTriggerEnter(Collider other)
@@ -53,12 +47,12 @@ public class boss : MonoBehaviour
         if (other.CompareTag("player"))
         {
             Debug.Log("détecter");
-            Debug.Log("je m'arrete");
+           // Debug.Log("je m'arrete");
             //speed = 0;
-            
+            //setDestination();
 
         }
-        
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -67,17 +61,20 @@ public class boss : MonoBehaviour
         Debug.Log("je marche");
         if (other.CompareTag("player"))
         {
-            // speed = 0;  
-            //setDestination();
+             speed = 3;  
+           
         }     
     }
 
     //private void setDestination()
     //{
-    //    if (_destination != null)
+    //    if (isGrounded && rb.velocity.y <= 0)
     //    {
-    //        Vector3 targetVector = _destination.transform.position;
-    //        _navMeshAgent.SetDestination(targetVector);
+    //        Debug.Log("je saute");
+    //        rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+    //        isGrounded = false;
     //    }
+        
+
     //}
 }
