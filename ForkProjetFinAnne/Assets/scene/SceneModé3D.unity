@@ -842,7 +842,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245024076}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.050797395, y: 0, z: 0, w: 0.998709}
   m_LocalPosition: {x: -19.68, y: 2.59, z: -5.2699995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -968,7 +968,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
+  m_LookAt: {fileID: 1110309924}
   m_Follow: {fileID: 1110309924}
   m_Lens:
     FieldOfView: 60
@@ -992,7 +992,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327854986}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.050797395, y: 0, z: 0, w: 0.998709}
   m_LocalPosition: {x: -19.68, y: 2.59, z: -5.2699995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2172,25 +2172,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1712643137}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1110309922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110309920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78fc4cbcc4f0eba47a6d36104cdc02cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  speedDash: 10
-  coolDown: 0
-  coolDown2: 0
-  jump: {x: 0, y: 0, z: 0}
-  jumpForce: 2.8
-  isGrounded: 0
 --- !u!4 &1110309924 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5311661247554514152, guid: 7647f00c03ff09d48b0aa5e901ca7016,
@@ -2426,7 +2407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1215779253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3455,8 +3436,7 @@ PrefabInstance:
       propertyPath: sliderDash
       value: 
       objectReference: {fileID: 1244032736}
-    m_RemovedComponents:
-    - {fileID: 7570065270578568258, guid: 7647f00c03ff09d48b0aa5e901ca7016, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7647f00c03ff09d48b0aa5e901ca7016, type: 3}
 --- !u!1 &1727852858 stripped
 GameObject:
@@ -3664,7 +3644,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -1.3499985, y: 0}
   m_SizeDelta: {x: -0.91, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

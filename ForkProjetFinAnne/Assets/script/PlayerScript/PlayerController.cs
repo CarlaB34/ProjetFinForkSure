@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     private float moveVelocity;
+    public GameObject playerView;
 
     public Vector3 jump;
     public float jumpForce = 2.0f;
@@ -78,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
          if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
          {
-             
+            playerView.transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
             GetComponent<Rigidbody>().AddForce(moveDirection * -speed, ForceMode.Impulse);
             //dash
             //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
@@ -89,7 +90,7 @@ public class PlayerController : MonoBehaviour
     
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
+            playerView.transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
             GetComponent<Rigidbody>().AddForce(moveDirection * speed, ForceMode.Impulse);
             //dash
             dashing = false;
@@ -102,7 +103,7 @@ public class PlayerController : MonoBehaviour
         //dash droite
         if (Input.GetKeyDown(KeyCode.E) && sliderDash.value == sliderDash.maxValue)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
+            playerView.transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
             dashing = true;
             GetComponent<Rigidbody>().AddForce(moveDirection * speedDash, ForceMode.Impulse);
             coolDown2 -= 1* Time.deltaTime;
@@ -119,7 +120,7 @@ public class PlayerController : MonoBehaviour
         //dash gauche
         if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
         {
-            transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+            playerView.transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
             dashing = true;
             GetComponent<Rigidbody>().AddForce(moveDirection * -speedDash, ForceMode.Impulse);
             //le dash continu pendant 0.1 sec puis s'arrete, probleme sauter et dash pour tuer un pike = trop de force
