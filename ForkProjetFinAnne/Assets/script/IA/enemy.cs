@@ -125,8 +125,13 @@ public class enemy : MonoBehaviour
             case "wall":
                 //rb.AddForce(Vector3.up * 700f);
                 rb.AddForce(Vector3.up * 7f);
+                //moveSpeed = 0;
+                
+                
                 break;
         }
+
+        
     }
 
     //l'enemi ne saute plus apres avoir franchi l'obstable, applique la meme force vers le bas
@@ -137,6 +142,7 @@ public class enemy : MonoBehaviour
         {
             case "ground":
                 rb.AddForce(Vector3.down * 7f);
+               // moveSpeed = 2;
                 break;
         }
     }
