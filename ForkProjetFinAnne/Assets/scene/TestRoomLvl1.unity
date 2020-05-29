@@ -6122,6 +6122,7 @@ MonoBehaviour:
   coolDown: 0
   coolDown2: 0
   sliderDash: {fileID: 1490398947}
+  playerView: {fileID: 0}
   jump: {x: 0, y: 0, z: 0}
   jumpForce: 2
   isGrounded: 0
@@ -6826,6 +6827,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7570065270578568258, guid: 7647f00c03ff09d48b0aa5e901ca7016,
+        type: 3}
+      propertyPath: sliderDash
+      value: 
+      objectReference: {fileID: 1490398947}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7647f00c03ff09d48b0aa5e901ca7016, type: 3}
 --- !u!1001 &8801592530276392563
