@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Heal : MonoBehaviour
 {
-    
-    void OnCollisionEnter(Collision collision) // fait disparaitre le heal quand on le ramasse
+    // fait disparaitre le heal quand on le ramasse
+    void OnCollisionEnter(Collision collision) 
     {
-
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Destroy(gameObject);
         }
-
     }
 }

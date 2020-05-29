@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - wall
-  - Wall
+  - player
+  - pike
   layers:
   - Default
   - TransparentFX
@@ -22,11 +23,11 @@ TagManager:
   - pike
   - heal
   - wall
-  - PostProcessTest
   - "cl\xE92"
-  - 
-  - 
-  - 
+  - PostProcessTest
+  - boss
+  - door1
+  - IA
   - 
   - 
   - 
@@ -42,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2926870797
+    locked: 0
+  - name: player
+    uniqueID: 44431243
     locked: 0
