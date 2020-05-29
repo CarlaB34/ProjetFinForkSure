@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class enemyHealth : MonoBehaviour
 {
-    public static bool isDash;
-    private int enemyhealth = 1;
+    //public static bool isDash;
+    private int pikehealth = 1;
+
 
     private void Update()
     {
-        if (enemyhealth > 1)
+        if (pikehealth > 1)
         {
-            enemyhealth = 1;
+            pikehealth = 1;
         }
-        isDash = PlayerController.dashing;
+        //isDash = PlayerController.dashing;
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && isDash == true)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && PlayerController.dashing)
         {
 
             Debug.Log("l'enemy prend 1 degat et meurt");
