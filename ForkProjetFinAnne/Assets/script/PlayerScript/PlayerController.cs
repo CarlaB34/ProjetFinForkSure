@@ -1,43 +1,52 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
 
     //Movement
     public float speed;
+
+    #region Dash 
     //dash
-    public float speedDash = 10;
+    public float speedDash = 5;
     public static bool dashing = false;
     public float coolDown = 0f;
-    private float startCoolDown = 0.3f;
+    protected float startCoolDown = 0.05f;
     public float coolDown2 = 0f;
-    private float startCoolDown2 = 0.3f;
-   
+    protected float startCoolDown2 = 0.05f;
+    public Slider sliderDash;
+   // public float distanceBetweenImage;
+   // private float lastImageXpos;
+    #endregion
 
-    float moveVelocity;
-    // dash dash;
+    private float moveVelocity;
+    public GameObject playerView;
+
     public Vector3 jump;
     public float jumpForce = 2.0f;
+
     public static int Key = 0;
-    public  int Kill = 0;
     public bool isGrounded;
     Rigidbody rb;
+
     //Grounded Vars
-    private Vector3 moveDirection = Vector3.zero;
-    public Vector3 spawnSpot = new Vector3(-9.47f, 13.35f,0.41f);
-    public Vector3 spawnSpot2 = new Vector3(-2.4f, 13.35f, 0.18f);
-    public Vector3 spawnSpot3 = new Vector3(3.327f, 14.2f, 0.281f);
-    public GameObject Key1;
-    public GameObject Key2;
-    public GameObject Key3;
+    private Vector3 moveDirection = Vector3.right;
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
-        coolDown = startCoolDown;
-        coolDown2 = startCoolDown2;
+
+        //la valeur du slide commencera a chaque parti a sa valeur max
+        sliderDash.value = sliderDash.maxValue;
+
+        
     }
+
     #region OnCollision
     void OnCollisionStay()
     {
@@ -48,60 +57,200 @@ public class PlayerController : MonoBehaviour
         isGrounded = false; // ne touche plus le sol 
     }
     #endregion
+
+
+   
     void Update()
     {
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && rb.velocity.y <= 0) // jump
         {
-
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
 
-        
 
         moveVelocity = 0;
 
         //Left Movement + dash
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
-            dashing = true;
-            coolDown -= 1 * Time.deltaTime;
-            coolDown2 = 0;
-            moveVelocity = -speed;  
-            speed = 10;
 
-            if(coolDown <= 0)
+        //remonte la bar
+        sliderDash.value += Time.deltaTime;
+
+         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
+         {
+            playerView.transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+            GetComponent<Rigidbody>().AddForce(moveDirection * -speed, ForceMode.Impulse);
+            //dash
+            //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
+            dashing = false;
+            
+
+        }
+    
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            playerView.transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
+            GetComponent<Rigidbody>().AddForce(moveDirection * speed, ForceMode.Impulse);
+            //dash
+            dashing = false;
+        }
+        Vector3 velocity = GetComponent<Rigidbody>().velocity;
+        
+        GetComponent<Rigidbody>().velocity =velocity + new Vector3(moveVelocity, 0);
+       
+
+        //dash droite
+        if (Input.GetKeyDown(KeyCode.E) && sliderDash.value == sliderDash.maxValue)
+        {
+            playerView.transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
+            dashing = true;
+            GetComponent<Rigidbody>().AddForce(moveDirection * speedDash, ForceMode.Impulse);
+            coolDown2 -= 1* Time.deltaTime;
+           
+
+            if (coolDown2 <= 0)
+            {
+                coolDown2 = 0;
+                dashing = false;
+                
+            }
+            Dash();
+        }
+        //dash gauche
+        if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
+        {
+            playerView.transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+            dashing = true;
+            GetComponent<Rigidbody>().AddForce(moveDirection * -speedDash, ForceMode.Impulse);
+            //le dash continu pendant 0.1 sec puis s'arrete, probleme sauter et dash pour tuer un pike = trop de force
+            coolDown -= 1 * Time.deltaTime;         
+
+            if (coolDown <= 0)
             {
                 coolDown = 0;
                 dashing = false;
-                speed = 0;
+
             }
+
+            //particule
+            //AfterImagePool.Instance.GetFromPool();
+            //lastImageXpos = transform.position.x;
+
+            //scrollbar
+            Dash();
         }
-        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
+
+        //CheckImageDash();
+    }
+
+    //dash effect pooling
+   /* private void CheckImageDash()
+    {
+        if(Math.Abs(transform.position.x - lastImageXpos) > distanceBetweenImage)
         {
-            transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
-            moveVelocity = -speed;
+            AfterImagePool.Instance.GetFromPool();
+            lastImageXpos = transform.position.x;
+        }
+    }*/
+    //fait dessendre la bar a moins sa valeur donc -5 dans se cas
+    private void Dash()
+    {
+        sliderDash.value -= sliderDash.maxValue;
+        coolDown = startCoolDown;
+        coolDown2 = startCoolDown2;
+    }
+
+   
+    void OnCollisionEnter(Collision collision) // ajouter 1 a la variable Key lorsqu'on touche la clé 
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("clé"))
+        {
+            Key += 1;
+
+        }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
+        {
+            Debug.Log("touché");
+            rb.velocity = Vector3.zero;
+            dashing = false;
+            
+        }
+        
+        if (collision.gameObject.layer == LayerMask.NameToLayer("door1") && Key == 3) // test de layer 
+        {
+            Debug.Log("touché");
+            rb.velocity = Vector3.zero;
+            dashing = false;
+        }
+
+        //col mur with dash
+        
+        if (collision.gameObject.name == "wall")// && dashing == true)
+        {
+            Debug.Log("arg un mur!");
+            rb.velocity = Vector3.zero;
+            dashing = false;
+        }
+
+    }
+
+
+}
+
+
+/* moveVelocity = 0;
+
+        //Left Movement + dash
+
+        //remonte la bar
+        sliderDash.value += Time.deltaTime;
+
+        //appui sur A et quand le slide est au max de sa valeur 
+        //fait une petite avancer au premier appui voir meme le deuxieme
+        //j'arrive pas a faire aller plus loin, a voir avec la vitesse du speed quand elle passe en dash...
+        //peut tuer un ennemi si asser de puissance (normalement), probleme aussi avex la box collider
+
+         if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
+         {
+             //changement de profil
+             transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+             //active le dash et permet les collision avec mur et ennemi
+             dashing = true;
+             //fait avancer 
+             moveVelocity = -speed;
+             //sa vitesse d'avancer
+             speed = 50;
+
+             //descend la bar quand le dash est effectuer
+             //Dash();
+
+         }
+         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
+         {
+             transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+            
+             moveVelocity = -speed;
             //dash
 
+            //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
             dashing = false;
+            //n'a plus de vitess
             speedDash = 0;
+            //revient a 2
             speed = 2;
-            coolDown = startCoolDown;
+
         }
 
-
-        #region right move
-        //Right movement + dash 
+        //Right movement + dash ne marche pas car pas encore fait
+        
+        
         if (Input.GetKey(KeyCode.E))
         {
-
-            transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
             dashing = true;
             coolDown2 -= 1 * Time.deltaTime;
             coolDown = 0;
-           
+
             moveVelocity = speed;
             speed = 10;
 
@@ -112,10 +261,11 @@ public class PlayerController : MonoBehaviour
                 speed = 0;
             }
         }
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
-            moveVelocity = speed;
+            GetComponent<Rigidbody>().AddForce(moveDirection* speed, ForceMode.Impulse);
+            //moveVelocity = speed;
 
             //dash
 
@@ -124,59 +274,12 @@ public class PlayerController : MonoBehaviour
             speed = 2;
             coolDown2 = startCoolDown2;
         }
-        #endregion
-      
-        GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
+        Vector3 velocity = GetComponent<Rigidbody>().velocity;
 
 
-    }
-    
-   
-    void OnCollisionEnter(Collision collision) // ajouter 1 a la variable Key lorsqu'on touche la clé 
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("clé"))
-        {
-            Key += 1;
+   GetComponent<Rigidbody>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody>().velocity.y);
 
-        }
-        if (collision.gameObject.layer == LayerMask.NameToLayer("pike"))
-        {
-            Kill += 1;
-            if (Kill == 1)
-            {
-                GameObject Player = (GameObject)Instantiate(Key1, new Vector3(-9.47f, 13.35f,0.41f), transform.rotation);
-            }
-            if (Kill == 3)
-            {
-                GameObject Player = (GameObject)Instantiate(Key1, new Vector3(-2.4f, 13.35f, 0.18f), transform.rotation);
-            }
-            if (Kill == 4)
-            {
-                GameObject Player = (GameObject)Instantiate(Key1, new Vector3(3.327f, 14.2f, 0.281f), transform.rotation);
-            }
-        }
-        if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
-        {
-            Debug.Log("touché");
-
-        }
-        if (collision.gameObject.layer == LayerMask.NameToLayer("door1") && Key == 3) // test de layer 
-        {
-            Debug.Log("touché");
-
-        }
-
-        //col mur with dash
-        if (collision.gameObject.name == "wall")
-        {
-            rb.velocity = Vector3.zero;
-            dashing = false;
-        }
-
-    }
-
-    
-}
-
-
-
+    void start
+    //bloquer et rendre invisible le cursor, problème avec le menu pause
+        Cursor.lockState = CursorLockMode.Locked;
+*/
