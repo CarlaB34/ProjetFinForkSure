@@ -20,12 +20,17 @@ public class PlayerController : MonoBehaviour
     public Vector3 jump;
     public float jumpForce = 2.0f;
     public static int Key = 0;
+    public  int Kill = 0;
     public bool isGrounded;
     Rigidbody rb;
     //Grounded Vars
     private Vector3 moveDirection = Vector3.zero;
-
-
+    public Vector3 spawnSpot = new Vector3(-9.47f, 13.35f,0.41f);
+    public Vector3 spawnSpot2 = new Vector3(-2.4f, 13.35f, 0.18f);
+    public Vector3 spawnSpot3 = new Vector3(3.327f, 14.2f, 0.281f);
+    public GameObject Key1;
+    public GameObject Key2;
+    public GameObject Key3;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -53,6 +58,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
 
+        
 
         moveVelocity = 0;
 
@@ -133,7 +139,28 @@ public class PlayerController : MonoBehaviour
             Key += 1;
 
         }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("pike"))
+        {
+            Kill += 1;
+            if (Kill == 1)
+            {
+                GameObject Player = (GameObject)Instantiate(Key1, new Vector3(-9.47f, 13.35f,0.41f), transform.rotation);
+            }
+            if (Kill == 3)
+            {
+                GameObject Player = (GameObject)Instantiate(Key1, new Vector3(-2.4f, 13.35f, 0.18f), transform.rotation);
+            }
+            if (Kill == 4)
+            {
+                GameObject Player = (GameObject)Instantiate(Key1, new Vector3(3.327f, 14.2f, 0.281f), transform.rotation);
+            }
+        }
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
+        {
+            Debug.Log("touché");
+
+        }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("door1") && Key == 3) // test de layer 
         {
             Debug.Log("touché");
 

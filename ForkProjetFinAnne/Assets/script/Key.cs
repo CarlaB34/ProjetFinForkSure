@@ -13,8 +13,8 @@ public class Key : MonoBehaviour
     public void Start()
     {
         //anable first process and disable another one
-        PostProcessing1.gameObject.SetActive(false);
-        PostProcessing2.gameObject.SetActive(false);
+        //PostProcessing1.gameObject.SetActive(false);
+        //PostProcessing2.gameObject.SetActive(false);
     }
 
     //la clé se detruit quand on passe dessus 
