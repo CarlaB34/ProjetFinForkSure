@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Key : MonoBehaviour
+public class clé : MonoBehaviour
 {
     
     //la clé se detruit quand on passe dessus 
