@@ -2,11 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
-
 using System;
 
 public class enemy : MonoBehaviour
 {
+    #region idee move left and right
+    /*//avance de gauche a droite
+    public float delta = 1.5f;  // Amount to move left and right from the start point
+    public float speed = 2.0f;
+    private Vector3 startPos;
+
+    void Start()
+    {
+        startPos = transform.position;
+    }
+
+    void Update()
+    {
+        Vector3 v = startPos;
+        v.x += delta * Mathf.Sin(Time.time * speed);
+        transform.position = v;
+    }
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "wall")
+        {
+
+        }
+    }*/
+    #endregion
+
     [SerializeField]
     Transform player;
 
@@ -14,12 +39,15 @@ public class enemy : MonoBehaviour
     [SerializeField]
     float agroRange;
 
+    [SerializeField]
+    float moveSpeed;
+
     /// <summary>The objects initial position.</summary>
     private Vector3 startPosition;
     /// <summary>The objects updated position for the next frame.</summary>
     private Vector3 newPosition;
     //distance ou l'enemi detect la pressence du player
-    [SerializeField] private int maxDistance = 1;
+    [SerializeField] private int maxDistance = 2;
 
     //jump
     public float jumpHeight;
@@ -27,9 +55,6 @@ public class enemy : MonoBehaviour
     Vector3 velocity;
     private float canJump = 0f;
 
-
-    [SerializeField]
-    float moveSpeed;
 
     Rigidbody rb;
 
@@ -43,6 +68,7 @@ public class enemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         jumpSpeed = Mathf.Sqrt(-2 * Physics.gravity.y * jumpHeight) + 0.1f;
+
     }
 
     private void Update()
@@ -51,7 +77,7 @@ public class enemy : MonoBehaviour
         //distance to player
         float distToPlayer = Vector2.Distance(transform.position, player.position);
 
-        
+
 
         if (distToPlayer < agroRange)
         {
@@ -118,20 +144,17 @@ public class enemy : MonoBehaviour
     //l'enemi saute par dessus l'obstacle, applique une force en hauter pour eviter un petit obstable
     void OnCollisionEnter(Collision col)
     {
-       
+
         Debug.Log("l'IA saute");
         switch (col.gameObject.tag)
         {
             case "wall":
                 //rb.AddForce(Vector3.up * 700f);
                 rb.AddForce(Vector3.up * 7f);
-                //moveSpeed = 0;
-                
-                
                 break;
         }
 
-        
+
     }
 
     //l'enemi ne saute plus apres avoir franchi l'obstable, applique la meme force vers le bas
@@ -142,12 +165,13 @@ public class enemy : MonoBehaviour
         {
             case "ground":
                 rb.AddForce(Vector3.down * 7f);
-               // moveSpeed = 2;
+                // moveSpeed = 2;
                 break;
         }
     }
 
     #endregion
+
 
 }
 
