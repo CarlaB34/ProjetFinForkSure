@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class enemy : MonoBehaviour
 {
@@ -57,7 +58,7 @@ public class enemy : MonoBehaviour
 
 
     Rigidbody rb;
-
+   public int IAhealth = 2;
 
     private void Start()
     {
@@ -88,6 +89,12 @@ public class enemy : MonoBehaviour
         {
             //stop chasing player and move
             StopChasingPlayer();
+        }
+
+
+        if (IAhealth > 2)
+        {
+            IAhealth = 2;
         }
     }
 
@@ -140,7 +147,7 @@ public class enemy : MonoBehaviour
 
     //quand player plus dans la range, tp a la start postion et pas la nouvelle de la ou il est
 
-    #region collision obstacle
+    #region collision obstacle + col player - 1 vie
     //l'enemi saute par dessus l'obstacle, applique une force en hauter pour eviter un petit obstable
     void OnCollisionEnter(Collision col)
     {
@@ -154,7 +161,18 @@ public class enemy : MonoBehaviour
                 break;
         }
 
+        if (col.gameObject.layer == LayerMask.NameToLayer("Player") && PlayerController.dashing)
+        {
 
+            Debug.Log("l'IA prend 1 degat");
+            IAhealth -= 1;
+        }
+        if (IAhealth == 0) // si vie = 0 on meurt
+        {
+            Debug.Log("IA est morte");
+            Destroy(gameObject);
+            SceneManager.LoadScene("Victory");
+        }
     }
 
     //l'enemi ne saute plus apres avoir franchi l'obstable, applique la meme force vers le bas

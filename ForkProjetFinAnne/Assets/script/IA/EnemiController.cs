@@ -224,7 +224,7 @@ public class EnemiController : MonoBehaviour
     float moveSpeed;
 
     Rigidbody rb;
-
+   
 
     private void Start()
     {
@@ -256,6 +256,8 @@ public class EnemiController : MonoBehaviour
             //stop chasing player and move
             StopChasingPlayer();
         }
+
+
     }
 
     private void ChasePlayer()
@@ -324,6 +326,7 @@ public class EnemiController : MonoBehaviour
                 break;
         }
 
+       
 
     }
 

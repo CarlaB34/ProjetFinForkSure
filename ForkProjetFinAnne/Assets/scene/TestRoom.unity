@@ -696,6 +696,7 @@ MonoBehaviour:
   player: {fileID: 0}
   agroRange: 0
   maxDistance: 1
+  jumpHeight: 0
   moveSpeed: 0
 --- !u!1 &244668227
 GameObject:
@@ -897,7 +898,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 330209003}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &255833287
 GameObject:
@@ -959,7 +960,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 330209003}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330209002
 GameObject:
@@ -989,9 +990,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1237807727}
-  - {fileID: 254362111}
   - {fileID: 407381056}
   - {fileID: 255833290}
+  - {fileID: 254362111}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1128,7 +1129,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 330209003}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &427483368
 GameObject:
@@ -2454,6 +2455,7 @@ MonoBehaviour:
   player: {fileID: 0}
   agroRange: 0
   maxDistance: 1
+  jumpHeight: 0
   moveSpeed: 0
 --- !u!54 &968597333
 Rigidbody:
@@ -3502,7 +3504,6 @@ GameObject:
   - component: {fileID: 1468831005}
   - component: {fileID: 1468831008}
   - component: {fileID: 1468831009}
-  - component: {fileID: 1468831010}
   - component: {fileID: 1468831011}
   - component: {fileID: 1468831012}
   m_Layer: 15
@@ -3626,7 +3627,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 1468831007}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 32768
+    m_Bits: 1081344
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
   antialiasingMode: 1
@@ -3671,23 +3672,6 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &1468831010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1468831004}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 6d014e647d3b2d241825855f19d9f0b4, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!65 &1468831011
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4695,6 +4679,7 @@ MonoBehaviour:
   coolDown: 0
   coolDown2: 0
   sliderDash: {fileID: 1193358867}
+  playerView: {fileID: 0}
   jump: {x: 0, y: 0, z: 0}
   jumpForce: 1.8
   isGrounded: 0
@@ -5457,6 +5442,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 330209003}
     m_Modifications:
+    - target: {fileID: 4572446009066577675, guid: b65c6abfd9b4dd644a6f0b9ccaa86484,
+        type: 3}
+      propertyPath: isGlobal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4572446009066577684, guid: b65c6abfd9b4dd644a6f0b9ccaa86484,
         type: 3}
       propertyPath: m_LocalPosition.x
