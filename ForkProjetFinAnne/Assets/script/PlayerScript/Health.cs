@@ -8,7 +8,12 @@ public class Health : MonoBehaviour
 {
     private int playerhealth = 3;
     ///public static bool isDash;
+    private Shield shield;
 
+    private void Start()
+    {
+        shield = GetComponent<Shield>();
+    }
     public void Update() // la vie est cap a 2hp
     {
         if (playerhealth > 3)
@@ -20,17 +25,21 @@ public class Health : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && !PlayerController.dashing)
+        if(!shield.ActiveShield)
         {
-            Debug.Log("vous prenez 1 degat");
-            playerhealth -= 1;
+            if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && !PlayerController.dashing)
+            {
+                Debug.Log("vous prenez 1 degat");
+                playerhealth -= 1;
 
+            }
+            if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && !PlayerController.dashing)
+            {
+                Debug.Log("vous prenez 1 degat");
+                playerhealth -= 1;
+            }
         }
-        if(collision.gameObject.layer == LayerMask.NameToLayer("IA") && !PlayerController.dashing)
-        {
-            Debug.Log("vous prenez 1 degat");
-            playerhealth -= 1;
-        }
+        
         if (collision.gameObject.layer == LayerMask.NameToLayer("heal")) // on gagne un point de vie quand on rammasse un heal
         {
             Debug.Log("vous avez recupéré un point de vie");

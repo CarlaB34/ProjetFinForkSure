@@ -108,7 +108,7 @@ public class enemy : MonoBehaviour
             //saute quand le palyer est dans l'agro
             if (Time.time > canJump)
             {
-                Debug.Log("le temps s'ecoule");
+              //  Debug.Log("le temps s'ecoule");
                 //saute vers le player mais pas dessu, a la saute moutton
                 rb.velocity = new Vector2(moveSpeed, 0);
                 velocity = rb.velocity;
@@ -128,7 +128,7 @@ public class enemy : MonoBehaviour
             //saute quand le palyer est dans l'agro
             if (Time.time > canJump)
             {
-                Debug.Log("le temps s'ecoule");
+               // Debug.Log("le temps s'ecoule");
                 rb.velocity = new Vector2(-moveSpeed, 0);
                 velocity = rb.velocity;
                 velocity.y = jumpSpeed;
@@ -152,7 +152,7 @@ public class enemy : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
 
-        Debug.Log("l'IA saute");
+       //Debug.Log("l'IA saute");
         switch (col.gameObject.tag)
         {
             case "wall":
@@ -164,12 +164,12 @@ public class enemy : MonoBehaviour
         if (col.gameObject.layer == LayerMask.NameToLayer("Player") && PlayerController.dashing)
         {
 
-            Debug.Log("l'IA prend 1 degat");
+           // Debug.Log("l'IA prend 1 degat");
             IAhealth -= 1;
         }
         if (IAhealth == 0) // si vie = 0 on meurt
         {
-            Debug.Log("IA est morte");
+          ///  Debug.Log("IA est morte");
             Destroy(gameObject);
             SceneManager.LoadScene("Victory");
         }
@@ -178,7 +178,7 @@ public class enemy : MonoBehaviour
     //l'enemi ne saute plus apres avoir franchi l'obstable, applique la meme force vers le bas
     private void OnCollisionExit(Collision col)
     {
-        Debug.Log("l'IA Saute plus");
+       // Debug.Log("l'IA Saute plus");
         switch (col.gameObject.tag)
         {
             case "ground":

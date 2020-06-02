@@ -21,8 +21,6 @@ public class PlayerController : MonoBehaviour
     protected float startCoolDown2 = 0.5f;
 
     public Slider sliderDash;
-   // public float distanceBetweenImage;
-   // private float lastImageXpos;
     #endregion
 
     private float moveVelocity;
