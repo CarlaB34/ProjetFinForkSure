@@ -163,9 +163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18055e4e3d53bf64d984e14dffa288d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldTimer: 5
-  shieldPowerUpActivated: 0
-  shield: {fileID: 0}
+  shield: {fileID: 7793117562453031421}
+  activeShield: 0
+  coolDownShield: 0
+  sliderShield: {fileID: 0}
+  uiText: {fileID: 0}
 --- !u!114 &6311881382144656894
 MonoBehaviour:
   m_ObjectHideFlags: 0

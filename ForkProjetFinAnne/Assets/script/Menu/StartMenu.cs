@@ -14,6 +14,13 @@ public class StartMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("TestRoom");
+        SceneManager.LoadScene("TestRoomLvl1");
+    }
+
+    public void LoadMenu()
+    {
+        Time.timeScale = 1f;
+      //  GameIsPaused = false;
+        SceneManager.LoadScene("StartMenu");
     }
 }

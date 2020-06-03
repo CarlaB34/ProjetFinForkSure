@@ -96,6 +96,7 @@ public class enemy : MonoBehaviour
         {
             IAhealth = 2;
         }
+
     }
 
     private void ChasePlayer()
