@@ -6,178 +6,91 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Shield : MonoBehaviour
-{/*
+{
+  
     public GameObject shield;
-    private bool activeShield;
+    public bool activeShield;
+
+    public float coolDownShield = 0f;
+    private float startCoolDownShield = 10f;
+
     public Slider sliderShield;
+    bool collide = false;
+
+    public GameObject uiText;
 
     void Start()
     {
         activeShield = false;
         shield.SetActive(false);
-
+        uiText.SetActive(false);
+        sliderShield.gameObject.SetActive(false);
         //la valeur du slide commencera a chaque parti a sa valeur max
-        sliderShield.value = sliderShield.maxValue;
-    }
-    private void Update()
-    {
-        sliderShield.value += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            //shield.SetActive(true);
-            shield.SetActive(true);
-            activeShield = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.T))
-        {
-            //shield.SetActive(false);
-            shield.SetActive(false);
-            activeShield = false;
-            ShieldBar();
-        }
-           
+         sliderShield.value = sliderShield.maxValue;
     }
 
-    private void ShieldBar()
-    {
-        sliderShield.value -= sliderShield.maxValue;
-
-    }
-
-    public bool ActiveShield
-    {
-
-        get { return activeShield; }
-        set { activeShield = value; }
-
-    }
-
-}*/
-    public GameObject shield;
-    private bool activeShield;
-    //Timer
-    public float timerShield = 5f;
-
-
-    public Slider sliderShield;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        activeShield = false;
-        shield.SetActive(false);
-
-        //la valeur du slide commencera a chaque parti a sa valeur max
-        sliderShield.value = sliderShield.maxValue;
-    }
-
-    // Update is called once per frame
     void Update()
-    {
-        sliderShield.value += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.B) && sliderShield.value == sliderShield.maxValue)
+    { 
+        if ( Input.GetKeyDown(KeyCode.B)  && collide && sliderShield.value == sliderShield.maxValue)
         {
+            sliderShield.gameObject.SetActive(true);
             if (!activeShield)
             {
-                //timerShield -= 1* Time.deltaTime;
                 shield.SetActive(true);
                 activeShield = true;
-
+               
             }
-            else
-            //if(timerShield <=0 && activeShield)
+            ShieldBar();
+        }
+        if (activeShield == true)
+        {
+            coolDownShield -= 1 * Time.deltaTime;
+
+            if(coolDownShield <= 0)
             {
-                //timerShield = 0;
+                coolDownShield = 0;
                 shield.SetActive(false);
                 activeShield = false;
-                ShieldBar();
+                uiText.SetActive(false);
             }
         }
-
+        else
+        {
+            sliderShield.value += Time.deltaTime;
+        }
     }
-
-   /* private void OnCollisionEnter(Collision col)
+    void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "PPShield")
         {
-            StartCoroutine(ShowAndHideShield(3.0f)); // 3 second
+            Debug.Log("toucher");
+            uiText.SetActive(true);
+            sliderShield.gameObject.SetActive(true);
+            collide = true;
         }
-
     }
-    IEnumerator ShowAndHideShield(float delay)
+
+    private void OnCollisionExit(Collision col)
     {
-       // yield return new WaitForSeconds(delay);
-        while (enabled)
+        if (col.gameObject.tag == "PPShield")
         {
-            Debug.Log("je suis b");
-           
-            //if (sliderShield.value == sliderShield.maxValue)
-            //{
-                if (!activeShield)
-                {
-
-                    shield.SetActive(true);
-                    activeShield = true;
-                }
-                else
-                {
-                    shield.SetActive(false);
-                    activeShield = false;
-                    ShieldBar();
-                }
-                yield return new WaitForSeconds(delay);
-            //}
-
+            uiText.SetActive(false);
+            sliderShield.gameObject.SetActive(true);
+            collide = false;
         }
-
-
-
-    }*/
+    }
     
     private void ShieldBar()
     {
-        sliderShield.value -= sliderShield.maxValue;
-
+         sliderShield.value -= sliderShield.maxValue;
+        coolDownShield = startCoolDownShield;
     }
 
     public bool ActiveShield
     {
-
         get { return activeShield; }
         set { activeShield = value; }
-
     }
 }
 
-/*//Bool
-public bool shielAtivated = false;
 
-//GameObject
-public GameObject shield;
-
-void Update()
-{
-
-
-    //If shield power up is active
-    if (shielAtivated == true)
-    {
-        shieldTimer -= Time.deltaTime;
-        transform.gameObject.tag = "shield";
-    }
-
-    if (shieldTimer <= 0.0f)
-    {
-        transform.gameObject.tag = "Player";
-        //DestroyObject(newShield);
-    }
-
-    if(col.gameObject.tag == "PPShield")    
-        {
-            SpawnShield();
-            Destroy(GameObject.FindGameObjectWithTag("PPShield"));
-        }
-
-    
-}*/

@@ -75,8 +75,8 @@ public class PlayerController : MonoBehaviour
 
         //Left Movement + dash
 
-        //remonte la bar
-        sliderDash.value += Time.deltaTime;
+        
+        
 
          if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
          {
@@ -122,7 +122,11 @@ public class PlayerController : MonoBehaviour
 
             }
         }
-       
+       else
+       {
+            //remonte la bar
+            sliderDash.value += Time.deltaTime;
+       }
         //dash gauche
         if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
         {
@@ -144,6 +148,11 @@ public class PlayerController : MonoBehaviour
                 dashing = false;
 
             }
+        }
+        else
+        {
+            //remonte la bar
+            sliderDash.value += Time.deltaTime;
         }
 
 
