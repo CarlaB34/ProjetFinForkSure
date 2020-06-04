@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
-{
+{/*
     Health health;
 
     private void Start()
@@ -17,5 +17,5 @@ public class CheckPoint : MonoBehaviour
         {
             health.respawnPosition = gameObject.transform.position;
         }
-    }
+    }*/
 }
