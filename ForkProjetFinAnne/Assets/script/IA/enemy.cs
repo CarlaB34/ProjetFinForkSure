@@ -2,11 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
-
 using System;
+using UnityEngine.SceneManagement;
 
 public class enemy : MonoBehaviour
 {
+    #region idee move left and right
+    /*//avance de gauche a droite
+    public float delta = 1.5f;  // Amount to move left and right from the start point
+    public float speed = 2.0f;
+    private Vector3 startPos;
+
+    void Start()
+    {
+        startPos = transform.position;
+    }
+
+    void Update()
+    {
+        Vector3 v = startPos;
+        v.x += delta * Mathf.Sin(Time.time * speed);
+        transform.position = v;
+    }
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "wall")
+        {
+
+        }
+    }*/
+    #endregion
+
     [SerializeField]
     Transform player;
 
@@ -32,7 +58,7 @@ public class enemy : MonoBehaviour
 
 
     Rigidbody rb;
-
+   public int IAhealth = 2;
 
     private void Start()
     {
@@ -64,6 +90,13 @@ public class enemy : MonoBehaviour
             //stop chasing player and move
             StopChasingPlayer();
         }
+
+
+        if (IAhealth > 2)
+        {
+            IAhealth = 2;
+        }
+
     }
 
     private void ChasePlayer()
@@ -76,7 +109,7 @@ public class enemy : MonoBehaviour
             //saute quand le palyer est dans l'agro
             if (Time.time > canJump)
             {
-                Debug.Log("le temps s'ecoule");
+              //  Debug.Log("le temps s'ecoule");
                 //saute vers le player mais pas dessu, a la saute moutton
                 rb.velocity = new Vector2(moveSpeed, 0);
                 velocity = rb.velocity;
@@ -96,7 +129,7 @@ public class enemy : MonoBehaviour
             //saute quand le palyer est dans l'agro
             if (Time.time > canJump)
             {
-                Debug.Log("le temps s'ecoule");
+               // Debug.Log("le temps s'ecoule");
                 rb.velocity = new Vector2(-moveSpeed, 0);
                 velocity = rb.velocity;
                 velocity.y = jumpSpeed;
@@ -115,12 +148,12 @@ public class enemy : MonoBehaviour
 
     //quand player plus dans la range, tp a la start postion et pas la nouvelle de la ou il est
 
-    #region collision obstacle
+    #region collision obstacle + col player - 1 vie
     //l'enemi saute par dessus l'obstacle, applique une force en hauter pour eviter un petit obstable
     void OnCollisionEnter(Collision col)
     {
 
-        Debug.Log("l'IA saute");
+       //Debug.Log("l'IA saute");
         switch (col.gameObject.tag)
         {
             case "wall":
@@ -129,13 +162,24 @@ public class enemy : MonoBehaviour
                 break;
         }
 
+        if (col.gameObject.layer == LayerMask.NameToLayer("Player") && PlayerController.dashing)
+        {
 
+           // Debug.Log("l'IA prend 1 degat");
+            IAhealth -= 1;
+        }
+        if (IAhealth == 0) // si vie = 0 on meurt
+        {
+          ///  Debug.Log("IA est morte");
+            Destroy(gameObject);
+            SceneManager.LoadScene("Victory");
+        }
     }
 
     //l'enemi ne saute plus apres avoir franchi l'obstable, applique la meme force vers le bas
     private void OnCollisionExit(Collision col)
     {
-        Debug.Log("l'IA Saute plus");
+       // Debug.Log("l'IA Saute plus");
         switch (col.gameObject.tag)
         {
             case "ground":
