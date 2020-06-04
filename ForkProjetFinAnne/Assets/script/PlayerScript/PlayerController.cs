@@ -30,14 +30,19 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 jump;
     public float jumpForce = 2.0f;
-
+    public int Kill = 0;
     public static int Key = 0;
     public bool isGrounded;
     Rigidbody rb;
 
     //Grounded Vars
     private Vector3 moveDirection = Vector3.right;
-
+    public Vector3 spawnSpot = new Vector3(-6.36f, 4.88f, -0.56f);
+    public Vector3 spawnSpot2 = new Vector3(8.29f, 5.1f, -0.56f);
+    public Vector3 spawnSpot3 = new Vector3(19.14f, 6.77f,-0.56f);
+    public GameObject Key1;
+    public GameObject Key2;
+    public GameObject Key3;
 
     private void Start()
     {
@@ -162,7 +167,7 @@ public class PlayerController : MonoBehaviour
         coolDown2 = startCoolDown2;
     }
 
-   
+
     void OnCollisionEnter(Collision collision) // ajouter 1 a la variable Key lorsqu'on touche la clé 
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("clé"))
@@ -170,23 +175,35 @@ public class PlayerController : MonoBehaviour
             Key += 1;
 
         }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("pike"))
+        {
+            Kill += 1;
+            if (Kill == 1)
+            {
+                GameObject Player = (GameObject)Instantiate(Key1, new Vector3(-6.36f, 4.88f, -0.56f), transform.rotation);
+            }
+            if (Kill == 3)
+            {
+                GameObject Player = (GameObject)Instantiate(Key1, new Vector3(8.29f, 5.1f, -0.56f), transform.rotation);
+            }
+            if (Kill == 4)
+            {
+                GameObject Player = (GameObject)Instantiate(Key1, new Vector3(19.14f, 6.77f, -0.56f), transform.rotation);
+            }
+        }
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
         {
             Debug.Log("touché");
-            rb.velocity = Vector3.zero;
-           // dashing = false;
-            
+
         }
-        
         if (collision.gameObject.layer == LayerMask.NameToLayer("door1") && Key == 3) // test de layer 
         {
             Debug.Log("touché");
-            rb.velocity = Vector3.zero;
-            //dashing = false;
+
         }
 
         //col mur with dash
-        
+
         if (collision.gameObject.name == "wall")// && dashing == true)
         {
             Debug.Log("arg un mur!");

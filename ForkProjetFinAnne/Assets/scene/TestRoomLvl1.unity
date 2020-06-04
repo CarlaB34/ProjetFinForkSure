@@ -860,7 +860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &185866925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,9 +875,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1993301491}
   agroRange: 3
+  moveSpeed: 2
   maxDistance: 1
   jumpHeight: 0.5
-  moveSpeed: 2
 --- !u!54 &185866926
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -973,7 +973,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185866924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6, y: 6.27, z: 0.295}
+  m_LocalPosition: {x: 4.35, y: 6.27, z: 0.295}
   m_LocalScale: {x: 0.38223, y: 0.38223, z: 0.38223}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5870,7 +5870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1940794231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5885,9 +5885,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1993301491}
   agroRange: 3
+  moveSpeed: 2
   maxDistance: 1
   jumpHeight: 0.5
-  moveSpeed: 2
 --- !u!114 &1940794232
 MonoBehaviour:
   m_ObjectHideFlags: 0
