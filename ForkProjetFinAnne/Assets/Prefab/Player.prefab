@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44df24f73a6b17941a892063315d0bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 0.2
   speedDash: 5
   dashingDebug: 0
   coolDown: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb47be95260bc2449c3dcebe744549a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1890362828480037809
 MonoBehaviour:
   m_ObjectHideFlags: 0

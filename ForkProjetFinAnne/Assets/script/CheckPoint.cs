@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    DeadFirstCheckPoint deadFirstCheckPoint;
+    Health health;
 
     private void Start()
     {
-        deadFirstCheckPoint = GameObject.Find("deadFirstCheckPoint").GetComponent<DeadFirstCheckPoint>();
+        health = GameObject.Find("Respawn1").GetComponent<Health>();
     }
 
     private void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "player")
         {
-            deadFirstCheckPoint.respawnPosition = gameObject.transform.position;
+            health.respawnPosition = gameObject.transform.position;
         }
     }
 }

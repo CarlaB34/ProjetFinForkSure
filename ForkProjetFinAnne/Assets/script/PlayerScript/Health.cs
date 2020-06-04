@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
     private int playerhealth = 3;
     ///public static bool isDash;
     private Shield shield;
-    public Vector3 respawnPosition;
+    
 
     private void Start()
     {
@@ -60,6 +60,7 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
             //SceneManager.LoadScene("StartMenu"); 
             SceneManager.LoadScene("Defeat");
+            
         }
 
     }
