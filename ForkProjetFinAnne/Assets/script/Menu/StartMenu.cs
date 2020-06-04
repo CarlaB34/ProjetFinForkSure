@@ -14,6 +14,6 @@ public class StartMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("TestRoom");
+        SceneManager.LoadScene("LoadingScene");
     }
 }
