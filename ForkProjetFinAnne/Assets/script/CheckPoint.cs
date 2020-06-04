@@ -11,15 +11,13 @@ public class CheckPoint : MonoBehaviour
         health = GameObject.Find("Respawn1").GetComponent<Health>();
     }
 
-<<<<<<< HEAD
-    
-=======
+
     private void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "player")
         {
             health.respawnPosition = gameObject.transform.position;
         }
-    }*/
->>>>>>> Test
+    }
+    */
 }
