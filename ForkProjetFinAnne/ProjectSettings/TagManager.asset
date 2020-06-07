@@ -7,6 +7,8 @@ TagManager:
   - wall
   - player
   - pike
+  - PPShield
+  - shield
   layers:
   - Default
   - TransparentFX
@@ -28,8 +30,8 @@ TagManager:
   - boss
   - door1
   - IA
-  - 
-  - 
+  - PP
+  - shield
   - 
   - 
   - 

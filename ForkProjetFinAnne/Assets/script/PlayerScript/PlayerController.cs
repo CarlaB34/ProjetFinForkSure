@@ -22,8 +22,6 @@ public class PlayerController : MonoBehaviour
     protected float startCoolDown2 = 0.5f;
 
     public Slider sliderDash;
-   // public float distanceBetweenImage;
-   // private float lastImageXpos;
     #endregion
 
     private float moveVelocity;
@@ -63,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
 
@@ -103,8 +102,8 @@ public class PlayerController : MonoBehaviour
 
         //Left Movement + dash
 
-        //remonte la bar
-        sliderDash.value += Time.deltaTime;
+        
+        
 
          if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
          {
@@ -150,7 +149,11 @@ public class PlayerController : MonoBehaviour
 
             }
         }
-       
+       else
+       {
+            //remonte la bar
+            sliderDash.value += Time.deltaTime;
+       }
         //dash gauche
         if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
         {
@@ -172,6 +175,11 @@ public class PlayerController : MonoBehaviour
                 dashing = false;
 
             }
+        }
+        else
+        {
+            //remonte la bar
+            sliderDash.value += Time.deltaTime;
         }
 
 

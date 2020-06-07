@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
+    private void Update()
+    {
+        Cursor.visible = true;
+    }
     public void QuitGame()
     {
         Debug.Log("Quit");
@@ -14,6 +18,12 @@ public class StartMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("TestRoom");
+        SceneManager.LoadScene("LoadingScene");
+    }
+
+    public void LoadMenu()
+    {
+        Time.timeScale = 1f;
+            SceneManager.LoadScene("StartMenu");
     }
 }
