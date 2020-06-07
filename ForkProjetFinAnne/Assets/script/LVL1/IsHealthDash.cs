@@ -4,17 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class Health : MonoBehaviour
+public class IsHealthDash : MonoBehaviour
 {
     public int playerhealth = 3;
     ///public static bool isDash;
-    private Shield shield;
+   
     
 
-    private void Start()
-    {
-        shield = GetComponent<Shield>();
-    }
     public void Update() // la vie est cap a 2hp
     {
         if (playerhealth > 3)
@@ -32,14 +28,9 @@ public class Health : MonoBehaviour
         {
             Debug.Log("bouclier desactiver");
             //bouclier(boolean) activer ne prend pas de degat
-            if (!shield.ActiveShield)
-            {
+            
                 Debug.Log("vous prenez 1 degat");
                 playerhealth -= 1;
-            }
-            //desactive le bouclier, il disparait et on prend des degat
-            shield.shield.SetActive(false);
-            shield.ActiveShield = false;
 
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && !Dash.dashing)

@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     private float moveVelocity;
-    public GameObject playerView;
+    public static GameObject playerView;
 
     public Vector3 jump;
     public float jumpForce = 2.0f;

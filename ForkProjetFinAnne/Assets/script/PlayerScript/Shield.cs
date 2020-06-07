@@ -61,7 +61,7 @@ public class Shield : MonoBehaviour
     }
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == "PPShield")
+        if (col.gameObject.tag == "PPShield2")
         {
             Debug.Log("toucher");
             uiText.SetActive(true);
@@ -72,7 +72,7 @@ public class Shield : MonoBehaviour
 
     private void OnCollisionExit(Collision col)
     {
-        if (col.gameObject.tag == "PPShield")
+        if (col.gameObject.tag == "PPShield2")
         {
             uiText.SetActive(false);
             sliderShield.gameObject.SetActive(true);
