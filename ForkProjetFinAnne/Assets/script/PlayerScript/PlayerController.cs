@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float coolDown = 0f;
     protected float startCoolDown = 0.5f;
     public float coolDown2 = 0f;
+<<<<<<< Updated upstream
     protected float startCoolDown2 = 0.5f;
 
     public Slider sliderDash;
@@ -27,6 +28,10 @@ public class PlayerController : MonoBehaviour
 
     private float moveVelocity;
     public GameObject playerView;
+=======
+    private float startCoolDown2 = 0.3f;
+    private static int HPBOSS;
+>>>>>>> Stashed changes
 
     public Vector3 jump;
     public float jumpForce = 2.0f;
@@ -36,6 +41,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
 
     //Grounded Vars
+<<<<<<< Updated upstream
     private Vector3 moveDirection = Vector3.right;
     public Vector3 spawnSpot = new Vector3(-6.36f, 4.88f, -0.56f);
     public Vector3 spawnSpot2 = new Vector3(8.29f, 5.1f, -0.56f);
@@ -43,6 +49,17 @@ public class PlayerController : MonoBehaviour
     public GameObject Key1;
     public GameObject Key2;
     public GameObject Key3;
+=======
+    private Vector3 moveDirection = Vector3.zero;
+    public Vector3 spawnSpot = new Vector3(-9.47f, 13.35f,0.41f);
+    public Vector3 spawnSpot2 = new Vector3(-2.4f, 13.35f, 0.18f);
+    public Vector3 spawnSpot3 = new Vector3(3.327f, 14.2f, 0.281f);
+    public Vector3 spawnSpot4 = new Vector3(16.44f, 11.64f, 0.72f);
+    public GameObject Key1;
+    public GameObject Key2;
+    public GameObject Key3;
+    public GameObject Sphere;
+>>>>>>> Stashed changes
 
     private void Start()
     {
@@ -70,7 +87,11 @@ public class PlayerController : MonoBehaviour
    
     void Update()
     {
+        
+        
+            HPBOSS = boss.hp; // recuperation de la variable Key dans PlayerController pour l'utiliser dans ce script
 
+        
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && rb.velocity.y <= 0) // jump
         {
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
@@ -175,9 +196,15 @@ public class PlayerController : MonoBehaviour
             Key += 1;
 
         }
+
+        if (HPBOSS == 0)
+        {
+            GameObject Player = (GameObject)Instantiate(Sphere, new Vector3(16.44f, 11.64f, 0.72f), transform.rotation);
+        }
         if (collision.gameObject.layer == LayerMask.NameToLayer("pike"))
         {
             Kill += 1;
+            
             if (Kill == 1)
             {
                 GameObject Player = (GameObject)Instantiate(Key1, new Vector3(-6.36f, 4.88f, -0.56f), transform.rotation);

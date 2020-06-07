@@ -6,7 +6,7 @@ public class boss : MonoBehaviour
 {
     Rigidbody rb;
     public float distance;
-    public Transform target; 
+    public Transform target;
     //Rango de distancias  
     public float lookAtDistance = 15.0f;
     public float attackRange = 10.0f;
@@ -18,11 +18,11 @@ public class boss : MonoBehaviour
     public int jumpYSpeed = 50;
     public int jumpZSpeed = 10;
 
-
+    public static int hp = 1; 
     public float damping = 6.0f;
     public bool grounded = false;
-     
-public float maxSlope = 60; //grados limite de inclinacion de superficie desde la cual es posible saltar
+
+    public float maxSlope = 60; //grados limite de inclinacion de superficie desde la cual es posible saltar
 
     private void Start()
     {
@@ -43,7 +43,7 @@ public float maxSlope = 60; //grados limite de inclinacion de superficie desde l
         }
 
         if (distance < jumpRangeMin && distance > jumpRangeMax)
-    {
+        {
             Jump();
         }
     }
@@ -60,27 +60,37 @@ public float maxSlope = 60; //grados limite de inclinacion de superficie desde l
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 
-  void Jump()
+    void Jump()
     {
         if (grounded)
         {
-             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
         }
 
     }
     //Detects ground till maxSlope and set grounded to true or false
-    void OnCollisionStay(Collision  collision)
+    void OnCollisionStay(Collision collision)
     {
         //for (var contact  ContactPoint in collision.contacts)
         {
             //if (Vector3.Angle(contact.normal, Vector3.up) < maxSlope)  //si el angulo de contacto es menor que maxSlope
-                grounded = true;                                       //setea grounded como true
+            grounded = true;                                       //setea grounded como true
         }
     }
-
-    void OnCollisionExit()
+    void OnCollisionEnter(Collision collision)
     {
-        grounded = false;                                             //si no está colisionando es false
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+
+        {
+            //Destroy(gameObject);
+
+            hp -= 1;
+
+        }
+        
     }
 }
+    
+
 
