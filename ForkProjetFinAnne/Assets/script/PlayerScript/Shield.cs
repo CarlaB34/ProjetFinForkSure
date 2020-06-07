@@ -31,7 +31,7 @@ public class Shield : MonoBehaviour
 
     void Update()
     { 
-        if ( Input.GetKeyDown(KeyCode.B)  && collide && sliderShield.value == sliderShield.maxValue)
+        if ( Input.GetKeyDown(KeyCode.C)  && collide && sliderShield.value == sliderShield.maxValue)
         {
             sliderShield.gameObject.SetActive(true);
             if (!activeShield)

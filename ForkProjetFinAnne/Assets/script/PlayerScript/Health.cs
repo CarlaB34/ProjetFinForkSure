@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    private int playerhealth = 3;
+    public int playerhealth = 3;
     ///public static bool isDash;
     private Shield shield;
     
@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
 
 
     }
-    void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
+   public void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
     {
         // if(!shield.ActiveShield)
         //{
@@ -59,9 +59,8 @@ public class Health : MonoBehaviour
             Debug.Log("vous etes mort");
             Destroy(gameObject);
             //SceneManager.LoadScene("StartMenu"); 
-           // SceneManager.LoadScene("Defeat");
-            SceneManager.LoadScene("TestRoomLvl1");
-            
+            SceneManager.LoadScene("Defeat");
+
         }
 
     }

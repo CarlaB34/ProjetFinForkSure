@@ -32,11 +32,12 @@ public class PlayerController : MonoBehaviour
     public static int Key = 0;
     public bool isGrounded;
     Rigidbody rb;
+   // Color color;
+   
 
     //Grounded Vars
     private Vector3 moveDirection = Vector3.right;
-
-
+  
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -44,8 +45,7 @@ public class PlayerController : MonoBehaviour
 
         //la valeur du slide commencera a chaque parti a sa valeur max
         sliderDash.value = sliderDash.maxValue;
-
-        
+ 
     }
 
     #region OnCollision
@@ -200,7 +200,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector3.zero;
             //dashing = false;
         }
-
+       
     }
 
 
