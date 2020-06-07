@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - wall
+  - player
+  - pike
+  - PPShield
+  - shield
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - ground
+  - Player
+  - door
+  - "cl\xE9"
+  - pike
+  - heal
+  - wall
+  - "cl\xE92"
+  - PostProcessTest
+  - boss
+  - door1
+  - IA
+  - PP
+  - shield
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2926870797
+    locked: 0
+  - name: player
+    uniqueID: 44431243
+    locked: 0
