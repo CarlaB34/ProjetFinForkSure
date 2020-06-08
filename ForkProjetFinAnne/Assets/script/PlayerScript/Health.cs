@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    private int playerhealth = 3;
+    public int playerhealth = 3;
     ///public static bool isDash;
-   
+    private Shield shield;
     
 
-    
+    private void Start()
+    {
+        shield = GetComponent<Shield>();
+    }
     public void Update() // la vie est cap a 2hp
     {
         if (playerhealth > 3)
@@ -21,21 +24,25 @@ public class Health : MonoBehaviour
 
 
     }
-    void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
+   public void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
     {
         // if(!shield.ActiveShield)
         //{
-        if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && !PlayerController.dashing)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && !Dash.dashing)
         {
-            
+            Debug.Log("bouclier desactiver");
+            //bouclier(boolean) activer ne prend pas de degat
+            if (!shield.ActiveShield)
             {
                 Debug.Log("vous prenez 1 degat");
                 playerhealth -= 1;
             }
-            
+            //desactive le bouclier, il disparait et on prend des degat
+            shield.shield.SetActive(false);
+            shield.ActiveShield = false;
 
         }
-        if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && !PlayerController.dashing)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && !Dash.dashing)
         {
             Debug.Log("vous prenez 1 degat");
             playerhealth -= 1;
@@ -53,7 +60,7 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
             //SceneManager.LoadScene("StartMenu"); 
             SceneManager.LoadScene("Defeat");
-            
+
         }
 
     }

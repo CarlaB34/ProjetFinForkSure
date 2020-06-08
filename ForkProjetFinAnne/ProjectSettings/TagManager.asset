@@ -9,6 +9,7 @@ TagManager:
   - pike
   - PPShield
   - shield
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
