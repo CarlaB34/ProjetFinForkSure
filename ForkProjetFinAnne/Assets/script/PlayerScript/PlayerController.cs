@@ -30,12 +30,20 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 2.0f;
 
     public static int Key = 0;
+    public int Kill = 0;
     public bool isGrounded;
     Rigidbody rb;
-   // Color color;
-   
+    // Color color;
+
 
     //Grounded Vars
+    
+    
+    public Vector3 spawnSpot2 = new Vector3(8.52f, 5.22f, -0.85f);
+    public Vector3 spawnSpot3 = new Vector3(20.383f, 7.872f, -0.85f);
+    
+    public GameObject Key2;
+    public GameObject Key3; 
     private Vector3 moveDirection = Vector3.right;
   
     private void Start()
@@ -80,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
          if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
          {
-            playerView.transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+            playerView.transform.rotation = Quaternion.Euler(0, -90, 0 * speed);
             GetComponent<Rigidbody>().AddForce(moveDirection * -speed, ForceMode.Impulse);
             //dash
             //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
@@ -91,7 +99,7 @@ public class PlayerController : MonoBehaviour
     
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            playerView.transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
+            playerView.transform.rotation = Quaternion.Euler(0, 90, 0 * speed);
             GetComponent<Rigidbody>().AddForce(moveDirection * speed, ForceMode.Impulse);
             //dash
             dashing = true;
@@ -104,7 +112,7 @@ public class PlayerController : MonoBehaviour
         //dash droite
         if (Input.GetKeyDown(KeyCode.E) && sliderDash.value == sliderDash.maxValue)
         {
-            playerView.transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
+            playerView.transform.rotation = Quaternion.Euler(0, 90, 0 * speed);
             dashing = true;
             GetComponent<Rigidbody>().AddForce(moveDirection * speedDash, ForceMode.Impulse);
             Dash();
@@ -130,7 +138,7 @@ public class PlayerController : MonoBehaviour
         //dash gauche
         if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
         {
-            playerView.transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+            playerView.transform.rotation = Quaternion.Euler(0, -90, 0 * speed);
             dashing = true;
             GetComponent<Rigidbody>().AddForce(moveDirection * -speedDash, ForceMode.Impulse);
             
@@ -176,6 +184,19 @@ public class PlayerController : MonoBehaviour
         {
             Key += 1;
 
+        }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("pike"))
+        {
+            Kill += 1;
+            
+            if (Kill == 2)
+            {
+                GameObject Player = (GameObject)Instantiate(Key2, new Vector3(8.52f, 5.22f, -0.85f), transform.rotation);
+            }
+            if (Kill == 3)
+            {
+                GameObject Player = (GameObject)Instantiate(Key3, new Vector3(20.383f, 7.872f, -0.85f), transform.rotation);
+            }
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
         {
