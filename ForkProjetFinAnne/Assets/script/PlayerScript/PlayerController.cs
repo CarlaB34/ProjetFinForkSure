@@ -16,15 +16,15 @@ public class PlayerController : MonoBehaviour
     public bool dashingDebug;
 
     public float coolDown = 0f;
-    protected float startCoolDown = 0.5f;
+    protected float startCoolDown = 1f;
     public float coolDown2 = 0f;
-    protected float startCoolDown2 = 0.5f;
+    protected float startCoolDown2 =1f;
 
     public Slider sliderDash;
     #endregion
 
     private float moveVelocity;
-    public static GameObject playerView;
+    public  GameObject playerView;
 
     public Vector3 jump;
     public float jumpForce = 2.0f;
