@@ -21,12 +21,10 @@ public class PlayerController : MonoBehaviour
     protected float startCoolDown2 = 0.5f;
 
     public Slider sliderDash;
-   // public float distanceBetweenImage;
-   // private float lastImageXpos;
     #endregion
 
     private float moveVelocity;
-    public GameObject playerView;
+    public static GameObject playerView;
 
     public Vector3 jump;
     public float jumpForce = 2.0f;
@@ -34,11 +32,12 @@ public class PlayerController : MonoBehaviour
     public static int Key = 0;
     public bool isGrounded;
     Rigidbody rb;
+   // Color color;
+   
 
     //Grounded Vars
     private Vector3 moveDirection = Vector3.right;
-
-
+  
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -46,8 +45,7 @@ public class PlayerController : MonoBehaviour
 
         //la valeur du slide commencera a chaque parti a sa valeur max
         sliderDash.value = sliderDash.maxValue;
-
-        
+ 
     }
 
     #region OnCollision
@@ -77,8 +75,8 @@ public class PlayerController : MonoBehaviour
 
         //Left Movement + dash
 
-        //remonte la bar
-        sliderDash.value += Time.deltaTime;
+        
+        
 
          if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
          {
@@ -124,7 +122,11 @@ public class PlayerController : MonoBehaviour
 
             }
         }
-       
+       else
+       {
+            //remonte la bar
+            sliderDash.value += Time.deltaTime;
+       }
         //dash gauche
         if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
         {
@@ -146,6 +148,11 @@ public class PlayerController : MonoBehaviour
                 dashing = false;
 
             }
+        }
+        else
+        {
+            //remonte la bar
+            sliderDash.value += Time.deltaTime;
         }
 
 
@@ -193,7 +200,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector3.zero;
             //dashing = false;
         }
-
+       
     }
 
 
