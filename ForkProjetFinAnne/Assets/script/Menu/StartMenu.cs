@@ -17,7 +17,7 @@ public class StartMenu : MonoBehaviour
         SceneManager.LoadScene("TestRoomLvl1");
     }
 
-    public void LoadMenu()
+    public void ReturnMenu()
     {
         Time.timeScale = 1f;
       //  GameIsPaused = false;
