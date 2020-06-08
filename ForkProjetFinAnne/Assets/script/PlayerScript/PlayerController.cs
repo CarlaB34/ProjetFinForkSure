@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
          if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
          {
-            playerView.transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+            playerView.transform.rotation = Quaternion.Euler(0, -90, 0 * speed);
             GetComponent<Rigidbody>().AddForce(moveDirection * -speed, ForceMode.Impulse);
             //dash
             //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
     
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            playerView.transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
+            playerView.transform.rotation = Quaternion.Euler(0, 90, 0 * speed);
             GetComponent<Rigidbody>().AddForce(moveDirection * speed, ForceMode.Impulse);
             //dash
             dashing = true;
@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
         //dash droite
         if (Input.GetKeyDown(KeyCode.E) && sliderDash.value == sliderDash.maxValue)
         {
-            playerView.transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
+            playerView.transform.rotation = Quaternion.Euler(0, 90, 0 * speed);
             dashing = true;
             GetComponent<Rigidbody>().AddForce(moveDirection * speedDash, ForceMode.Impulse);
             Dash();
@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
         //dash gauche
         if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
         {
-            playerView.transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+            playerView.transform.rotation = Quaternion.Euler(0, -90, 0 * speed);
             dashing = true;
             GetComponent<Rigidbody>().AddForce(moveDirection * -speedDash, ForceMode.Impulse);
             
