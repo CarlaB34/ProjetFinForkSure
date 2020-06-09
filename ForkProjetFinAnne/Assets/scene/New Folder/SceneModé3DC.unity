@@ -4037,7 +4037,6 @@ MonoBehaviour:
   moveSpeed: 2
   maxDistance: 1
   jumpHeight: 0.5
-  IAhealth: 2
 --- !u!54 &591364840
 Rigidbody:
   m_ObjectHideFlags: 0

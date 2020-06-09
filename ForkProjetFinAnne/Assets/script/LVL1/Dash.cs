@@ -49,7 +49,7 @@ public class Dash : MonoBehaviour
             {
                 //shield.SetActive(true);
                 activeDash = true;
-               movePlayer.playerView.transform.rotation = Quaternion.Euler(0, 0, 0 * movePlayer.speed);
+               movePlayer.playerView.transform.rotation = Quaternion.Euler(0, 90, 0 * movePlayer.speed);
                 dashinG = true;
                 GetComponent<Rigidbody>().AddForce(moveDirection * speedDash, ForceMode.Impulse);
             }
@@ -85,7 +85,7 @@ public class Dash : MonoBehaviour
             {
                 //shield.SetActive(true);
                 activeDash = true;
-                movePlayer.playerView.transform.rotation = Quaternion.Euler(0, -180, 0 * movePlayer.speed);
+                movePlayer.playerView.transform.rotation = Quaternion.Euler(0, -90, 0 * movePlayer.speed);
                 dashinG = true;
                 GetComponent<Rigidbody>().AddForce(moveDirection * -speedDash, ForceMode.Impulse);
             }
