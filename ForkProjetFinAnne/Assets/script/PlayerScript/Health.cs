@@ -1,19 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using System;
 
 public class Health : MonoBehaviour
 {
     public int playerhealth = 3;
     ///public static bool isDash;
     private Shield shield;
-    
+   public Image spr;
+    public Image spr1;
+    public Image spr2;
+    //public Image[] sprite;
 
     private void Start()
     {
         shield = GetComponent<Shield>();
+        // spr = GetComponent<Sprite>();
+        spr.gameObject.SetActive(true);
+        spr1.gameObject.SetActive(true);
+        spr2.gameObject.SetActive(true);
+       // sprite = new Image[3];
     }
     public void Update() // la vie est cap a 2hp
     {
@@ -30,16 +39,22 @@ public class Health : MonoBehaviour
         //{
         if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && !Dash.dashing)
         {
-            //sDebug.Log("bouclier desactiver");
+            Debug.Log("bouclier desactiver");
             //bouclier(boolean) activer ne prend pas de degat
-            //if (!shield.ActiveShield)
-            // {
-            //Debug.Log("vous prenez 1 degat");
-            // playerhealth -= 1;
-            //}
+            if (!shield.ActiveShield)
+            {
+                Debug.Log("vous prenez 1 degat");
+                playerhealth -= 1;
+                    spr.gameObject.SetActive(false);
+                    spr1.gameObject.SetActive(false);
+                    spr2.gameObject.SetActive(false);
+                
+                //sprite = new Image[2];
+               
+            }
             //desactive le bouclier, il disparait et on prend des degat
-            // shield.shield.SetActive(false);
-            //shield.ActiveShield = false;::
+            shield.shield.SetActive(false);
+            shield.ActiveShield = false;
 
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && !Dash.dashing)

@@ -21,7 +21,7 @@ public class StartMenu : MonoBehaviour
         SceneManager.LoadScene("LoadingScene");
     }
 
-    public void LoadMenu()
+    public void ReturnMenu()
     {
         Time.timeScale = 1f;
             SceneManager.LoadScene("StartMenu");
