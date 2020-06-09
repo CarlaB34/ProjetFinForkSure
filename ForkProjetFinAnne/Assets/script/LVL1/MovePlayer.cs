@@ -23,7 +23,7 @@ public class MovePlayer : MonoBehaviour
 
 
     //Grounded Vars
-    private Vector3 moveDirection = Vector3.right;
+    public  Vector3 moveDirection = Vector3.right;
     Dash dash;
 
     private void Start()
@@ -72,7 +72,7 @@ public class MovePlayer : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(moveDirection * -speed, ForceMode.Impulse);
             //dash
             //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
-            Dash.dashinG = true;
+            Dash.dashinG = false;
 
 
         }
@@ -82,7 +82,7 @@ public class MovePlayer : MonoBehaviour
             playerView.transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
             GetComponent<Rigidbody>().AddForce(moveDirection * speed, ForceMode.Impulse);
             //dash
-            Dash.dashinG = true;
+            Dash.dashinG = false;
         }
         Vector3 velocity = GetComponent<Rigidbody>().velocity;
 

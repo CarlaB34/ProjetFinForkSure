@@ -23,7 +23,7 @@ public class Dash : MonoBehaviour
     public bool activeDash;
     bool collide = false;
     public GameObject uiText;
-    private Vector3 moveDirection = Vector3.right;
+    //private Vector3 moveDirection = Vector3.right;
 
     private MovePlayer movePlayer;
     private void Start()
@@ -51,7 +51,7 @@ public class Dash : MonoBehaviour
                 activeDash = true;
                movePlayer.playerView.transform.rotation = Quaternion.Euler(0, 0, 0 * movePlayer.speed);
                 dashinG = true;
-                GetComponent<Rigidbody>().AddForce(moveDirection * speedDash, ForceMode.Impulse);
+                GetComponent<Rigidbody>().AddForce(movePlayer.moveDirection * speedDash, ForceMode.Impulse);
             }
             
             Dashing();
@@ -87,7 +87,7 @@ public class Dash : MonoBehaviour
                 activeDash = true;
                 movePlayer.playerView.transform.rotation = Quaternion.Euler(0, -180, 0 * movePlayer.speed);
                 dashinG = true;
-                GetComponent<Rigidbody>().AddForce(moveDirection * -speedDash, ForceMode.Impulse);
+                GetComponent<Rigidbody>().AddForce(movePlayer.moveDirection * -speedDash, ForceMode.Impulse);
             }
             //scrollbar
             Dashing();
