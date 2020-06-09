@@ -25,9 +25,11 @@ public class PlayerController : MonoBehaviour
 
     private float moveVelocity;
     public GameObject playerView;
+  
 
     public Vector3 jump;
     public float jumpForce = 2.0f;
+
 
     public static int Key = 0;
     public int Kill = 0;
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
+      
 
         //la valeur du slide commencera a chaque parti a sa valeur max
         sliderDash.value = sliderDash.maxValue;
@@ -84,9 +87,9 @@ public class PlayerController : MonoBehaviour
         //Left Movement + dash
 
         
-        
 
-         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
+
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
          {
             playerView.transform.rotation = Quaternion.Euler(0, -90, 0 * speed);
             GetComponent<Rigidbody>().AddForce(moveDirection * -speed, ForceMode.Impulse);
