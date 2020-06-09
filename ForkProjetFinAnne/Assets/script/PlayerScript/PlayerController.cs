@@ -39,8 +39,8 @@ public class PlayerController : MonoBehaviour
     //Grounded Vars
     
     
-    public Vector3 spawnSpot2 = new Vector3(8.52f, 5.22f, -0.85f);
-    public Vector3 spawnSpot3 = new Vector3(20.383f, 7.872f, -0.85f);
+    public Vector3 spawnSpot2 = new Vector3(8.52f, 5.22f, -1.742f);
+    public Vector3 spawnSpot3 = new Vector3(20.383f, 7.872f, -1.742f);
     
     public GameObject Key2;
     public GameObject Key3; 
@@ -191,11 +191,11 @@ public class PlayerController : MonoBehaviour
             
             if (Kill == 2)
             {
-                GameObject Player = (GameObject)Instantiate(Key2, new Vector3(8.52f, 5.22f, -0.85f), transform.rotation);
+                GameObject Player = (GameObject)Instantiate(Key2, new Vector3(8.52f, 5.22f, -1.742f), transform.rotation);
             }
             if (Kill == 3)
             {
-                GameObject Player = (GameObject)Instantiate(Key3, new Vector3(20.383f, 7.872f, -0.85f), transform.rotation);
+                GameObject Player = (GameObject)Instantiate(Key3, new Vector3(20.383f, 7.872f, -1.742f), transform.rotation);
             }
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 

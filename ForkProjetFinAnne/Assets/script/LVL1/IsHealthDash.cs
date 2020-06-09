@@ -23,7 +23,7 @@ public class IsHealthDash : MonoBehaviour
    public void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
     {
        
-        if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && !PlayerController.dashing)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && !Dash.dashinG)
         {
             
                 Debug.Log("vous prenez 1 degat");
