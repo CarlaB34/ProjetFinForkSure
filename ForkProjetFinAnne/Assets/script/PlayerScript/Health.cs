@@ -10,19 +10,13 @@ public class Health : MonoBehaviour
     public int playerhealth = 3;
     ///public static bool isDash;
     private Shield shield;
-   //public Image spr;
-   // public Image spr1;
-   // public Image spr2;
+
     public Image[] sprite;
 
     private void Start()
     {
         shield = GetComponent<Shield>();
-        // spr = GetComponent<Sprite>();
-        //spr.gameObject.SetActive(true);
-        //spr1.gameObject.SetActive(true);
-        //spr2.gameObject.SetActive(true);
-        
+   
     }
     public void Update() // la vie est cap a 2hp
     {
@@ -37,21 +31,16 @@ public class Health : MonoBehaviour
     {
         // if(!shield.ActiveShield)
         //{
-        if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && !Dash.dashing)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("pike") && !PlayerController.dashing)
         {
             Debug.Log("bouclier desactiver");
             //bouclier(boolean) activer ne prend pas de degat
             if (!shield.ActiveShield)
             {
                 Debug.Log("vous prenez 1 degat");
-                
-                UpdateLife(-1);
-                
-                    //spr.gameObject.SetActive(false);
-                    //spr1.gameObject.SetActive(false);
-                    //spr2.gameObject.SetActive(false);
-
-
+                playerhealth -= 1;
+                UpdateLifeUI();
+                // UpdateLife(-1);
 
             }
             //desactive le bouclier, il disparait et on prend des degat
@@ -59,17 +48,21 @@ public class Health : MonoBehaviour
             shield.ActiveShield = false;
 
         }
-        if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && !Dash.dashing)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && !PlayerController.dashing)
         {
             Debug.Log("vous prenez 1 degat");
-            UpdateLife(-1);
+            //UpdateLife(-1);
+            playerhealth -= 1;
+            UpdateLifeUI();
         }
         // }
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("heal")) // on gagne un point de vie quand on rammasse un heal
         {
             Debug.Log("vous avez recupéré un point de vie");
-            UpdateLife(1);
+            //UpdateLife(1);
+            playerhealth += 1;
+            UpdateLifeUI();
         }
         if (playerhealth == 0) // si vie = 0 on meurt
         {
@@ -82,11 +75,11 @@ public class Health : MonoBehaviour
 
     }
 
-    private void UpdateLife(int addAmount) //ajoute une valeur a playerHealth
-    {
-        playerhealth += addAmount;
-        UpdateLifeUI();
-    }
+    //private void UpdateLife(int addAmount) //ajoute une valeur a playerHealth
+    //{
+    //    playerhealth += addAmount;
+    //    UpdateLifeUI();
+    //}
     private void UpdateLifeUI()
     {
         for(int i = 0; i < sprite.Length; i++)
