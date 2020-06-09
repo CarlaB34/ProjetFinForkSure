@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     public int playerhealth = 3;
     ///public static bool isDash;
     private Shield shield;
+    public static int mort = 0;
 
     public Image[] sprite;
 
@@ -62,6 +63,7 @@ public class Health : MonoBehaviour
         if (playerhealth == 0) // si vie = 0 on meurt
         {
             Debug.Log("vous etes mort");
+            mort = 1;
             Destroy(gameObject);
             //SceneManager.LoadScene("StartMenu"); 
             SceneManager.LoadScene("Defeat");

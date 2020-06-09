@@ -5,6 +5,7 @@ using UnityEngine;
 public class Anim : MonoBehaviour
 {
     private Animator anim;
+    private static int mort = Health.mort;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,10 @@ public class Anim : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyUp(KeyCode.A))
         {
             anim.SetTrigger("Dash");
+        }
+        if (mort == 1)
+        {
+            anim.SetTrigger("Mort");
         }
 
     }
