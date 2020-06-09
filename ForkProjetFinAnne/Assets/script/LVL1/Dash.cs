@@ -9,7 +9,7 @@ public class Dash : MonoBehaviour
     //dash
     //public float speed = 0.2f;
     public float speedDash = 5;
-    public static bool dashing = false;
+    public static bool dashinG = false;
     public bool dashingDebug;
 
     public float coolDown = 0f;
@@ -50,7 +50,7 @@ public class Dash : MonoBehaviour
                 //shield.SetActive(true);
                 activeDash = true;
                movePlayer.playerView.transform.rotation = Quaternion.Euler(0, 0, 0 * movePlayer.speed);
-                dashing = true;
+                dashinG = true;
                 GetComponent<Rigidbody>().AddForce(moveDirection * speedDash, ForceMode.Impulse);
             }
             
@@ -58,14 +58,14 @@ public class Dash : MonoBehaviour
 
 
         }
-        if (activeDash == true && dashing == true)
+        if (activeDash == true && dashinG == true)
         {
             coolDown2 -= 1 * Time.deltaTime;
 
             if (coolDown2 <= 0)
             {
                 coolDown2 = 0;
-                dashing = false;
+                dashinG = false;
                 // shield.SetActive(false);
                 activeDash = false;
                 uiText.SetActive(false);
@@ -86,13 +86,13 @@ public class Dash : MonoBehaviour
                 //shield.SetActive(true);
                 activeDash = true;
                 movePlayer.playerView.transform.rotation = Quaternion.Euler(0, -180, 0 * movePlayer.speed);
-                dashing = true;
+                dashinG = true;
                 GetComponent<Rigidbody>().AddForce(moveDirection * -speedDash, ForceMode.Impulse);
             }
             //scrollbar
             Dashing();
         }
-        if (activeDash == true && dashing == true)
+        if (activeDash == true && dashinG == true)
         {
             //le dash continu pendant 0.05 sec puis s'arrete, probleme sauter et dash pour tuer un pike = marche 1 fois sur deux
             coolDown -= 1 * Time.deltaTime;
@@ -100,7 +100,7 @@ public class Dash : MonoBehaviour
             if (coolDown <= 0)
             {
                 coolDown = 0;
-                dashing = false;
+                dashinG = false;
                 activeDash = false;
                 uiText.SetActive(false);
             }
@@ -112,7 +112,7 @@ public class Dash : MonoBehaviour
         }
 
 
-        dashingDebug = dashing;
+        dashingDebug = dashinG;
 
     }
 
