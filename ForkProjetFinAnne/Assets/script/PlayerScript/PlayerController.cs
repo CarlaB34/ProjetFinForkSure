@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 jump;
     public float jumpForce = 2.0f;
-
+    private static int Bosshealth;
     public static int Key = 0;
     public int Kill = 0;
     public bool isGrounded;
@@ -41,9 +41,10 @@ public class PlayerController : MonoBehaviour
     
     public Vector3 spawnSpot2 = new Vector3(8.52f, 5.22f, -1.742f);
     public Vector3 spawnSpot3 = new Vector3(20.383f, 7.872f, -1.742f);
-    
+    public Vector3 spawnSpot4 = new Vector3(4.451f, -0.92f, -2f);
     public GameObject Key2;
-    public GameObject Key3; 
+    public GameObject Key3;
+    public GameObject color;
     private Vector3 moveDirection = Vector3.right;
   
     private void Start()
@@ -71,6 +72,8 @@ public class PlayerController : MonoBehaviour
    
     void Update()
     {
+        Bosshealth= enemy.IAhealth;
+
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && rb.velocity.y <= 0) // jump
         {
@@ -221,7 +224,11 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector3.zero;
             //dashing = false;
         }
-       
+        if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && Bosshealth == 1)
+        {
+            GameObject Player = (GameObject)Instantiate(color, new Vector3(4.451f, -0.92f, -2f), transform.rotation);
+
+        }
     }
 
 

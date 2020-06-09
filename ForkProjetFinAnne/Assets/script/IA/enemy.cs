@@ -58,7 +58,7 @@ public class enemy : MonoBehaviour
 
 
     Rigidbody rb;
-   public int IAhealth = 2;
+   public static int IAhealth = 2;
 
     private void Start()
     {
@@ -172,7 +172,7 @@ public class enemy : MonoBehaviour
         {
           ///  Debug.Log("IA est morte");
             Destroy(gameObject);
-            SceneManager.LoadScene("Victory");
+            //SceneManager.LoadScene("Victory");
         }
     }
 
