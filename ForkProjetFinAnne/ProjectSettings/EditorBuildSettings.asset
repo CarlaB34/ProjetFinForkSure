@@ -18,16 +18,16 @@ EditorBuildSettings:
     path: Assets/scene/menu/LoadingScene.unity
     guid: bc9c8cc99e5978542833e06bd1bb1568
   - enabled: 1
-    path: "Assets/scene/SceneMod\xE93D.unity"
+    path: "Assets/scene/SceneMod\xE93DLVL1.unity"
     guid: 9a5c4e547c5f5e54b930980a4ac82cbd
   - enabled: 1
     path: Assets/scene/menu/LoadingScene2.unity
     guid: 08dae2def0aba494e9bcaa6db8643ab5
   - enabled: 0
-    path: Assets/scene/TestRoomLvl1.unity
+    path: Assets/scene/TestRoomLvl1Second.unity
     guid: 2cf1a0c8070d74240a5d2fe49e746dd1
   - enabled: 0
-    path: Assets/scene/TestRoom.unity
+    path: Assets/scene/TestRoomfirst.unity
     guid: 282e4d0d5d7548f4ea9007ce4ffac763
   - enabled: 1
     path: Assets/scene/menu/Defeat.unity
