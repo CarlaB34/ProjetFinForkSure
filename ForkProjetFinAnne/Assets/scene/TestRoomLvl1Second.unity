@@ -8037,7 +8037,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerView
       value: 
-      objectReference: {fileID: 2112827843}
+      objectReference: {fileID: 0}
     - target: {fileID: 7570065270578568258, guid: 7647f00c03ff09d48b0aa5e901ca7016,
         type: 3}
       propertyPath: speed
@@ -8070,12 +8070,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7647f00c03ff09d48b0aa5e901ca7016, type: 3}
---- !u!1 &2112827843 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7576397257837260177, guid: 7647f00c03ff09d48b0aa5e901ca7016,
-    type: 3}
-  m_PrefabInstance: {fileID: 2112827842}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8801592530276392563
 PrefabInstance:
   m_ObjectHideFlags: 0
