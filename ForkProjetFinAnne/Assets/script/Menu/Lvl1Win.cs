@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class StartMenu : MonoBehaviour
+public class Lvl1Win : MonoBehaviour
 {
     private void Update()
     {
@@ -19,12 +19,6 @@ public class StartMenu : MonoBehaviour
     public void Play()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("LoadingScene");
-    }
-
-    public void LoadMenu()
-    {
-        Time.timeScale = 1f;
-            SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene("Lvl2");
     }
 }

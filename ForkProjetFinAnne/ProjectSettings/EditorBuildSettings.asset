@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/scene/menu/LoadingScene.unity
     guid: bc9c8cc99e5978542833e06bd1bb1568
   - enabled: 1
+    path: Assets/scene/Build.unity
+    guid: b962ff104695ef24499a7179644403d2
+  - enabled: 0
     path: "Assets/scene/SceneMod\xE93DLVL1.unity"
     guid: 9a5c4e547c5f5e54b930980a4ac82cbd
   - enabled: 1
@@ -33,6 +36,12 @@ EditorBuildSettings:
     path: Assets/scene/menu/Defeat.unity
     guid: 22fc0ac3251735e42ba50538d85481eb
   - enabled: 1
+    path: Assets/scene/menu/Lvl1Win.unity
+    guid: 82d6130f91bf38b42b5a39692ffad7d0
+  - enabled: 0
     path: Assets/scene/menu/Victory.unity
     guid: 6c6e5b16d5c4c5347b12f6fe2e613564
+  - enabled: 1
+    path: Assets/scene/Niveaux/Lvl2.unity
+    guid: 3a8488da3ceb24d41abce9dc2f417938
   m_configObjects: {}
