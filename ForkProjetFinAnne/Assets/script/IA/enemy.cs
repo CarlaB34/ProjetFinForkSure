@@ -172,6 +172,7 @@ public class enemy : MonoBehaviour
         {
           ///  Debug.Log("IA est morte");
             Destroy(gameObject);
+            SceneManager.LoadScene("Lvl1Win");
             //SceneManager.LoadScene("Victory");
         }
     }

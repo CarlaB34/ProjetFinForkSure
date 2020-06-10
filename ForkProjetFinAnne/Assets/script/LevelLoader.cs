@@ -15,7 +15,7 @@ public class LevelLoader : MonoBehaviour
         slider.value = timeLeft;
         if (timeLeft < 0)
         {
-            SceneManager.LoadScene("SceneModé3D");
+            SceneManager.LoadScene("Build");
         }
     }
 

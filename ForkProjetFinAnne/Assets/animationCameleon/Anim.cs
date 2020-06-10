@@ -6,6 +6,8 @@ public class Anim : MonoBehaviour
 {
     private Animator anim;
     private static int mort = Health.mort;
+    private static int mort2 = IsHealthDash.mort;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,8 +34,8 @@ public class Anim : MonoBehaviour
         {
             anim.SetTrigger("Dash");
         }
-        if (mort == 1)
-        {
+        if (mort2 == 1)
+        {           
             anim.SetTrigger("Mort");
         }
 
