@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using System.Threading;
 
 public class Health : MonoBehaviour
 {
@@ -14,10 +14,12 @@ public class Health : MonoBehaviour
 
     public Image[] sprite;
 
+   
+
     private void Start()
     {
         shield = GetComponent<Shield>();
-
+        
     }
     public void Update() // la vie est cap a 2hp
     {
@@ -26,7 +28,7 @@ public class Health : MonoBehaviour
             playerhealth = 3;
         }
 
-
+       
     }
     public void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
     {

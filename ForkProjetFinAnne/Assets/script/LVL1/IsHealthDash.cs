@@ -10,7 +10,6 @@ public class IsHealthDash : MonoBehaviour
     public int playerhealthLV1 = 3;
     ///public static bool isDash;
     public Image[] sprite;
-
     public void Update() // la vie est cap a 2hp
     {
         if (playerhealthLV1 > 3)
@@ -18,7 +17,7 @@ public class IsHealthDash : MonoBehaviour
             playerhealthLV1 = 3;
         }
 
-
+        
     }
    public void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
     {
@@ -43,10 +42,12 @@ public class IsHealthDash : MonoBehaviour
         }
         if (playerhealthLV1 == 0) // si vie = 0 on meurt
         {
+           
             Debug.Log("vous etes mort");
-            Destroy(gameObject);
+            
+                Destroy(gameObject);
             //SceneManager.LoadScene("StartMenu"); 
-            SceneManager.LoadScene("Defeat");
+         SceneManager.LoadScene("Defeat");
 
         }
 

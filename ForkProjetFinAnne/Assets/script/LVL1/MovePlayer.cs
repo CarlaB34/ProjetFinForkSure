@@ -31,7 +31,7 @@ public class MovePlayer : MonoBehaviour
     public GameObject Key2;
     public GameObject Key3;
     public GameObject color;
-    private Vector3 moveDirection = Vector3.right;
+    public static Vector3 moveDirection = Vector3.right;
     Dash dash;
 
     private void Start()

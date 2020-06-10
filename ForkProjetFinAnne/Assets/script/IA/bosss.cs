@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class bosss : MonoBehaviour
+public class Bosss : MonoBehaviour
 {
     #region move
     /// <summary>The objects initial position.</summary>

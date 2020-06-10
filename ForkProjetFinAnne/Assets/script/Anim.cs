@@ -28,7 +28,7 @@ public class Anim : MonoBehaviour
         {
             anim.SetTrigger("Saut");
         }
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyUp(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.E) && Dash.dashinG|| Input.GetKeyUp(KeyCode.A) && Dash.dashinG)
         {
             anim.SetTrigger("Dash");
         }

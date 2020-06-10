@@ -225,7 +225,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 401343709}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0c002177a26bb2448f6ae940db42e41, type: 3}
+  m_Script: {fileID: 11500000, guid: a29f8de6209d6ab4d9c77f589ca00f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &401343711
@@ -829,18 +829,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1874643086}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Resume
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1874643086
 MonoBehaviour:
   m_ObjectHideFlags: 0

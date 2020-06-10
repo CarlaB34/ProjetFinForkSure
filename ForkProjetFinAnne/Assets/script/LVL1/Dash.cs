@@ -51,7 +51,7 @@ public class Dash : MonoBehaviour
                 activeDash = true;
                movePlayer.playerView.transform.rotation = Quaternion.Euler(0, 90, 0 * movePlayer.speed);
                 dashinG = true;
-                GetComponent<Rigidbody>().AddForce(movePlayer.moveDirection * speedDash, ForceMode.Impulse);
+                GetComponent<Rigidbody>().AddForce(MovePlayer.moveDirection * speedDash, ForceMode.Impulse);
             }
             
             Dashing();
@@ -87,7 +87,7 @@ public class Dash : MonoBehaviour
                 activeDash = true;
                 movePlayer.playerView.transform.rotation = Quaternion.Euler(0, -90, 0 * movePlayer.speed);
                 dashinG = true;
-                GetComponent<Rigidbody>().AddForce(movePlayer.moveDirection * -speedDash, ForceMode.Impulse);
+                GetComponent<Rigidbody>().AddForce(MovePlayer.moveDirection * -speedDash, ForceMode.Impulse);
             }
             //scrollbar
             Dashing();

@@ -5,14 +5,14 @@ using UnityEngine;
 public class enemyHealthLV1 : MonoBehaviour
 {
     //public static bool isDash;
-    private int pikehealth = 1;
+    private int pikeHealth = 1;
 
 
     private void Update()
     {
-        if (pikehealth > 1)
+        if (pikeHealth > 1)
         {
-            pikehealth = 1;
+            pikeHealth = 1;
         }
         //isDash = PlayerController.dashing;
     }
