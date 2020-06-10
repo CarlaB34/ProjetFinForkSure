@@ -25,8 +25,8 @@ public class MovePlayer : MonoBehaviour
 
 
     //Grounded Vars
-    public Vector3 spawnSpot2 = new Vector3(8.52f, 5.22f, -1.742f);
-    public Vector3 spawnSpot3 = new Vector3(20.383f, 7.872f, -1.742f);
+    public Vector3 spawnSpot2 = new Vector3(8.52f, 1.51f, -0.81f);
+    public Vector3 spawnSpot3 = new Vector3(19.5f, 3.63f, -0.81f);
     public Vector3 spawnSpot4 = new Vector3(4.451f, -0.92f, -2f);
     public GameObject Key2;
     public GameObject Key3;
@@ -112,11 +112,11 @@ public class MovePlayer : MonoBehaviour
 
             if (Kill == 2)
             {
-                GameObject Player = (GameObject)Instantiate(Key2, new Vector3(8.52f, 5.22f, -1.742f), transform.rotation);
+                GameObject Player = (GameObject)Instantiate(Key2, new Vector3(8.52f, 1.51f, -0.81f), transform.rotation);
             }
             if (Kill == 3)
             {
-                GameObject Player = (GameObject)Instantiate(Key3, new Vector3(20.383f, 7.872f, -1.742f), transform.rotation);
+                GameObject Player = (GameObject)Instantiate(Key3, new Vector3(19.5f, 3.63f, -0.81f), transform.rotation);
             }
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
