@@ -30,14 +30,14 @@ public class Anim : MonoBehaviour
         //{
             //anim.SetTrigger("Saut");
         //}
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyUp(KeyCode.A))
+       /* if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyUp(KeyCode.A))
         {
             anim.SetTrigger("Dash");
         }
         if (mort2 == 1)
         {           
             anim.SetTrigger("Mort");
-        }
+        }*/
 
     }
 }

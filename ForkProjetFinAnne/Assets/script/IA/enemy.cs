@@ -159,7 +159,7 @@ public class enemy : MonoBehaviour
                 break;
         }
 
-        if (col.gameObject.layer == LayerMask.NameToLayer("Player") && PlayerController.dashing)
+        if (col.gameObject.layer == LayerMask.NameToLayer("Player") && Dash.dashing)
         {
 
            // Debug.Log("l'IA prend 1 degat");
