@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class End : MonoBehaviour
 {
-    float timeLeft = 1.0f;
+    float timeLeft = 5.0f;
 
     void Update()
     {

@@ -131,6 +131,7 @@ public class Dash : MonoBehaviour
             uiText.SetActive(true);
             sliderDash.gameObject.SetActive(true);
             collide = true;
+            dashinG = true;
         }
     }
     private void OnCollisionExit(Collision col)

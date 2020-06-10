@@ -106,7 +106,7 @@ public class MovePlayer : MonoBehaviour
             Key += 1;
 
         }
-        if (collision.gameObject.layer == LayerMask.NameToLayer("pike"))
+        if (Dash.dashinG == true && collision.gameObject.layer == LayerMask.NameToLayer("pike"))
         {
             Kill += 1;
 
@@ -114,10 +114,12 @@ public class MovePlayer : MonoBehaviour
             {
                 GameObject Player = (GameObject)Instantiate(Key2, new Vector3(8.52f, 1.51f, -0.81f), transform.rotation);
             }
+            Dash.dashinG = true;
             if (Kill == 3)
             {
                 GameObject Player = (GameObject)Instantiate(Key3, new Vector3(19.5f, 3.63f, -0.81f), transform.rotation);
             }
+            Dash.dashinG = true;
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
         {
@@ -136,13 +138,13 @@ public class MovePlayer : MonoBehaviour
 
         //col mur with dash
 
-        if (collision.gameObject.name == "wall")// && dashing == true)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("wall"))// && dashing == true)
         {
             Debug.Log("arg un mur!");
             rb.velocity = Vector3.zero;
-            //dashing = false;
+           // Dash.dashinG = false;
         }
-        if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && Bosshealth == 1)
+        if (Dash.dashinG == true && collision.gameObject.layer == LayerMask.NameToLayer("IA") && Bosshealth == 1)
         {
             GameObject Player = (GameObject)Instantiate(color, new Vector3(4.451f, -0.92f, -2f), transform.rotation);
 

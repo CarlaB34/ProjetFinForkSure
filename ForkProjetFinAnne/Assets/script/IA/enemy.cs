@@ -58,7 +58,7 @@ public class enemy : MonoBehaviour
 
 
     Rigidbody rb;
-   public static int IAhealth = 1;
+   public static int IAhealth = 5;
 
     private void Start()
     {
@@ -159,7 +159,7 @@ public class enemy : MonoBehaviour
                 break;
         }
 
-        if (col.gameObject.layer == LayerMask.NameToLayer("Player") && Dash.dashing)
+        if (col.gameObject.layer == LayerMask.NameToLayer("Player") && Dash.dashinG)
         {
 
            // Debug.Log("l'IA prend 1 degat");
