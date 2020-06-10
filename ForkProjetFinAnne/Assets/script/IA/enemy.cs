@@ -58,7 +58,7 @@ public class enemy : MonoBehaviour
 
 
     Rigidbody rb;
-   public static int IAhealth = 2;
+   public static int IAhealth = 1;
 
     private void Start()
     {
@@ -92,10 +92,7 @@ public class enemy : MonoBehaviour
         }
 
 
-        if (IAhealth > 2)
-        {
-            IAhealth = 2;
-        }
+        
 
     }
 
@@ -170,9 +167,8 @@ public class enemy : MonoBehaviour
         }
         if (IAhealth == 0) // si vie = 0 on meurt
         {
-          ///  Debug.Log("IA est morte");
+            ///  Debug.Log("IA est morte");
             Destroy(gameObject);
-            SceneManager.LoadScene("Lvl1Win");
             //SceneManager.LoadScene("Victory");
         }
     }
