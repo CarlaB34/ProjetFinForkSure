@@ -25,12 +25,10 @@ public class PlayerController : MonoBehaviour
 
     private float moveVelocity;
     public GameObject playerView;
-  
 
     public Vector3 jump;
     public float jumpForce = 2.0f;
-
-
+    private static int Bosshealth;
     public static int Key = 0;
     public int Kill = 0;
     public bool isGrounded;
@@ -41,18 +39,18 @@ public class PlayerController : MonoBehaviour
     //Grounded Vars
     
     
-    public Vector3 spawnSpot2 = new Vector3(8.52f, 5.22f, -0.85f);
-    public Vector3 spawnSpot3 = new Vector3(20.383f, 7.872f, -0.85f);
-    
+    public Vector3 spawnSpot2 = new Vector3(8.52f, 5.22f, -1.742f);
+    public Vector3 spawnSpot3 = new Vector3(20.383f, 7.872f, -1.742f);
+    public Vector3 spawnSpot4 = new Vector3(4.451f, -0.92f, -2f);
     public GameObject Key2;
-    public GameObject Key3; 
+    public GameObject Key3;
+    public GameObject color;
     private Vector3 moveDirection = Vector3.right;
   
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
-      
 
         //la valeur du slide commencera a chaque parti a sa valeur max
         sliderDash.value = sliderDash.maxValue;
@@ -74,6 +72,8 @@ public class PlayerController : MonoBehaviour
    
     void Update()
     {
+        Bosshealth= enemy.IAhealth;
+
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && rb.velocity.y <= 0) // jump
         {
@@ -87,9 +87,9 @@ public class PlayerController : MonoBehaviour
         //Left Movement + dash
 
         
+        
 
-
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
+         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
          {
             playerView.transform.rotation = Quaternion.Euler(0, -90, 0 * speed);
             GetComponent<Rigidbody>().AddForce(moveDirection * -speed, ForceMode.Impulse);
@@ -194,11 +194,11 @@ public class PlayerController : MonoBehaviour
             
             if (Kill == 2)
             {
-                GameObject Player = (GameObject)Instantiate(Key2, new Vector3(8.52f, 5.22f, -0.85f), transform.rotation);
+                GameObject Player = (GameObject)Instantiate(Key2, new Vector3(8.52f, 5.22f, -1.742f), transform.rotation);
             }
             if (Kill == 3)
             {
-                GameObject Player = (GameObject)Instantiate(Key3, new Vector3(20.383f, 7.872f, -0.85f), transform.rotation);
+                GameObject Player = (GameObject)Instantiate(Key3, new Vector3(20.383f, 7.872f, -1.742f), transform.rotation);
             }
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
@@ -224,7 +224,11 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector3.zero;
             //dashing = false;
         }
-       
+        if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && Bosshealth == 1)
+        {
+            GameObject Player = (GameObject)Instantiate(color, new Vector3(4.451f, -0.92f, -2f), transform.rotation);
+
+        }
     }
 
 

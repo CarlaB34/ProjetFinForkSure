@@ -16,13 +16,21 @@ public class MovePlayer : MonoBehaviour
     public Vector3 jump;
     public float jumpForce = 2.0f;
 
+    private static int Bosshealth;
     public static int Key = 0;
+    public int Kill = 0;
     public bool isGrounded;
     Rigidbody rb;
     // Color color;
 
 
     //Grounded Vars
+    public Vector3 spawnSpot2 = new Vector3(8.52f, 1.51f, -0.81f);
+    public Vector3 spawnSpot3 = new Vector3(19.5f, 3.63f, -0.81f);
+    public Vector3 spawnSpot4 = new Vector3(4.451f, -0.92f, -2f);
+    public GameObject Key2;
+    public GameObject Key3;
+    public GameObject color;
     private Vector3 moveDirection = Vector3.right;
     Dash dash;
 
@@ -68,21 +76,21 @@ public class MovePlayer : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
         {
-            playerView.transform.rotation = Quaternion.Euler(0, -180, 0 * speed);
+            playerView.transform.rotation = Quaternion.Euler(0, -90, 0 * speed);
             GetComponent<Rigidbody>().AddForce(moveDirection * -speed, ForceMode.Impulse);
             //dash
             //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
-            Dash.dashing = true;
+            Dash.dashinG = false;
 
 
         }
 
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            playerView.transform.rotation = Quaternion.Euler(0, 0, 0 * speed);
+            playerView.transform.rotation = Quaternion.Euler(0, 90, 0 * speed);
             GetComponent<Rigidbody>().AddForce(moveDirection * speed, ForceMode.Impulse);
             //dash
-            Dash.dashing = true;
+            Dash.dashinG = false;
         }
         Vector3 velocity = GetComponent<Rigidbody>().velocity;
 
@@ -97,6 +105,19 @@ public class MovePlayer : MonoBehaviour
         {
             Key += 1;
 
+        }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("pike"))
+        {
+            Kill += 1;
+
+            if (Kill == 2)
+            {
+                GameObject Player = (GameObject)Instantiate(Key2, new Vector3(8.52f, 1.51f, -0.81f), transform.rotation);
+            }
+            if (Kill == 3)
+            {
+                GameObject Player = (GameObject)Instantiate(Key3, new Vector3(19.5f, 3.63f, -0.81f), transform.rotation);
+            }
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
         {
@@ -121,7 +142,11 @@ public class MovePlayer : MonoBehaviour
             rb.velocity = Vector3.zero;
             //dashing = false;
         }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && Bosshealth == 1)
+        {
+            GameObject Player = (GameObject)Instantiate(color, new Vector3(4.451f, -0.92f, -2f), transform.rotation);
 
+        }
     }
 
 
