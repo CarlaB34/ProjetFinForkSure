@@ -6,6 +6,8 @@ public class Anim : MonoBehaviour
 {
     private Animator anim;
     private static int mort = Health.mort;
+    private static int mort2 = IsHealthDash.mort;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,18 +26,18 @@ public class Anim : MonoBehaviour
         {
             anim.SetBool("marche", false);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            anim.SetTrigger("Saut");
-        }
-        if (Input.GetKeyDown(KeyCode.E) && Dash.dashinG|| Input.GetKeyUp(KeyCode.A) && Dash.dashinG)
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+            //anim.SetTrigger("Saut");
+        //}
+       /* if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyUp(KeyCode.A))
         {
             anim.SetTrigger("Dash");
         }
-        if (mort == 1)
-        {
+        if (mort2 == 1)
+        {           
             anim.SetTrigger("Mort");
-        }
+        }*/
 
     }
 }

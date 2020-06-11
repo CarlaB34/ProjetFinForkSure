@@ -8,8 +8,11 @@ using UnityEngine.SceneManagement;
 public class IsHealthDash : MonoBehaviour
 {
     public int playerhealthLV1 = 3;
+    public static int mort = 0;
+    float timeLeft = 2.0f;
     ///public static bool isDash;
-    public Image[] sprite;
+    public  static Image[] sprite;
+
     public void Update() // la vie est cap a 2hp
     {
         if (playerhealthLV1 > 3)
@@ -17,7 +20,7 @@ public class IsHealthDash : MonoBehaviour
             playerhealthLV1 = 3;
         }
 
-        
+
     }
    public void OnCollisionEnter(Collision collision) // on perd un point de vie si on touche un pic
     {
@@ -42,17 +45,19 @@ public class IsHealthDash : MonoBehaviour
         }
         if (playerhealthLV1 == 0) // si vie = 0 on meurt
         {
-           
+            mort += 1;         
             Debug.Log("vous etes mort");
-            
-                Destroy(gameObject);
-            //SceneManager.LoadScene("StartMenu"); 
-         SceneManager.LoadScene("Defeat");
-
+            Dead();
+            //Destroy(gameObject);
+            //SceneManager.LoadScene("Defeat");
         }
-
     }
 
+    public void Dead()
+    {       
+            Destroy(gameObject);
+            SceneManager.LoadScene("Defeat");        
+    }
 
     private void UpdateLife(int addAmount) //ajoute une valeur a playerHealth
     {

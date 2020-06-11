@@ -58,7 +58,7 @@ public class enemy : MonoBehaviour
 
 
     Rigidbody rb;
-   public static int IAhealth = 2;
+   public static int IAhealth = 5;
 
     private void Start()
     {
@@ -92,10 +92,7 @@ public class enemy : MonoBehaviour
         }
 
 
-        if (IAhealth > 2)
-        {
-            IAhealth = 2;
-        }
+        
 
     }
 
@@ -162,7 +159,7 @@ public class enemy : MonoBehaviour
                 break;
         }
 
-        if (col.gameObject.layer == LayerMask.NameToLayer("Player") && PlayerController.dashing)
+        if (col.gameObject.layer == LayerMask.NameToLayer("Player") && Dash.dashinG)
         {
 
            // Debug.Log("l'IA prend 1 degat");
@@ -170,7 +167,7 @@ public class enemy : MonoBehaviour
         }
         if (IAhealth == 0) // si vie = 0 on meurt
         {
-          ///  Debug.Log("IA est morte");
+            ///  Debug.Log("IA est morte");
             Destroy(gameObject);
             //SceneManager.LoadScene("Victory");
         }
