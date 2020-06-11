@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-    private void Update()
+    void Start()
     {
         Cursor.visible = true;
     }

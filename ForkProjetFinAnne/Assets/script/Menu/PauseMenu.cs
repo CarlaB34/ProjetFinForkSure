@@ -9,18 +9,26 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
 
     // Update is called once per frame
+
+    void Start()
+    {
+        //Cursor.visible = true;
+    }
     void Update()
     {
-        Cursor.visible = true;
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             
             if (GameIsPaused)
             {
+                Cursor.visible = false;
                 Resume();
+                
             }
             else
             {
+                Cursor.visible = true;
                 Pause();
             }
           
@@ -29,11 +37,11 @@ public class PauseMenu : MonoBehaviour
 
    public void Resume ()
     {
-        
+        Cursor.visible = false;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;        
-        Cursor.visible = false;
+       
         
     }
 
