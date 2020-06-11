@@ -27,7 +27,7 @@ public class MovePlayer : MonoBehaviour
     //Grounded Vars
     public Vector3 spawnSpot2 = new Vector3(8.52f, 1.51f, -0.81f);
     public Vector3 spawnSpot3 = new Vector3(19.5f, 3.63f, -0.81f);
-    public Vector3 spawnSpot4 = new Vector3(4.451f, -0.92f, -2f);
+    public Vector3 spawnSpot4 = new Vector3(24f, -2.6f, -0.8f);
     public GameObject Key2;
     public GameObject Key3;
     public GameObject color;
@@ -72,7 +72,7 @@ public class MovePlayer : MonoBehaviour
         //Left Movement + dash
 
 
-
+        Bosshealth = enemy.IAhealth;
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
         {
@@ -80,8 +80,8 @@ public class MovePlayer : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(moveDirection * -speed, ForceMode.Impulse);
             //dash
             //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
-            Dash.dashinG = false;
-
+           /// Dash.dashinG = false;
+            dash.ResetDash();
 
         }
 
@@ -90,7 +90,8 @@ public class MovePlayer : MonoBehaviour
             playerView.transform.rotation = Quaternion.Euler(0, 90, 0 * speed);
             GetComponent<Rigidbody>().AddForce(moveDirection * speed, ForceMode.Impulse);
             //dash
-            Dash.dashinG = false;
+            //Dash.dashinG = false;
+            dash.ResetDash();
         }
         Vector3 velocity = GetComponent<Rigidbody>().velocity;
 
@@ -114,10 +115,12 @@ public class MovePlayer : MonoBehaviour
             {
                 GameObject Player = (GameObject)Instantiate(Key2, new Vector3(8.52f, 1.51f, -0.81f), transform.rotation);
             }
+            
             if (Kill == 3)
             {
                 GameObject Player = (GameObject)Instantiate(Key3, new Vector3(19.5f, 3.63f, -0.81f), transform.rotation);
             }
+           
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
         {
@@ -127,7 +130,7 @@ public class MovePlayer : MonoBehaviour
 
         }
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("door1") && Key == 3) // test de layer 
+        if (collision.gameObject.name == "door1" && Key == 3) // test de layer 
         {
             Debug.Log("touché");
             rb.velocity = Vector3.zero;
@@ -136,15 +139,15 @@ public class MovePlayer : MonoBehaviour
 
         //col mur with dash
 
-        if (collision.gameObject.name == "wall")// && dashing == true)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("wall"))// && dashing == true)
         {
-            Debug.Log("arg un mur!");
+           // Debug.Log("arg un mur!");
             rb.velocity = Vector3.zero;
-            //dashing = false;
+           // Dash.dashinG = false;
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && Bosshealth == 1)
         {
-            GameObject Player = (GameObject)Instantiate(color, new Vector3(4.451f, -0.92f, -2f), transform.rotation);
+            GameObject Player = (GameObject)Instantiate(color, new Vector3(24f, -2.6f, -0.8f), transform.rotation);
 
         }
     }

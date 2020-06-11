@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,7 +38,22 @@ public class Dash : MonoBehaviour
 
         movePlayer = GetComponent<MovePlayer>();
     }
-
+    public void ResetDash()
+    {
+        coolDown2 = 0;
+        coolDown = 0;
+        dashinG = false;
+        // shield.SetActive(false);
+        activeDash = false;
+        uiText.SetActive(false);
+    }
+   /* private void ResetDash2()
+    {
+        
+        dashinG = false;
+        activeDash = false;
+        uiText.SetActive(false);
+    }*/
     private void Update()
     {
 
@@ -64,11 +80,7 @@ public class Dash : MonoBehaviour
 
             if (coolDown2 <= 0)
             {
-                coolDown2 = 0;
-                dashinG = false;
-                // shield.SetActive(false);
-                activeDash = false;
-                uiText.SetActive(false);
+                ResetDash();
             }
         }
         else
@@ -99,10 +111,7 @@ public class Dash : MonoBehaviour
 
             if (coolDown <= 0)
             {
-                coolDown = 0;
-                dashinG = false;
-                activeDash = false;
-                uiText.SetActive(false);
+                ResetDash();
             }
         }
         else
@@ -115,6 +124,8 @@ public class Dash : MonoBehaviour
         dashingDebug = dashinG;
 
     }
+
+    
 
     //fait dessendre la bar a moins sa valeur donc -5 dans se cas
     private void Dashing()
@@ -131,6 +142,7 @@ public class Dash : MonoBehaviour
             uiText.SetActive(true);
             sliderDash.gameObject.SetActive(true);
             collide = true;
+            dashinG = true;
         }
     }
     private void OnCollisionExit(Collision col)

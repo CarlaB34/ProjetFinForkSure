@@ -56,9 +56,9 @@ public class enemy : MonoBehaviour
     Vector3 velocity;
     private float canJump = 0f;
 
-
+    
     Rigidbody rb;
-   public int IAhealth = 2;
+   public static int IAhealth = 5;
 
     private void Start()
     {
@@ -67,7 +67,7 @@ public class enemy : MonoBehaviour
         newPosition = transform.position;
 
         rb = GetComponent<Rigidbody>();
-
+       player.GetComponent<Dash>().ResetDash();
         jumpSpeed = Mathf.Sqrt(-2 * Physics.gravity.y * jumpHeight) + 0.1f;
 
     }
@@ -92,10 +92,7 @@ public class enemy : MonoBehaviour
         }
 
 
-        if (IAhealth > 2)
-        {
-            IAhealth = 2;
-        }
+        
 
     }
 
@@ -161,18 +158,18 @@ public class enemy : MonoBehaviour
                 rb.AddForce(Vector3.up * 7f);
                 break;
         }
-
-        if (col.gameObject.layer == LayerMask.NameToLayer("Player") && PlayerController.dashing)
+        
+        if (col.gameObject.layer == LayerMask.NameToLayer("Player") )//&& isDashToAttack.ResetDash())
         {
-
+            
            // Debug.Log("l'IA prend 1 degat");
             IAhealth -= 1;
         }
         if (IAhealth == 0) // si vie = 0 on meurt
         {
-          ///  Debug.Log("IA est morte");
+            ///  Debug.Log("IA est morte");
             Destroy(gameObject);
-            SceneManager.LoadScene("Lvl1Win");
+            //SceneManager.LoadScene("Victory");
         }
     }
 
