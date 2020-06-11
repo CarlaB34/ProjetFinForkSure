@@ -23,7 +23,7 @@ public class PauseMenu : MonoBehaviour
             {
                 Pause();
             }
-            IsHealthDash.sprite[3].gameObject.SetActive(false);
+            
         }
     }
 
