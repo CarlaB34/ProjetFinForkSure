@@ -129,7 +129,7 @@ public class MovePlayer : MonoBehaviour
 
         }
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("door1") && Key == 3) // test de layer 
+        if (collision.gameObject.name == "door1" && Key == 3) // test de layer 
         {
             Debug.Log("touché");
             rb.velocity = Vector3.zero;
