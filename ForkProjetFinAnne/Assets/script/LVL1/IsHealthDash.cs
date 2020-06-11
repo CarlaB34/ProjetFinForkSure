@@ -11,7 +11,7 @@ public class IsHealthDash : MonoBehaviour
     public static int mort = 0;
     float timeLeft = 2.0f;
     ///public static bool isDash;
-    public Image[] sprite;
+    public  static Image[] sprite;
 
     public void Update() // la vie est cap a 2hp
     {
