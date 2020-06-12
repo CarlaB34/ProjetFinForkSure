@@ -67,7 +67,7 @@ public class enemy : MonoBehaviour
         newPosition = transform.position;
 
         rb = GetComponent<Rigidbody>();
-       player.GetComponent<Dash>().ResetDash();
+
         jumpSpeed = Mathf.Sqrt(-2 * Physics.gravity.y * jumpHeight) + 0.1f;
 
     }

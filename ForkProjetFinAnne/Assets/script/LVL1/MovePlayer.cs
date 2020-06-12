@@ -81,7 +81,7 @@ public class MovePlayer : MonoBehaviour
             //dash
             //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
            /// Dash.dashinG = false;
-            dash.ResetDash();
+           // dash.ResetDash();
 
         }
 
