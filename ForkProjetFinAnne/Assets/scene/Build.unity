@@ -3016,7 +3016,7 @@ PrefabInstance:
     - target: {fileID: 4327177932899333402, guid: d3afa32f4db662e46a486f675df939e7,
         type: 3}
       propertyPath: speed
-      value: 0.19
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4327177932899333402, guid: d3afa32f4db662e46a486f675df939e7,
         type: 3}
@@ -6268,7 +6268,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1574716963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57817be566fd4654b9a3fe5d5d5e12e9, type: 3}
+  m_Script: {fileID: 11500000, guid: a055d4f01dfad5544afb28c169ba7cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1592034016

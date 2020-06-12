@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7473091388842156091}
   - component: {fileID: 7522247037763125696}
-  - component: {fileID: 5759925685879691866}
+  - component: {fileID: 8433036091648035546}
   m_Layer: 11
   m_Name: "cl\xE92"
   m_TagString: Untagged
@@ -46,7 +46,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.11001118, y: 0.1465799, z: 0.06734353}
   m_Center: {x: -0.12868822, y: 1.1289486, z: 0.011957219}
---- !u!114 &5759925685879691866
+--- !u!114 &8433036091648035546
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5355028237689186033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57817be566fd4654b9a3fe5d5d5e12e9, type: 3}
+  m_Script: {fileID: 11500000, guid: a055d4f01dfad5544afb28c169ba7cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &542602142816230822

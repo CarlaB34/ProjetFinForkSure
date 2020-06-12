@@ -16,9 +16,9 @@ public class Door1 : MonoBehaviour
     //si porte entre en collision avec le player qui a ramassé une clé , elle se détruit
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && keyScore == 3)
+        //if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && keyScore == 3)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && keyScore2 == 3)
