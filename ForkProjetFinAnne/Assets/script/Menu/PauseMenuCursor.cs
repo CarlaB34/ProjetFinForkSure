@@ -20,9 +20,10 @@ public class PauseMenuCursor : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
+            
             Pause();
-
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
 
         }
 

@@ -19,7 +19,9 @@ public class StartMenu : MonoBehaviour
     public void Play()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("LoadingScene");
+        //SceneManager.LoadScene("LoadingScene");
+        //SceneManager.LoadScene("TestRoomLvl1C");
+        SceneManager.LoadScene("Build");
     }
 
     public void LoadMenu()
