@@ -10,6 +10,7 @@ TagManager:
   - PPShield
   - shield
   - CheckPoint
+  - PPShield2
   layers:
   - Default
   - TransparentFX
