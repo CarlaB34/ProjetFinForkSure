@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-    private void Update()
+    void Start()
     {
         Cursor.visible = true;
     }
@@ -18,6 +18,7 @@ public class StartMenu : MonoBehaviour
 
     public void Play()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("LoadingScene");
     }
 

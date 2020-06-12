@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenuCursor : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
@@ -13,36 +13,45 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         //Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     void Update()
     {
-        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            
-            if (GameIsPaused)
-            {
-                Cursor.visible = false;
-                Resume();
-                
-            }
-            else
-            {
-                Cursor.visible = true;
-                Pause();
-            }
-          
+
+            Pause();
+
+
         }
+
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+
+        //    if (GameIsPaused)
+        //    {
+        //        Cursor.visible = false;
+        //        Resume();
+
+        //    }
+        //    else
+        //    {
+        //        Cursor.visible = true;
+        //        Pause();
+        //    }
+
+        //}
     }
 
    public void Resume ()
     {
-        Cursor.visible = false;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = false;        
-       
-        
+        GameIsPaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
 
     void Pause ()
@@ -50,6 +59,9 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void LoadMenu()
