@@ -5,8 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class Victory : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    void Start()
     {
-        SceneManager.LoadScene("Victory");
+        Cursor.visible = true;
+    }
+        void OnCollisionEnter(Collision collision)
+
+    {
+
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            SceneManager.LoadScene("Victory");
+        }
     }
 }

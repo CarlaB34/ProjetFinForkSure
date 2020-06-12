@@ -14,13 +14,13 @@ public class PauseMenuCursor : MonoBehaviour
     {
         //Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.visible = true;
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
+            Cursor.visible = true;
             Pause();
 
 
@@ -56,12 +56,13 @@ public class PauseMenuCursor : MonoBehaviour
 
     void Pause ()
     {
+        Cursor.visible = true;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
 
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        
     }
 
     public void LoadMenu()
