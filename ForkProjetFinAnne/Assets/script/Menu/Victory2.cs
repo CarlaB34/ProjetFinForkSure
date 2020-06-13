@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Victory : MonoBehaviour
+public class Victory2 : MonoBehaviour
 {
     void Start()
     {
         Cursor.visible = true;
     }
-        void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
 
     {
 
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            SceneManager.LoadScene("Lvl1Win");
+            SceneManager.LoadScene("Victory");
         }
     }
 }

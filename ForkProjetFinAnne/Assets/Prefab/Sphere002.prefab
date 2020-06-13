@@ -122,3 +122,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837c1ef3cb2be78498734e3389c2f87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Key2: {fileID: 5231255920550270839, guid: df1b67c54bd4b3d49871fb424cab7755, type: 3}
+  spawnSpot2: {x: 8.52, y: 5.22, z: -1.742}

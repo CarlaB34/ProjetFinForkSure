@@ -38,10 +38,10 @@ public class PlayerController : MonoBehaviour
 
     //Grounded Vars
 
-    public Vector3 spawnSpot1 = new Vector3(-12.21f, 2.81f, -5.418f);
-    public Vector3 spawnSpot2 = new Vector3(5.3f, 5.27f, -5.418f);
-    public Vector3 spawnSpot3 = new Vector3(12.48f, 7.2f, -5.418f);
-    public Vector3 spawnSpot4 = new Vector3(4.451f, -0.92f, -5.418f);
+    public Vector3 spawnSpot1 = new Vector3(-22.52f, 5.8f, -0.5636545f);
+    public Vector3 spawnSpot2 = new Vector3(-5.05f, 8.3f, -0.5636545f);
+    public Vector3 spawnSpot3 = new Vector3(2.49f, 10.2f, -0.5636545f);
+    public Vector3 spawnSpot4 = new Vector3(44.01f, 2.68f, -0.5636545f);
     public GameObject Key1;
     public GameObject Key2;
     public GameObject Key3;
@@ -195,15 +195,15 @@ public class PlayerController : MonoBehaviour
             
             if (Kill == 5)
             {
-                GameObject Player = (GameObject)Instantiate(Key1, new Vector3(-12.21f, 2.81f, -5.418f), transform.rotation);
+                GameObject Player = (GameObject)Instantiate(Key1, new Vector3(-22.52f, 5.8f, -0.5636545f), transform.rotation);
             }
             if (Kill == 9)
             {
-                GameObject Player = (GameObject)Instantiate(Key2, new Vector3(12.48f, 7.2f, -5.418f), transform.rotation);
+                GameObject Player = (GameObject)Instantiate(Key2, new Vector3(-5.05f, 8.3f, -0.5636545f), transform.rotation);
             }
             if (Kill == 16)
             {
-                GameObject Player = (GameObject)Instantiate(Key3, new Vector3(12.48f, 7.2f, -5.418f), transform.rotation);
+                GameObject Player = (GameObject)Instantiate(Key3, new Vector3(2.49f, 10.2f, -0.5636545f), transform.rotation);
             }
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
