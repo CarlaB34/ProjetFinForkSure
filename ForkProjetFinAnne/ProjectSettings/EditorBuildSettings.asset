@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/scene/menu/StartMenu.unity
     guid: dad5f936b2c1a9e40bdd9d8cb5a28dea
-  - enabled: 0
+  - enabled: 1
     path: Assets/scene/New Folder/TestRoomLvl1C.unity
     guid: cb79f883bbb8a1945b21661aa9febc59
   - enabled: 0
@@ -20,7 +20,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/scene/menu/LoadingScene.unity
     guid: bc9c8cc99e5978542833e06bd1bb1568
-  - enabled: 1
+  - enabled: 0
+    path: Assets/scene/TestScenceCursor.unity
+    guid: a3bbba39df483b44bbee3e00b62284f5
+  - enabled: 0
     path: Assets/scene/Build.unity
     guid: b962ff104695ef24499a7179644403d2
   - enabled: 0

@@ -82,7 +82,8 @@ public class MovePlayer : MonoBehaviour
             //dash
             //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
            /// Dash.dashinG = false;
-           // dash.ResetDash();
+            dash.ResetDash();
+            dash.ResetDash2();
 
         }
 
@@ -93,6 +94,7 @@ public class MovePlayer : MonoBehaviour
             //dash
             //Dash.dashinG = false;
             dash.ResetDash();
+            dash.ResetDash2();
         }
         Vector3 velocity = GetComponent<Rigidbody>().velocity;
 

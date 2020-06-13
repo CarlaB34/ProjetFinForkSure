@@ -13,16 +13,16 @@ public class PauseMenuCursor : MonoBehaviour
     void Start()
     {
         //Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Locked;
+       // Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            
+
             Pause();
-            Cursor.lockState = CursorLockMode.None;
+          //  Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
         }
@@ -38,6 +38,7 @@ public class PauseMenuCursor : MonoBehaviour
         //    }
         //    else
         //    {
+        //        Cursor.lockState = CursorLockMode.None;
         //        Cursor.visible = true;
         //        Pause();
         //    }
@@ -50,7 +51,7 @@ public class PauseMenuCursor : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-        Cursor.lockState = CursorLockMode.Locked;
+       // Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
     }
@@ -61,7 +62,7 @@ public class PauseMenuCursor : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
 
-        Cursor.lockState = CursorLockMode.None;
+       // Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 

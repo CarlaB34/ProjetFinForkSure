@@ -27,6 +27,7 @@ public class Dash : MonoBehaviour
     //private Vector3 moveDirection = Vector3.right;
 
     private MovePlayer movePlayer;
+    PauseMenu pauseMenu;
     private void Start()
     {
         activeDash = false;
@@ -47,16 +48,21 @@ public class Dash : MonoBehaviour
         activeDash = false;
         uiText.SetActive(false);
     }
-   /* private void ResetDash2()
+    public void ResetDash2()
     {
         
         dashinG = false;
         activeDash = false;
         uiText.SetActive(false);
-    }*/
+    }
     private void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.visible = true;
+            pauseMenu.pauseMenuUI.SetActive(true);
+        }
+        
         //dash droite
         if (Input.GetKeyDown(KeyCode.E) && collide && sliderDash.value == sliderDash.maxValue)
         {
@@ -111,7 +117,7 @@ public class Dash : MonoBehaviour
 
             if (coolDown <= 0)
             {
-                ResetDash();
+                ResetDash2();
             }
         }
         else
