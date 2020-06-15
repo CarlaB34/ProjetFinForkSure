@@ -36,6 +36,7 @@ public class MovePlayer : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
 

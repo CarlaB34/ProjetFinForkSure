@@ -51,8 +51,10 @@ public class PlayerController : MonoBehaviour
   
     private void Start()
     {
+        
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
+        Cursor.visible = false;
 
         //la valeur du slide commencera a chaque parti a sa valeur max
         sliderDash.value = sliderDash.maxValue;
