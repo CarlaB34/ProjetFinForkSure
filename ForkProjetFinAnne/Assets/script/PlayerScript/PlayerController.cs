@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
 
     private float moveVelocity;
     public GameObject playerView;
-
+    public AudioClip ding;
+    public AudioSource source;
     public Vector3 jump;
     public float jumpForce = 2.0f;
     private static int Bosshealth;
@@ -186,6 +187,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("clé"))
         {
+            source.PlayOneShot(ding);
             Key += 1;
 
         }
