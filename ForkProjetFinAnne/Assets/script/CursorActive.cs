@@ -13,6 +13,6 @@ public class CursorActive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Cursor.visible = true;
+        
     }
 }
