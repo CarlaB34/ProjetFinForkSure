@@ -41,8 +41,8 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 spawnSpot1 = new Vector3(-22.52f, 5.8f, -0.5636545f);
     public Vector3 spawnSpot2 = new Vector3(-5.05f, 8.3f, -0.5636545f);
-    public Vector3 spawnSpot3 = new Vector3(2.49f, 10.2f, -0.5636545f);
-    public Vector3 spawnSpot4 = new Vector3(44.01f, 2.68f, -0.5636545f);
+    public Vector3 spawnSpot3 = new Vector3(3.34f, 10.26f, -0.5636545f);
+    public Vector3 spawnSpot4 = new Vector3(19.85f, -3.78f, -0.5636545f);
     public GameObject Key1;
     public GameObject Key2;
     public GameObject Key3;
@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
             }
             if (Kill == 16)
             {
-                GameObject Player = (GameObject)Instantiate(Key3, new Vector3(2.49f, 10.2f, -0.5636545f), transform.rotation);
+                GameObject Player = (GameObject)Instantiate(Key3, new Vector3(3.34f, 10.26f, -0.5636545f), transform.rotation);
             }
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 
@@ -235,7 +235,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && Bosshealth == 1)
         {
-            GameObject Player = (GameObject)Instantiate(color, new Vector3(4.451f, -0.92f, -2f), transform.rotation);
+            GameObject Player = (GameObject)Instantiate(color, new Vector3(19.85f, -3.78f, -0.5636545f), transform.rotation);
 
         }
     }
