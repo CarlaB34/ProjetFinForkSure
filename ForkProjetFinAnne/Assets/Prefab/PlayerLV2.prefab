@@ -70,13 +70,17 @@ MonoBehaviour:
   coolDown2: 0
   sliderDash: {fileID: 0}
   playerView: {fileID: 5984506302352500289}
+  ding: {fileID: 0}
+  source: {fileID: 0}
   jump: {x: 0, y: 0, z: 0}
   jumpForce: 2
   Kill: 0
   isGrounded: 0
+  spawnSpot1: {x: -22.52, y: 5.8, z: -0.5636545}
   spawnSpot2: {x: 8.52, y: 5.22, z: -0.85}
   spawnSpot3: {x: 20.383, y: 7.872, z: -0.85}
   spawnSpot4: {x: 4.451, y: -0.92, z: -2}
+  Key1: {fileID: 0}
   Key2: {fileID: 0}
   Key3: {fileID: 0}
   color: {fileID: 0}
@@ -123,6 +127,18 @@ MonoBehaviour:
   coolDownShield: 0
   sliderShield: {fileID: 0}
   uiText: {fileID: 0}
+--- !u!114 &7055786550663685429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5984506302352500289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d67c65e3825622d4aa28597964728964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7793117562453031421
 GameObject:
   m_ObjectHideFlags: 0
