@@ -10,13 +10,13 @@ public class CreditMenu : MonoBehaviour
     // public string Menu;
     // public VideoPlayer videoPlayer;
     public Image panel;
-    private float timer = 25f;
+    public float timer = 10f;
 
     public void Update()
     {
         timer -= Time.deltaTime;
         
-            if(timer <= 0)
+        if(timer <= 0)
         {
             SceneManager.LoadScene("StartMenu");
         }

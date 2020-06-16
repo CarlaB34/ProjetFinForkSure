@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
    
     void Update()
     {
-        //Bosshealth = enemy.IAhealth;
+        Bosshealth = enemy.IAhealth;
 
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && rb.velocity.y <= 0) // jump
@@ -100,9 +100,9 @@ public class PlayerController : MonoBehaviour
             //dash
             //le dash n'est plus actif donc impossible de l'utiliser avec movement simple
             dashing = true;
-            
+            isGrounded = false;
 
-         }
+        }
     
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(moveDirection * speed, ForceMode.Impulse);
             //dash
             dashing = true;
+            isGrounded = false;
         }
         Vector3 velocity = GetComponent<Rigidbody>().velocity;
         
@@ -227,10 +228,12 @@ public class PlayerController : MonoBehaviour
 
         //col mur with dash
         
-        if (collision.gameObject.name == "wall")// && dashing == true)
+        if (collision.gameObject.name == "DoorWall")// && dashing == true)
         {
-            Debug.Log("arg un mur!");
+            //Debug.Log("arg un mur!");
             rb.velocity = Vector3.zero;
+            GetComponent<Rigidbody>().AddForce(Vector3.zero, 0);
+            isGrounded = false;
             //dashing = false;
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && Bosshealth == 1)

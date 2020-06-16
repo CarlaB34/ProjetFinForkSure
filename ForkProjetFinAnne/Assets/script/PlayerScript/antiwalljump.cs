@@ -10,6 +10,7 @@ public class antiwalljump : MonoBehaviour
         if (other.gameObject.name == "wall")
         {
             Debug.Log("Collided");
+            
         }
     }
 }
