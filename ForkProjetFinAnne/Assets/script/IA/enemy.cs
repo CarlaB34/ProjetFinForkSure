@@ -55,7 +55,8 @@ public class enemy : MonoBehaviour
     float jumpSpeed;
     Vector3 velocity;
     private float canJump = 0f;
-
+    public AudioSource source;
+    public AudioClip splat;
     
     Rigidbody rb;
    public static int IAhealth = 5;
@@ -67,7 +68,7 @@ public class enemy : MonoBehaviour
         newPosition = transform.position;
 
         rb = GetComponent<Rigidbody>();
-
+        player.GetComponent<Dash>().ResetDash();
         jumpSpeed = Mathf.Sqrt(-2 * Physics.gravity.y * jumpHeight) + 0.1f;
 
     }
@@ -112,7 +113,7 @@ public class enemy : MonoBehaviour
                 velocity = rb.velocity;
                 velocity.y = jumpSpeed;
                 rb.velocity = velocity;
-                canJump = Time.time + 1.5f;    // whatever time a jump takes //la durée d'un saut
+                canJump = Time.time + 2f;    // whatever time a jump takes //la durée d'un saut
             }
 
         }
@@ -161,8 +162,8 @@ public class enemy : MonoBehaviour
         
         if (col.gameObject.layer == LayerMask.NameToLayer("Player") )//&& isDashToAttack.ResetDash())
         {
-            
-           // Debug.Log("l'IA prend 1 degat");
+            source.PlayOneShot(splat);
+            // Debug.Log("l'IA prend 1 degat");
             IAhealth -= 1;
         }
         if (IAhealth == 0) // si vie = 0 on meurt

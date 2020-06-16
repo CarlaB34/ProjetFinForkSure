@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Victory : MonoBehaviour
-{
-    private void OnTriggerEnter(Collider other)
+{     void OnCollisionEnter(Collision collision)
+
     {
-        SceneManager.LoadScene("Victory");
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            SceneManager.LoadScene("Lvl1Win");
+        }
     }
 }

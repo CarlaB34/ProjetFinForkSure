@@ -6,27 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class End : MonoBehaviour
 {
-    float timeLeft = 3.0f;
+    public GameObject Key2;
+    public Vector3 spawnSpot2 = new Vector3(8.52f, 5.22f, -1.742f);
 
-    void Update()
+    void OnCollisionEnter(Collision collision) // ajouter 1 a la variable Key lorsqu'on touche la clé 
     {
-      
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.layer== LayerMask.NameToLayer("Player"))
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            //Timer();
-            SceneManager.LoadScene("Lvl1Win");
+            GameObject Sphere002 = (GameObject)Instantiate(Key2, new Vector3(-22.52f, 5.8f, -0.5636545f), transform.rotation);
         }
     }
-   
-    //void Timer()
-    //{
-    //    timeLeft -= Time.deltaTime;
-    //    if (timeLeft < 0)
-    //    {
-    //        SceneManager.LoadScene("Lvl1Win");
-    //    }
-    //}
 }

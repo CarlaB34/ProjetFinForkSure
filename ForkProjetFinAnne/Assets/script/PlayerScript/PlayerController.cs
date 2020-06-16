@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
 
     private float moveVelocity;
     public GameObject playerView;
-
+    public AudioClip ding;
+    public AudioSource source;
     public Vector3 jump;
     public float jumpForce = 2.0f;
     private static int Bosshealth;
@@ -37,11 +38,12 @@ public class PlayerController : MonoBehaviour
 
 
     //Grounded Vars
-    
-    
-    public Vector3 spawnSpot2 = new Vector3(8.52f, 5.22f, -1.742f);
-    public Vector3 spawnSpot3 = new Vector3(20.383f, 7.872f, -1.742f);
-    public Vector3 spawnSpot4 = new Vector3(4.451f, -0.92f, -2f);
+
+    public Vector3 spawnSpot1 = new Vector3(-22.52f, 5.8f, -0.5636545f);
+    public Vector3 spawnSpot2 = new Vector3(-5.05f, 8.3f, -0.5636545f);
+    public Vector3 spawnSpot3 = new Vector3(2.49f, 10.2f, -0.5636545f);
+    public Vector3 spawnSpot4 = new Vector3(44.01f, 2.68f, -0.5636545f);
+    public GameObject Key1;
     public GameObject Key2;
     public GameObject Key3;
     public GameObject color;
@@ -49,8 +51,10 @@ public class PlayerController : MonoBehaviour
   
     private void Start()
     {
+        
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
+        Cursor.visible = false;
 
         //la valeur du slide commencera a chaque parti a sa valeur max
         sliderDash.value = sliderDash.maxValue;
@@ -185,6 +189,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("clé"))
         {
+            source.PlayOneShot(ding);
             Key += 1;
 
         }
@@ -192,13 +197,17 @@ public class PlayerController : MonoBehaviour
         {
             Kill += 1;
             
-            if (Kill == 2)
+            if (Kill == 5)
             {
-                GameObject Player = (GameObject)Instantiate(Key2, new Vector3(8.52f, 5.22f, -1.742f), transform.rotation);
+                GameObject Player = (GameObject)Instantiate(Key1, new Vector3(-22.52f, 5.8f, -0.5636545f), transform.rotation);
             }
-            if (Kill == 3)
+            if (Kill == 9)
             {
-                GameObject Player = (GameObject)Instantiate(Key3, new Vector3(20.383f, 7.872f, -1.742f), transform.rotation);
+                GameObject Player = (GameObject)Instantiate(Key2, new Vector3(-5.05f, 8.3f, -0.5636545f), transform.rotation);
+            }
+            if (Kill == 16)
+            {
+                GameObject Player = (GameObject)Instantiate(Key3, new Vector3(2.49f, 10.2f, -0.5636545f), transform.rotation);
             }
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("door") && Key == 1) // test de layer 

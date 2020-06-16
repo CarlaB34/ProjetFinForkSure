@@ -8,46 +8,31 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/scene/menu/StartMenu.unity
     guid: dad5f936b2c1a9e40bdd9d8cb5a28dea
   - enabled: 1
-    path: Assets/scene/New Folder/TestRoomLvl1C.unity
-    guid: cb79f883bbb8a1945b21661aa9febc59
-  - enabled: 0
-    path: Assets/scene/menu/TestMenu.unity
-    guid: 2435f112d0a389f47b25268f0dc7608d
-  - enabled: 0
     path: Assets/scene/menu/LoadingScene.unity
     guid: bc9c8cc99e5978542833e06bd1bb1568
-  - enabled: 0
-    path: Assets/scene/TestScenceCursor.unity
-    guid: a3bbba39df483b44bbee3e00b62284f5
-  - enabled: 0
+  - enabled: 1
     path: Assets/scene/Build.unity
     guid: b962ff104695ef24499a7179644403d2
-  - enabled: 0
-    path: "Assets/scene/SceneMod\xE93DLVL1.unity"
-    guid: 9a5c4e547c5f5e54b930980a4ac82cbd
-  - enabled: 0
+  - enabled: 1
     path: Assets/scene/menu/LoadingScene2.unity
     guid: 08dae2def0aba494e9bcaa6db8643ab5
-  - enabled: 0
-    path: Assets/scene/TestRoomLvl1Second.unity
-    guid: 2cf1a0c8070d74240a5d2fe49e746dd1
-  - enabled: 0
-    path: Assets/scene/TestRoomfirst.unity
-    guid: 282e4d0d5d7548f4ea9007ce4ffac763
-  - enabled: 0
+  - enabled: 1
     path: Assets/scene/menu/Defeat.unity
     guid: 22fc0ac3251735e42ba50538d85481eb
-  - enabled: 0
+  - enabled: 1
     path: Assets/scene/menu/Lvl1Win.unity
     guid: 82d6130f91bf38b42b5a39692ffad7d0
-  - enabled: 0
+  - enabled: 1
     path: Assets/scene/menu/Lvl2.unity
     guid: ec1b447d5e78e6a479bbb7a673101551
-  - enabled: 0
+  - enabled: 1
     path: Assets/scene/menu/Victory.unity
     guid: 6c6e5b16d5c4c5347b12f6fe2e613564
+  - enabled: 1
+    path: Assets/scene/menu/LoadingScene3.unity
+    guid: 64fb23cfe202c7d489b8b339b42f6e14
   m_configObjects: {}

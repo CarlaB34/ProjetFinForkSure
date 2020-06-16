@@ -26,7 +26,12 @@ public class Anim : MonoBehaviour
         {
             anim.SetBool("marche", false);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyUp(KeyCode.A))
+        {
+            anim.SetTrigger("Dash");
+        }
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetTrigger("Saut");
         }
