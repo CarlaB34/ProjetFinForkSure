@@ -113,7 +113,7 @@ public class enemy : MonoBehaviour
                 velocity = rb.velocity;
                 velocity.y = jumpSpeed;
                 rb.velocity = velocity;
-                canJump = Time.time + 1.5f;    // whatever time a jump takes //la durée d'un saut
+                canJump = Time.time + 2f;    // whatever time a jump takes //la durée d'un saut
             }
 
         }

@@ -1648,7 +1648,7 @@ Transform:
   m_Children:
   - {fileID: 105863568}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &417240413
 GameObject:
@@ -4660,7 +4660,7 @@ GameObject:
   - component: {fileID: 1046592839}
   - component: {fileID: 1046592838}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: victory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4689,8 +4689,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2.5750332, z: 1}
+  m_Center: {x: 0, y: 0.7875166, z: 0}
 --- !u!4 &1046592840
 Transform:
   m_ObjectHideFlags: 0
@@ -6957,7 +6957,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: bc7459c22f555784eaaaa4f7adaf55bc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bc7459c22f555784eaaaa4f7adaf55bc,
         type: 3}
@@ -7729,7 +7729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2080069073
 Transform:
   m_ObjectHideFlags: 0
