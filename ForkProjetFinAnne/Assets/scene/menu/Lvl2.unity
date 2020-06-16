@@ -2049,6 +2049,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d030327704d288449bf87634f361640b, type: 2}
+    - target: {fileID: -6057140222963153312, guid: 78324090f084a3b44ba187a12fde3d92,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -5825075902232687266, guid: 78324090f084a3b44ba187a12fde3d92,
         type: 3}
       propertyPath: m_Layer
@@ -5141,10 +5146,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1898834354}
-  agroRange: 1.5
+  agroRange: 2
   moveSpeed: 1
   maxDistance: 2
-  jumpHeight: 1.5
+  jumpHeight: 1
   source: {fileID: 0}
   splat: {fileID: 8300000, guid: 5c51aa6970386b24596320a746c8c877, type: 3}
 --- !u!82 &665137511
