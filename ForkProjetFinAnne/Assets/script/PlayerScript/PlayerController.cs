@@ -189,9 +189,9 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("clé"))
         {
-            source.PlayOneShot(ding);
+            
             Key += 1;
-
+            source.PlayOneShot(ding);
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("pike"))
         {
