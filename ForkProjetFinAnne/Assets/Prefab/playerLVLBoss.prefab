@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 7783341869678443015}
   - component: {fileID: 2439601385663079858}
   m_Layer: 0
-  m_Name: playerTest
+  m_Name: playerLVLBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +123,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6118001730485367334}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.14, y: 0.31, z: -8.99}
+  m_LocalPosition: {x: -8.076, y: 0.2, z: -8.99}
   m_LocalScale: {x: 0.21827999, y: 0.21827999, z: 0.21827999}
   m_Children:
   - {fileID: 428833477956996518}
@@ -163,13 +163,17 @@ MonoBehaviour:
   coolDown2: 0
   sliderDash: {fileID: 0}
   playerView: {fileID: 3722467115022352309}
+  ding: {fileID: 0}
+  source: {fileID: 0}
   jump: {x: 0, y: 0, z: 0}
   jumpForce: 2
   Kill: 0
   isGrounded: 0
+  spawnSpot1: {x: -22.52, y: 5.8, z: -0.5636545}
   spawnSpot2: {x: 8.52, y: 5.22, z: -1.742}
   spawnSpot3: {x: 20.383, y: 7.872, z: -1.742}
   spawnSpot4: {x: 4.451, y: -0.92, z: -2}
+  Key1: {fileID: 0}
   Key2: {fileID: 0}
   Key3: {fileID: 0}
   color: {fileID: 0}
@@ -189,7 +193,7 @@ MonoBehaviour:
   activeShield: 0
   coolDownShield: 0
   sliderShield: {fileID: 0}
-  uiText: {fileID: 0}
+  uiTextShield: {fileID: 0}
 --- !u!114 &7117829486573951389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +219,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerhealth: 3
+  vie1: {fileID: 0}
+  vie2: {fileID: 0}
+  vie3: {fileID: 0}
+  vie4: {fileID: 0}
+  vie5: {fileID: 0}
+  vie6: {fileID: 0}
+  vie7: {fileID: 0}
+  Hit: 0
+  spawnSpot1: {x: -58.79473, y: 0.6680796, z: -0.1889172}
+  spawnSpot2: {x: -63.41473, y: 6.64808, z: -0.1889172}
+  spawnSpot3: {x: -53.88474, y: 8.69808, z: -0.1889172}
+  spawnSpot4: {x: -34.85, y: 3.49, z: -0.1889172}
+  spawnSpot5: {x: -31.52473, y: -1.35192, z: -0.1889172}
+  spawnSpot6: {x: -19.42474, y: 3.45808, z: -0.1889172}
+  spawnSpot7: {x: -6.78, y: 3.46, z: -0.1889172}
   sprite: []
 --- !u!114 &7783341869678443015
 MonoBehaviour:

@@ -59,8 +59,9 @@ public class enemy : MonoBehaviour
     public AudioClip splat;
     
     Rigidbody rb;
+    [SerializeField]
    public static int IAhealth = 5;
-
+    private ShieldetDash shield;
     private void Start()
     {
         //comportement quand chase pas
@@ -68,9 +69,9 @@ public class enemy : MonoBehaviour
         newPosition = transform.position;
 
         rb = GetComponent<Rigidbody>();
-       
+        player.GetComponent<ShieldetDash>();
         jumpSpeed = Mathf.Sqrt(-2 * Physics.gravity.y * jumpHeight) + 0.1f;
-
+        shield = GetComponent<ShieldetDash>();
     }
 
     private void Update()
@@ -164,7 +165,11 @@ public class enemy : MonoBehaviour
         {
             source.PlayOneShot(splat);
             // Debug.Log("l'IA prend 1 degat");
-            IAhealth -= 1;
+            if (!shield.ActiveShield)
+            {
+                IAhealth -= 1;
+            }
+                
         }
         if (IAhealth == 0) // si vie = 0 on meurt
         {

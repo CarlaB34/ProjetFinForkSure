@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5261124479548902602}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.4083, y: 2.281535, z: -8.515569}
-  m_LocalScale: {x: 0.5485, y: 0.5485, z: 0.5485}
+  m_LocalPosition: {x: 0.14, y: 0.17, z: -0.08}
+  m_LocalScale: {x: 2.489174, y: 2.487058, z: 2.4720232}
   m_Children: []
   m_Father: {fileID: 8812667591506144694}
   m_RootOrder: 1
@@ -90,7 +90,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.49623504
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6864229567689642544
 GameObject:
@@ -103,13 +103,12 @@ GameObject:
   - component: {fileID: 8812667591506144694}
   - component: {fileID: 8029040078580050750}
   - component: {fileID: 1143583331347988404}
-  - component: {fileID: 7628507448023183439}
   - component: {fileID: 7638365606879415671}
-  - component: {fileID: 6226928945105438191}
   - component: {fileID: 3170201263154161409}
-  - component: {fileID: 7227812096291350619}
+  - component: {fileID: 2341274882115831135}
+  - component: {fileID: 5827469936769804471}
   m_Layer: 0
-  m_Name: PlayerTest 1
+  m_Name: PlayerTest3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6864229567689642544}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.14, y: 0.2, z: -8.99}
+  m_LocalPosition: {x: -8.076, y: 0.252, z: -8.99}
   m_LocalScale: {x: 0.21827999, y: 0.21827999, z: 0.21827999}
   m_Children:
   - {fileID: 5703221611035729557}
@@ -161,30 +160,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 104
   m_CollisionDetection: 0
---- !u!114 &7628507448023183439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6864229567689642544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db1e7ccfb93464d99c6b4f6c28c3af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.2
-  playerView: {fileID: 8754628301819702406}
-  jump: {x: 0, y: 0, z: 0}
-  jumpForce: 2
-  Kill: 0
-  isGrounded: 0
-  spawnSpot2: {x: 8.52, y: 1.51, z: -0.81}
-  spawnSpot3: {x: 19.5, y: 3.63, z: -0.81}
-  spawnSpot4: {x: 24, y: -2.6, z: -0.8}
-  Key2: {fileID: 0}
-  Key3: {fileID: 0}
-  color: {fileID: 0}
 --- !u!114 &7638365606879415671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,28 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861f736934e6b5949acdab11bc00a55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6226928945105438191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6864229567689642544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f011562a29b8924085807f788fc547e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedDash: 5
-  dashingDebug: 0
-  coolDown: 0
-  coolDown2: 0
-  sliderDash: {fileID: 0}
-  activeDash: 0
-  shield: {fileID: 5261124479548902602}
-  activeShield: 0
-  coolDownShield: 0
-  sliderShield: {fileID: 0}
 --- !u!114 &3170201263154161409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712b585d9185ff44e8889b1014103378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7227812096291350619
+--- !u!114 &2341274882115831135
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,11 +193,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 6864229567689642544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3fcb35a94248224291f7e5d5b5960a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f011562a29b8924085807f788fc547e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  speedDash: 5
+  dashingDebug: 0
+  coolDown: 0
+  coolDown2: 0
+  sliderDash: {fileID: 0}
+  shield: {fileID: 5261124479548902602}
+  activeShield: 0
+  coolDownShield: 0
+  sliderShield: {fileID: 0}
+  playerView: {fileID: 8754628301819702406}
+  ding: {fileID: 0}
+  source: {fileID: 0}
+  jump: {x: 0, y: 0, z: 0}
+  jumpForce: 2
+  Bosshealth: 0
+  Kill: 0
+  isGrounded: 0
+  spawnSpot4: {x: 19.85, y: -3.78, z: -0.5636545}
+  color: {fileID: 0}
+--- !u!114 &5827469936769804471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6864229567689642544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be70753a4f3494442a1f1ab62872a197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerhealthLV1: 3
   sprite: []
+  Hit: 0
 --- !u!114 &6324330968892464455
 MonoBehaviour:
   m_ObjectHideFlags: 0

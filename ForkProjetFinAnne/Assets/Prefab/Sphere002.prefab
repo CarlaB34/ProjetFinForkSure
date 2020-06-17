@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1466292061501188920}
   m_Layer: 0
   m_Name: Sphere002
-  m_TagString: Untagged
+  m_TagString: PPShield2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

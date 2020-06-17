@@ -67,9 +67,20 @@ public class Health : MonoBehaviour
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && !PlayerController.dashing)
         {
-            Debug.Log("vous prenez 1 degat");
-            UpdateLife(-1);
-           
+            Debug.Log("bouclier desactiver");
+            //bouclier(boolean) activer ne prend pas de degat
+            if (!shield.ActiveShield)
+            {
+                Debug.Log("vous prenez 1 degat");
+                Hit += 1;
+                Heal();
+                UpdateLife(-1);
+
+            }
+            //desactive le bouclier, il disparait et on prend des degat
+            shield.shield.SetActive(false);
+            shield.ActiveShield = false;
+
         }
        
 

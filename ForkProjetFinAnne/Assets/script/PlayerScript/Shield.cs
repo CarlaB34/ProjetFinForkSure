@@ -17,13 +17,13 @@ public class Shield : MonoBehaviour
     public Slider sliderShield;
     bool collide = false;
 
-    public GameObject uiText;
+    public GameObject uiTextShield;
 
     void Start()
     {
         activeShield = false;
         shield.SetActive(false);
-        uiText.SetActive(false);
+        uiTextShield.SetActive(false);
         sliderShield.gameObject.SetActive(false);
         //la valeur du slide commencera a chaque parti a sa valeur max
          sliderShield.value = sliderShield.maxValue;
@@ -51,7 +51,7 @@ public class Shield : MonoBehaviour
                 coolDownShield = 0;
                 shield.SetActive(false);
                 activeShield = false;
-                uiText.SetActive(false);
+                uiTextShield.SetActive(false);
             }
         }
         else
@@ -64,7 +64,7 @@ public class Shield : MonoBehaviour
         if (col.gameObject.tag == "PPShield2")
         {
             Debug.Log("toucher");
-            uiText.SetActive(true);
+            uiTextShield.SetActive(true);
             sliderShield.gameObject.SetActive(true);
             collide = true;
         }
@@ -74,7 +74,7 @@ public class Shield : MonoBehaviour
     {
         if (col.gameObject.tag == "PPShield2")
         {
-            uiText.SetActive(false);
+            uiTextShield.SetActive(false);
             sliderShield.gameObject.SetActive(true);
             collide = false;
         }
