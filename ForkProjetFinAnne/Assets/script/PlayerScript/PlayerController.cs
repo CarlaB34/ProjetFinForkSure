@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
    
     void Update()
     {
-        //Bosshealth = enemy.IAhealth;
+        Bosshealth = enemy.IAhealth;
 
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && rb.velocity.y <= 0) // jump

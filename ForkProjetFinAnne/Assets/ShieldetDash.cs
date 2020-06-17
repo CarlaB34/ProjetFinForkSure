@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Dash : MonoBehaviour
+public class ShieldetDash : MonoBehaviour
 {
+  
     #region Dash 
     //dash
     //public float speed = 0.2f;
@@ -22,21 +22,36 @@ public class Dash : MonoBehaviour
     #endregion
 
     public bool activeDash;
-    bool collide = false;
-    public GameObject uiText;
+    //bool collide = false;
+    //public GameObject uiText;
     private Vector3 moveDirection = Vector3.right;
 
     private MovePlayer movePlayer;
+
+    public GameObject shield;
+    public bool activeShield;
+
+    public float coolDownShield = 0f;
+    private float startCoolDownShield = 10f;
+
+    public Slider sliderShield;
     private void Start()
     {
         activeDash = false;
-      //  shield.SetActive(false);
-        uiText.SetActive(false);
-        sliderDash.gameObject.SetActive(false);
+        //  shield.SetActive(false);
+       
+        sliderDash.gameObject.SetActive(true);
 
         sliderDash.value = sliderDash.maxValue;
 
         movePlayer = GetComponent<MovePlayer>();
+
+        activeShield = false;
+        shield.SetActive(false);
+        
+        sliderShield.gameObject.SetActive(true);
+        //la valeur du slide commencera a chaque parti a sa valeur max
+        sliderShield.value = sliderShield.maxValue;
     }
     public void ResetDash()
     {
@@ -45,31 +60,31 @@ public class Dash : MonoBehaviour
         dashinG = false;
         // shield.SetActive(false);
         activeDash = false;
-        uiText.SetActive(false);
+       
     }
-    private void ResetDash2()
-    {
-        
-        dashinG = false;
-        activeDash = false;
-        uiText.SetActive(false);
-    }
+     private void ResetDash2()
+     {
+
+         dashinG = false;
+         activeDash = false;
+       
+     }
     private void Update()
     {
 
         //dash droite
-        if (Input.GetKeyDown(KeyCode.E) && collide && sliderDash.value == sliderDash.maxValue)
+        if (Input.GetKeyDown(KeyCode.E) && sliderDash.value == sliderDash.maxValue)
         {
             sliderDash.gameObject.SetActive(true);
             if (!activeDash)
             {
                 //shield.SetActive(true);
                 activeDash = true;
-               movePlayer.playerView.transform.rotation = Quaternion.Euler(0, 90, 0 * movePlayer.speed);
+                movePlayer.playerView.transform.rotation = Quaternion.Euler(0, 90, 0 * movePlayer.speed);
                 dashinG = true;
                 GetComponent<Rigidbody>().AddForce(moveDirection * speedDash, ForceMode.Impulse);
             }
-            
+
             Dashing();
 
 
@@ -90,7 +105,7 @@ public class Dash : MonoBehaviour
         }
 
         //dash gauche
-        if (Input.GetKeyDown(KeyCode.A) && collide && sliderDash.value == sliderDash.maxValue)
+        if (Input.GetKeyDown(KeyCode.A) && sliderDash.value == sliderDash.maxValue)
         {
             sliderDash.gameObject.SetActive(true);
             if (!activeDash)
@@ -123,9 +138,37 @@ public class Dash : MonoBehaviour
 
         dashingDebug = dashinG;
 
+        if (Input.GetKeyDown(KeyCode.C) && sliderShield.value == sliderShield.maxValue)
+        {
+            sliderShield.gameObject.SetActive(true);
+            if (!activeShield)
+            {
+                shield.SetActive(true);
+                activeShield = true;
+
+            }
+            ShieldBar();
+        }
+        if (activeShield == true)
+        {
+            coolDownShield -= 1 * Time.deltaTime;
+
+            if (coolDownShield <= 0)
+            {
+                coolDownShield = 0;
+                shield.SetActive(false);
+                activeShield = false;
+                
+            }
+        }
+        else
+        {
+            sliderShield.value += Time.deltaTime;
+        }
+
     }
 
-    
+
 
     //fait dessendre la bar a moins sa valeur donc -5 dans se cas
     private void Dashing()
@@ -134,29 +177,9 @@ public class Dash : MonoBehaviour
         coolDown = startCoolDown;
         coolDown2 = startCoolDown2;
     }
-    void OnCollisionEnter(Collision col)
+    private void ShieldBar()
     {
-        if (col.gameObject.tag == "PPShield")
-        {
-            Debug.Log("toucher");
-            uiText.SetActive(true);
-            sliderDash.gameObject.SetActive(true);
-            collide = true;
-            dashinG = true;
-        }
-    }
-    private void OnCollisionExit(Collision col)
-    {
-        if (col.gameObject.tag == "PPShield")
-        {
-            uiText.SetActive(false);
-            sliderDash.gameObject.SetActive(true);
-            collide = false;
-        }
-    }
-    public bool ActiveShield
-    {
-        get { return sliderDash; }
-        set { activeDash = value; }
+        sliderShield.value -= sliderShield.maxValue;
+        coolDownShield = startCoolDownShield;
     }
 }
