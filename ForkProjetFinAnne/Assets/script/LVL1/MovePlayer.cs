@@ -33,7 +33,8 @@ public class MovePlayer : MonoBehaviour
     public GameObject color;
     private Vector3 moveDirection = Vector3.right;
     Dash dash;
-
+    public GameObject bulle;
+    public GameObject bulle2;
     private void Start()
     {
         Cursor.visible = false;
@@ -106,13 +107,21 @@ public class MovePlayer : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("clé"))
         {
+            
             Key += 1;
-
+            
+        }
+        if (Key == 1)
+        {
+            bulle2.SetActive(true);
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("pike"))
         {
             Kill += 1;
-
+            if (Kill == 1)
+            {
+                bulle.SetActive(true);
+            }
             if (Kill == 2)
             {
                 GameObject Player = (GameObject)Instantiate(Key2, new Vector3(8.52f, 1.51f, -0.81f), transform.rotation);
