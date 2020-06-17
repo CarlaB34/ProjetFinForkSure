@@ -57,10 +57,11 @@ public class enemy : MonoBehaviour
     private float canJump = 0f;
     public AudioSource source;
     public AudioClip splat;
-    
+    public GameObject colors;
+
     Rigidbody rb;
     [SerializeField]
-   public static int IAhealth = 5;
+   public static int IAhealth = 3;
     private shieldDAsh shield;
     private void Start()
     {
@@ -165,16 +166,16 @@ public class enemy : MonoBehaviour
         {
             source.PlayOneShot(splat);
             // Debug.Log("l'IA prend 1 degat");
-            if (!shield.ActiveShield)
-            {
+           
                 IAhealth -= 1;
-            }
-                
+                               
         }
         if (IAhealth == 0) // si vie = 0 on meurt
         {
-            ///  Debug.Log("IA est morte");
+            ///Debug.Log("IA est morte");
+            GameObject Player = (GameObject)Instantiate(colors, new Vector3(19.85f, -3.78f, -1.002f), transform.rotation);
             Destroy(gameObject);
+
             //SceneManager.LoadScene("Victory");
         }
     }

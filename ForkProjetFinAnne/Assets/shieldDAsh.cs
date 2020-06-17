@@ -236,11 +236,11 @@ public class shieldDAsh : MonoBehaviour
             rb.velocity = Vector3.zero;
             //dashing = false;
         }
-        if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && Bosshealth == 1)
-        {
-            GameObject Player = (GameObject)Instantiate(color, new Vector3(19.85f, -3.78f, -0.5636545f), transform.rotation);
+        //if (collision.gameObject.layer == LayerMask.NameToLayer("IA") && Bosshealth == 1)
+        //{
+           // GameObject Player = (GameObject)Instantiate(color, new Vector3(19.85f, -3.78f, -0.5636545f), transform.rotation);
 
-        }
+        //}
         //if (collision.gameObject.tag == "PPShield2")
         //{
         //    Debug.Log("toucher");
