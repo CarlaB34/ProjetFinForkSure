@@ -61,6 +61,7 @@ public class enemy : MonoBehaviour
 
     Rigidbody rb;
     [SerializeField]
+    public GameObject bulle;
    public static int IAhealth = 3;
     private shieldDAsh shield;
     private void Start()
@@ -173,6 +174,7 @@ public class enemy : MonoBehaviour
         if (IAhealth == 0) // si vie = 0 on meurt
         {
             ///Debug.Log("IA est morte");
+            bulle.SetActive(true);
             GameObject Player = (GameObject)Instantiate(colors, new Vector3(19.85f, -3.78f, -1.002f), transform.rotation);
             Destroy(gameObject);
 
