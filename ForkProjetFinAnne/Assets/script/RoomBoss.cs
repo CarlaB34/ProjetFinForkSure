@@ -10,7 +10,7 @@ public class RoomBoss : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            SceneManager.LoadScene("RoomBoss");
+            SceneManager.LoadScene("LoadingScene4");
         }
     }
 }

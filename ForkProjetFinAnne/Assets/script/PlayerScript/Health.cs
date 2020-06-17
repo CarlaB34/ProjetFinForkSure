@@ -118,31 +118,31 @@ public class Health : MonoBehaviour
     {
         if (Hit == 1)
         {
-            GameObject Player = (GameObject)Instantiate(vie1, new Vector3(-58.79473f, 0.6680796f, -0.1889172f), transform.rotation);
+            GameObject Player = (GameObject)Instantiate(vie1, new Vector3(-16.14f, 3.08f, -0.5636545f), transform.rotation);
         }
         if (Hit == 2)
         {
-            GameObject Player = (GameObject)Instantiate(vie2, new Vector3(-63.41473f, 6.64808f, -0.1889172f), transform.rotation);
+            GameObject Player = (GameObject)Instantiate(vie2, new Vector3(-21.04f, 9.25f, -0.5636545f), transform.rotation);
         }
         if (Hit == 3)
         {
-            GameObject Player = (GameObject)Instantiate(vie3, new Vector3(-53.88474f, 8.69808f, -0.1889172f), transform.rotation);
+            GameObject Player = (GameObject)Instantiate(vie3, new Vector3(-12.33f, 11.7f, -0.5636545f), transform.rotation);
         }
         if (Hit == 4)
         {
-            GameObject Player = (GameObject)Instantiate(vie4, new Vector3(-34.85f, 3.49f, -0.1889172f), transform.rotation);
+            GameObject Player = (GameObject)Instantiate(vie4, new Vector3(0.95f, 4.87f, -0.5636545f), transform.rotation);
         }
         if (Hit == 5)
         {
-            GameObject Player = (GameObject)Instantiate(vie5, new Vector3(-31.52473f, -1.35192f, -0.1889172f), transform.rotation);
+            GameObject Player = (GameObject)Instantiate(vie5, new Vector3(7.81f, 6.31f, -0.5636545f), transform.rotation);
         }
         if (Hit == 6)
         {
-            GameObject Player = (GameObject)Instantiate(vie6, new Vector3(-19.42474f, 3.45808f, -0.1889172f), transform.rotation);
+            GameObject Player = (GameObject)Instantiate(vie6, new Vector3(9.6f, 1.57f, -0.5636545f), transform.rotation);
         }
         if (Hit == 7)
         {
-            GameObject Player = (GameObject)Instantiate(vie7, new Vector3(-6.78f, 3.46f, -0.1889172f), transform.rotation);
+            GameObject Player = (GameObject)Instantiate(vie7, new Vector3(23.67f, 5.65f, -0.5636545f), transform.rotation);
         }
     }
 }
