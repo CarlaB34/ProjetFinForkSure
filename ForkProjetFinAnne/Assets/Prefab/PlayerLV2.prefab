@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5337305742751846498}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.14, y: 0.2, z: -8.99}
+  m_LocalPosition: {x: -8.076, y: 0.2, z: -8.99}
   m_LocalScale: {x: 0.21827999, y: 0.21827999, z: 0.21827999}
   m_Children:
   - {fileID: 7302135028511167570}
@@ -70,13 +70,17 @@ MonoBehaviour:
   coolDown2: 0
   sliderDash: {fileID: 0}
   playerView: {fileID: 5984506302352500289}
+  ding: {fileID: 0}
+  source: {fileID: 0}
   jump: {x: 0, y: 0, z: 0}
   jumpForce: 2
   Kill: 0
   isGrounded: 0
+  spawnSpot1: {x: -22.52, y: 5.8, z: -0.5636545}
   spawnSpot2: {x: 8.52, y: 5.22, z: -0.85}
   spawnSpot3: {x: 20.383, y: 7.872, z: -0.85}
   spawnSpot4: {x: 4.451, y: -0.92, z: -2}
+  Key1: {fileID: 0}
   Key2: {fileID: 0}
   Key3: {fileID: 0}
   color: {fileID: 0}
@@ -105,6 +109,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerhealth: 3
+  vie1: {fileID: 0}
+  vie2: {fileID: 0}
+  vie3: {fileID: 0}
+  vie4: {fileID: 0}
+  vie5: {fileID: 0}
+  vie6: {fileID: 0}
+  vie7: {fileID: 0}
+  Hit: 0
+  spawnSpot1: {x: -58.79473, y: 0.6680796, z: -0.1889172}
+  spawnSpot2: {x: -63.41473, y: 6.64808, z: -0.1889172}
+  spawnSpot3: {x: -53.88474, y: 8.69808, z: -0.1889172}
+  spawnSpot4: {x: -34.85, y: 3.49, z: -0.1889172}
+  spawnSpot5: {x: -31.52473, y: -1.35192, z: -0.1889172}
+  spawnSpot6: {x: -19.42474, y: 3.45808, z: -0.1889172}
+  spawnSpot7: {x: -6.78, y: 3.46, z: -0.1889172}
   sprite: []
 --- !u!114 &6265587534990949111
 MonoBehaviour:
@@ -122,7 +141,19 @@ MonoBehaviour:
   activeShield: 0
   coolDownShield: 0
   sliderShield: {fileID: 0}
-  uiText: {fileID: 0}
+  uiTextShield: {fileID: 0}
+--- !u!114 &7055786550663685429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5984506302352500289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d67c65e3825622d4aa28597964728964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7793117562453031421
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1049258890402914859
 Transform:
   m_ObjectHideFlags: 0

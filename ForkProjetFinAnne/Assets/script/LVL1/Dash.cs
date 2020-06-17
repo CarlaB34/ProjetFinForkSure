@@ -24,10 +24,9 @@ public class Dash : MonoBehaviour
     public bool activeDash;
     bool collide = false;
     public GameObject uiText;
-    //private Vector3 moveDirection = Vector3.right;
+    private Vector3 moveDirection = Vector3.right;
 
     private MovePlayer movePlayer;
-    PauseMenu pauseMenu;
     private void Start()
     {
         activeDash = false;
@@ -48,7 +47,7 @@ public class Dash : MonoBehaviour
         activeDash = false;
         uiText.SetActive(false);
     }
-    public void ResetDash2()
+    private void ResetDash2()
     {
         
         dashinG = false;
@@ -57,12 +56,7 @@ public class Dash : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.visible = true;
-            pauseMenu.pauseMenuUI.SetActive(true);
-        }
-        
+
         //dash droite
         if (Input.GetKeyDown(KeyCode.E) && collide && sliderDash.value == sliderDash.maxValue)
         {
@@ -73,7 +67,7 @@ public class Dash : MonoBehaviour
                 activeDash = true;
                movePlayer.playerView.transform.rotation = Quaternion.Euler(0, 90, 0 * movePlayer.speed);
                 dashinG = true;
-                GetComponent<Rigidbody>().AddForce(MovePlayer.moveDirection * speedDash, ForceMode.Impulse);
+                GetComponent<Rigidbody>().AddForce(moveDirection * speedDash, ForceMode.Impulse);
             }
             
             Dashing();
@@ -105,7 +99,7 @@ public class Dash : MonoBehaviour
                 activeDash = true;
                 movePlayer.playerView.transform.rotation = Quaternion.Euler(0, -90, 0 * movePlayer.speed);
                 dashinG = true;
-                GetComponent<Rigidbody>().AddForce(MovePlayer.moveDirection * -speedDash, ForceMode.Impulse);
+                GetComponent<Rigidbody>().AddForce(moveDirection * -speedDash, ForceMode.Impulse);
             }
             //scrollbar
             Dashing();
@@ -117,7 +111,7 @@ public class Dash : MonoBehaviour
 
             if (coolDown <= 0)
             {
-                ResetDash2();
+                ResetDash();
             }
         }
         else
