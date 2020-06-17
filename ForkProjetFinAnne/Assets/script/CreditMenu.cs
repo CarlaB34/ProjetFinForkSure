@@ -8,9 +8,9 @@ using UnityEngine.SceneManagement;
 public class CreditMenu : MonoBehaviour
 {
     // public string Menu;
-    // public VideoPlayer videoPlayer;
-    public Image panel;
-    public float timer = 10f;
+     public VideoPlayer videoPlayer;
+    
+    public float timer = 19f;
 
     public void Update()
     {

@@ -90,10 +90,10 @@ GameObject:
   - component: {fileID: 3010922270535979495}
   - component: {fileID: 3247282717683751178}
   - component: {fileID: 4327177932899333402}
-  - component: {fileID: 630319165231406349}
-  - component: {fileID: 3095058488421323407}
   - component: {fileID: 4430042539403955993}
   - component: {fileID: 3181687526427860460}
+  - component: {fileID: 8899906225408060045}
+  - component: {fileID: 7245388173995096674}
   m_Layer: 9
   m_Name: PlayerLV1
   m_TagString: Player
@@ -163,40 +163,14 @@ MonoBehaviour:
   playerView: {fileID: 6231355200911040737}
   jump: {x: 0, y: 0, z: 0}
   jumpForce: 2
+  Kill: 0
   isGrounded: 0
---- !u!114 &630319165231406349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314027928275088519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b79c69462d7784a8cc8df8363c7118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedDash: 5
-  dashingDebug: 0
-  coolDown: 0
-  coolDown2: 0
-  sliderDash: {fileID: 0}
-  activeDash: 0
-  uiText: {fileID: 0}
---- !u!114 &3095058488421323407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314027928275088519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3fcb35a94248224291f7e5d5b5960a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerhealthLV1: 3
-  sprite: []
+  spawnSpot2: {x: 8.52, y: 1.51, z: -0.81}
+  spawnSpot3: {x: 19.5, y: 3.63, z: -0.81}
+  spawnSpot4: {x: 24, y: -2.6, z: -0.8}
+  Key2: {fileID: 0}
+  Key3: {fileID: 0}
+  color: {fileID: 0}
 --- !u!114 &4430042539403955993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +195,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712b585d9185ff44e8889b1014103378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8899906225408060045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314027928275088519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3fcb35a94248224291f7e5d5b5960a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerhealthLV1: 3
+  sprite: []
+--- !u!114 &7245388173995096674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314027928275088519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b79c69462d7784a8cc8df8363c7118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedDash: 5
+  dashingDebug: 0
+  coolDown: 0
+  coolDown2: 0
+  sliderDash: {fileID: 0}
+  activeDash: 0
+  uiText: {fileID: 0}
 --- !u!1 &6231355200911040737
 GameObject:
   m_ObjectHideFlags: 0
