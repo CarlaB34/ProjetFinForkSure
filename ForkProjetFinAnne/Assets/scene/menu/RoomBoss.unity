@@ -8944,6 +8944,36 @@ PrefabInstance:
       propertyPath: speed
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 3364087859218227910, guid: 9890263a77aa6bc45a8cd83c723cd05d,
+        type: 3}
+      propertyPath: sprite.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364087859218227910, guid: 9890263a77aa6bc45a8cd83c723cd05d,
+        type: 3}
+      propertyPath: sprite.Array.data[0]
+      value: 
+      objectReference: {fileID: 344027311}
+    - target: {fileID: 3364087859218227910, guid: 9890263a77aa6bc45a8cd83c723cd05d,
+        type: 3}
+      propertyPath: sprite.Array.data[1]
+      value: 
+      objectReference: {fileID: 1356080269}
+    - target: {fileID: 3364087859218227910, guid: 9890263a77aa6bc45a8cd83c723cd05d,
+        type: 3}
+      propertyPath: sprite.Array.data[2]
+      value: 
+      objectReference: {fileID: 993045881}
+    - target: {fileID: 5156303309505047241, guid: 9890263a77aa6bc45a8cd83c723cd05d,
+        type: 3}
+      propertyPath: sliderDash
+      value: 
+      objectReference: {fileID: 920007313}
+    - target: {fileID: 5156303309505047241, guid: 9890263a77aa6bc45a8cd83c723cd05d,
+        type: 3}
+      propertyPath: sliderShield
+      value: 
+      objectReference: {fileID: 848053700}
     - target: {fileID: 5261124479548902602, guid: 9890263a77aa6bc45a8cd83c723cd05d,
         type: 3}
       propertyPath: m_IsActive

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
-public class HealtLvl3 : MonoBehaviour
+public class health3 : MonoBehaviour
 {
     public int playerhealthLV1 = 3;
     public static int mort = 0;
@@ -12,10 +11,10 @@ public class HealtLvl3 : MonoBehaviour
     ///public static bool isDash;
     public Image[] sprite;
     Dash dash;
-    private ShieldetDash shield;
+    private shieldDAsh shield;
     private void Start()
     {
-        shield = GetComponent<ShieldetDash>();
+        shield = GetComponent<shieldDAsh>();
     }
     public void Update() // la vie est cap a 2hp
     {
@@ -60,7 +59,7 @@ public class HealtLvl3 : MonoBehaviour
         {
             mort += 1;
             Debug.Log("vous etes mort");
-            Dead();   
+            Dead();
         }
     }
 

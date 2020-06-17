@@ -105,8 +105,8 @@ GameObject:
   - component: {fileID: 1143583331347988404}
   - component: {fileID: 7638365606879415671}
   - component: {fileID: 3170201263154161409}
-  - component: {fileID: 2341274882115831135}
-  - component: {fileID: 5827469936769804471}
+  - component: {fileID: 5156303309505047241}
+  - component: {fileID: 3364087859218227910}
   m_Layer: 0
   m_Name: PlayerTest3
   m_TagString: Untagged
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712b585d9185ff44e8889b1014103378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2341274882115831135
+--- !u!114 &5156303309505047241
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,10 +193,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6864229567689642544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f011562a29b8924085807f788fc547e, type: 3}
+  m_Script: {fileID: 11500000, guid: 66da1a65b3025054f81fa5dee1f9627b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 0.15
   speedDash: 5
   dashingDebug: 0
   coolDown: 0
@@ -210,13 +210,13 @@ MonoBehaviour:
   ding: {fileID: 0}
   source: {fileID: 0}
   jump: {x: 0, y: 0, z: 0}
-  jumpForce: 2
+  jumpForce: 2.2
   Bosshealth: 0
   Kill: 0
   isGrounded: 0
   spawnSpot4: {x: 19.85, y: -3.78, z: -0.5636545}
-  color: {fileID: 0}
---- !u!114 &5827469936769804471
+  color: {fileID: 4544146468215107419, guid: 96b63a83f3968e243b85916512f7a51f, type: 3}
+--- !u!114 &3364087859218227910
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,12 +225,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6864229567689642544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be70753a4f3494442a1f1ab62872a197, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b3cd0868bac0b74e8ca82e9dc45ab6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerhealthLV1: 3
   sprite: []
-  Hit: 0
 --- !u!114 &6324330968892464455
 MonoBehaviour:
   m_ObjectHideFlags: 0

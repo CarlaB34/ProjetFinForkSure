@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShieldetDash : MonoBehaviour
+public class shieldDAsh : MonoBehaviour
 {
     //Movement
     public float speed;
@@ -30,9 +30,9 @@ public class ShieldetDash : MonoBehaviour
     private float startCoolDownShield = 10f;
 
     public Slider sliderShield;
-  
 
-   
+
+
     #endregion
 
     private float moveVelocity;
@@ -41,7 +41,7 @@ public class ShieldetDash : MonoBehaviour
     public AudioSource source;
     public Vector3 jump;
     public float jumpForce = 2.0f;
-    public  int Bosshealth;
+    public int Bosshealth;
     public static int Key = 0;
     public int Kill = 0;
     public bool isGrounded;
@@ -51,7 +51,7 @@ public class ShieldetDash : MonoBehaviour
 
     //Grounded Vars
 
-   
+
     public Vector3 spawnSpot4 = new Vector3(19.85f, -3.78f, -0.5636545f);
     public GameObject color;
     private Vector3 moveDirection = Vector3.right;
@@ -68,7 +68,7 @@ public class ShieldetDash : MonoBehaviour
 
         //activeShield = false;
         //shield.SetActive(false);
-       
+
         //sliderShield.gameObject.SetActive(true);
         //la valeur du slide commencera a chaque parti a sa valeur max
         sliderShield.value = sliderShield.maxValue;
@@ -211,7 +211,7 @@ public class ShieldetDash : MonoBehaviour
         }
 
         dashingDebug = dashing;
-       
+
     }
 
 
@@ -226,8 +226,8 @@ public class ShieldetDash : MonoBehaviour
 
     void OnCollisionEnter(Collision collision) // ajouter 1 a la variable Key lorsqu'on touche la clé 
     {
-       
-       
+
+
         //col mur with dash
 
         if (collision.gameObject.name == "wall")// && dashing == true)
@@ -244,7 +244,7 @@ public class ShieldetDash : MonoBehaviour
         //if (collision.gameObject.tag == "PPShield2")
         //{
         //    Debug.Log("toucher");
-           
+
         //    sliderShield.gameObject.SetActive(true);
         //    collide = true;
         //}
@@ -253,7 +253,7 @@ public class ShieldetDash : MonoBehaviour
     //{
     //    if (col.gameObject.tag == "PPShield2")
     //    {
-            
+
     //        sliderShield.gameObject.SetActive(true);
     //        collide = false;
     //    }

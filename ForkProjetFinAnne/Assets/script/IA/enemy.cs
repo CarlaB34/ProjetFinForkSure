@@ -61,7 +61,7 @@ public class enemy : MonoBehaviour
     Rigidbody rb;
     [SerializeField]
    public static int IAhealth = 5;
-    private ShieldetDash shield;
+    private shieldDAsh shield;
     private void Start()
     {
         //comportement quand chase pas
@@ -69,9 +69,9 @@ public class enemy : MonoBehaviour
         newPosition = transform.position;
 
         rb = GetComponent<Rigidbody>();
-        player.GetComponent<ShieldetDash>();
+        player.GetComponent<shieldDAsh>();
         jumpSpeed = Mathf.Sqrt(-2 * Physics.gravity.y * jumpHeight) + 0.1f;
-        shield = GetComponent<ShieldetDash>();
+        shield = GetComponent<shieldDAsh>();
     }
 
     private void Update()
