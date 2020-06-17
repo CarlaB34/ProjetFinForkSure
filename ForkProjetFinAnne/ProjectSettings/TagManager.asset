@@ -12,6 +12,7 @@ TagManager:
   - CheckPoint
   - PPShield2
   - DoorWall
+  - ground
   layers:
   - Default
   - TransparentFX

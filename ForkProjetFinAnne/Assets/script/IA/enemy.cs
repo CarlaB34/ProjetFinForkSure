@@ -68,7 +68,7 @@ public class enemy : MonoBehaviour
         newPosition = transform.position;
 
         rb = GetComponent<Rigidbody>();
-        player.GetComponent<Dash>().ResetDash();
+       
         jumpSpeed = Mathf.Sqrt(-2 * Physics.gravity.y * jumpHeight) + 0.1f;
 
     }
@@ -160,7 +160,7 @@ public class enemy : MonoBehaviour
                 break;
         }
         
-        if (col.gameObject.layer == LayerMask.NameToLayer("Player") )//&& isDashToAttack.ResetDash())
+        if (col.gameObject.layer == LayerMask.NameToLayer("Player"))//&& isDashToAttack.ResetDash())
         {
             source.PlayOneShot(splat);
             // Debug.Log("l'IA prend 1 degat");

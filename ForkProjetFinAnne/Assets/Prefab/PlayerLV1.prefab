@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4430042539403955993}
   - component: {fileID: 3181687526427860460}
   - component: {fileID: 8899906225408060045}
-  - component: {fileID: 7245388173995096674}
+  - component: {fileID: 1797694922005714143}
   m_Layer: 9
   m_Name: PlayerLV1
   m_TagString: Player
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerhealthLV1: 3
   sprite: []
---- !u!114 &7245388173995096674
+--- !u!114 &1797694922005714143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

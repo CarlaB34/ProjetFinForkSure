@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;
     Rigidbody rb;
     // Color color;
-    public GameObject uiText;
+ 
 
 
     //Grounded Vars
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         Cursor.visible = false;
-        uiText.SetActive(false);
+        
         //la valeur du slide commencera a chaque parti a sa valeur max
         sliderDash.value = sliderDash.maxValue;
  
