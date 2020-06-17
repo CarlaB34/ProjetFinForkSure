@@ -1266,7 +1266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263298481}
   m_LocalRotation: {x: 0.050797403, y: 0.0000000037204806, z: -1.8923506e-10, w: 0.998709}
-  m_LocalPosition: {x: 19.85, y: -3.456, z: -5.2699995}
+  m_LocalPosition: {x: 19.85, y: -3.3, z: -5.2699995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1555,7 +1555,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 1324207444}
+  m_Follow: {fileID: 1071685888}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -1579,7 +1579,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370979750}
   m_LocalRotation: {x: 0.050797403, y: 0.0000000037204806, z: -1.8923506e-10, w: 0.998709}
-  m_LocalPosition: {x: 19.85, y: -3.456, z: -5.2699995}
+  m_LocalPosition: {x: 19.85, y: -3.3, z: -5.2699995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 105863568}
@@ -4749,7 +4749,7 @@ PrefabInstance:
     - target: {fileID: 5337305742751846498, guid: 7647f00c03ff09d48b0aa5e901ca7016,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6265587534990949111, guid: 7647f00c03ff09d48b0aa5e901ca7016,
         type: 3}
@@ -5751,12 +5751,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 1c92a9a0236a67143b30194f957300b6,
     type: 3}
   m_PrefabInstance: {fileID: 1322440126}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1324207444 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8812667591506144694, guid: 9890263a77aa6bc45a8cd83c723cd05d,
-    type: 3}
-  m_PrefabInstance: {fileID: 877708622293011876}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1335361509
 GameObject:
@@ -7330,7 +7324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d4e6ec76ce6ac04d85afbdc7f743ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1324207444}
+  player: {fileID: 1071685888}
   agroRange: 3
   moveSpeed: 2
   maxDistance: 1
@@ -8999,6 +8993,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864229567689642544, guid: 9890263a77aa6bc45a8cd83c723cd05d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8029040078580050750, guid: 9890263a77aa6bc45a8cd83c723cd05d,
         type: 3}
