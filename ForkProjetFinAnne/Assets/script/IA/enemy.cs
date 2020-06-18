@@ -62,7 +62,7 @@ public class enemy : MonoBehaviour
     Rigidbody rb;
     [SerializeField]
     public GameObject bulle;
-   public static int IAhealth = 3;
+   public static int IAhealth = 4;
     private shieldDAsh shield;
     private void Start()
     {

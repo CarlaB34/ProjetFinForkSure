@@ -2878,7 +2878,7 @@ PrefabInstance:
     - target: {fileID: 4327177932899333402, guid: d3afa32f4db662e46a486f675df939e7,
         type: 3}
       propertyPath: jumpForce
-      value: 2.25
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4327177932899333402, guid: d3afa32f4db662e46a486f675df939e7,
         type: 3}
@@ -5675,7 +5675,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1f7a30c8e382b86469d97d858990018b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5711,13 +5711,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174619023}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -48, y: 0, z: -1}
   m_LocalScale: {x: 26.415342, y: 50, z: 24.1405}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &1183467573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6096,7 +6096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1311720245
 Transform:
   m_ObjectHideFlags: 0
@@ -6104,7 +6104,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311720244}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -6.431101, y: 3.280441, z: 5.4819965}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6112,7 +6112,7 @@ Transform:
   - {fileID: 1425262604}
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1335361509
 GameObject:
   m_ObjectHideFlags: 0
@@ -6697,7 +6697,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1574716963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57817be566fd4654b9a3fe5d5d5e12e9, type: 3}
+  m_Script: {fileID: 11500000, guid: a055d4f01dfad5544afb28c169ba7cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1592034016
@@ -7164,7 +7164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1794046379
 Transform:
   m_ObjectHideFlags: 0

@@ -2590,10 +2590,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b1cf8076032e20d4eb66a1426bfad148, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.01
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2700,8 +2700,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12.618038, y: 12.274187, z: 4.508714}
-  m_Center: {x: 3.0592842, y: 0.025235176, z: 0.47891712}
+  m_Size: {x: 18.040556, y: 14.312891, z: 4.508714}
+  m_Center: {x: 5.770542, y: -0.9941168, z: 0.47891712}
 --- !u!4 &592511127
 Transform:
   m_ObjectHideFlags: 0
@@ -2710,7 +2710,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592511122}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.76, y: -1.02, z: -0.8700001}
+  m_LocalPosition: {x: 13.21, y: 0.65, z: -0.8700001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7607,7 +7607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1324207444}
   agroRange: 2
-  moveSpeed: 0.5
+  moveSpeed: 1
   maxDistance: 2
   jumpHeight: 1
   source: {fileID: 1701792660}
