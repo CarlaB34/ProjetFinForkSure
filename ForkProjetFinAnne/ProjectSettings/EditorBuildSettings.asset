@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/scene/menu/Victory.unity
     guid: 6c6e5b16d5c4c5347b12f6fe2e613564
   - enabled: 1
+    path: Assets/scene/New Folder/testCredit.unity
+    guid: 75a1718ba1f182243b74c3c391634a5a
+  - enabled: 1
     path: Assets/scene/menu/LoadingScene4.unity
     guid: fda31084b8f6e664eac314b59e42ef98
   m_configObjects: {}

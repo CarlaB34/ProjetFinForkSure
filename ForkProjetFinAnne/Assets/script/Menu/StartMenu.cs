@@ -29,6 +29,6 @@ public class StartMenu : MonoBehaviour
     }
     public void Credit()
     {
-        SceneManager.LoadScene("Credit");
+        SceneManager.LoadScene("testCredit");
     }
 }
