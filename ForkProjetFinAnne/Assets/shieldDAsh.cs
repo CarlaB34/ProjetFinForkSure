@@ -46,6 +46,7 @@ public class shieldDAsh : MonoBehaviour
     public int Kill = 0;
     public bool isGrounded;
     Rigidbody rb;
+    public GameObject Bulle;
     // Color color;
 
 
@@ -58,7 +59,7 @@ public class shieldDAsh : MonoBehaviour
 
     private void Start()
     {
-
+        Bulle.SetActive(true);
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         Cursor.visible = false;

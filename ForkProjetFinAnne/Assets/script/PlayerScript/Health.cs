@@ -19,6 +19,7 @@ public class Health : MonoBehaviour
     public GameObject vie6;
     public GameObject vie7;
     public int Hit = 0;
+    public GameObject bulle;
 
     public Vector3 spawnSpot1 = new Vector3(-58.79473f, 0.6680796f, -0.1889172f);
     public Vector3 spawnSpot2 = new Vector3(-63.41473f, 6.64808f, -0.1889172f);
@@ -118,6 +119,7 @@ public class Health : MonoBehaviour
     {
         if (Hit == 1)
         {
+            bulle.SetActive(true);
             GameObject Player = (GameObject)Instantiate(vie1, new Vector3(-16.14f, 3.08f, -0.5636545f), transform.rotation);
         }
         if (Hit == 2)
